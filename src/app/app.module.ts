@@ -8,6 +8,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ServiceComponent } from './service/service.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
+import { CycicComponent } from './cycic/cycic.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { AboutComponent } from './about/about.component';
     ContactComponent,
     ServiceComponent,
     GalleryComponent,
-    AboutComponent
+    AboutComponent,
+    CycicComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
