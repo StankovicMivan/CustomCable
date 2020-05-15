@@ -2,6 +2,32 @@
 <script src="../../assets/js/slideScript.js"></script>
 <!-- CYCIC == Create your custom instrument cable -->
 <div class="container">
+    <div class="container-fluid">
+        <div class="table text-center">
+            <thead>
+                <th>Kabl za</th>
+                <th>Jack</th>
+                <th>Duzina</th>
+                <th>Broj boja</th>
+                <th>Sara</th>
+                <th>Boja zastite kabla</th>
+                <th>Boja zastite jack-a</th>
+
+            </thead>
+            <tbody>
+                <td>{{kablNaziv}}</td>
+                <td>Neutrik</td>
+                <td>{{duzinaKabla}}</td>
+                <td>{{kablbrBoja}}</td>
+                <td>{{kablSara}}</td>
+                <td>{{kablboje}}</td>
+                <td>{{kablBojaJacka}}</td>
+            </tbody>
+
+
+
+        </div>
+    </div>
     <div class="group">
         <div class="container" style="padding-top: 25px;">
             <div class="accordion" id="accordionExample">
@@ -11,7 +37,7 @@
                             <button class="btn btn-link btn-block text-center collapsed" type="button"
                                 data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
                                 aria-controls="collapseTwo">
-                                Izaberi vrstu kabla
+                                Namena kabla
                             </button>
                         </h2>
                     </div>
@@ -57,12 +83,10 @@
                         data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="rangeWrapper">
-                                <input id="slide" type="range" min="1" max="4" step="1" value="1"  /> 
-                                  <p class="rangeLabel selected">Label A</p>
-                                  <p class="rangeLabel">Label B</p>
-                                  <p class="rangeLabel">Label C</p>
-                                  <p class="rangeLabel">Label D</p>
-                                </div>
+                                <input id="slide" type="range" min="1" max="9" step="1" [(ngModel)]="kablDuzina"
+                                    (click)='proveraDuzine()' />
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,22 +103,69 @@
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                         data-parent="#accordionExample">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="">
                                 <div class="container">
-                                    <select [(ngModel)]="kablbrBoja" class="form-control" id="controlSelect">
-                                        <option value="" [disabled]="true">Izaberi</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="controlSelectLabel">U koliko boja zelite kabl? </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <select [(ngModel)]="kablbrBoja" class="form-control" id="controlSelect"
+                                                placeholder="Izaberi">
+                                                <option value="1">Jednoj</option>
+                                                <option value="2">Dve</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="container">
-                                    <select *ngIf="kablbrBoja == 2" class=form-control>
-                                        <option name='Izaberi' value="" [disabled]="true">Izaberi</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
+                                    <div class="row" *ngIf="kablbrBoja == 2">
+                                        <div class="col-sm-4">
+                                            <label id="controlSelectLabel">Izaberite saru</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <select [(ngModel)]="kablSara" class=form-control>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="card">
+                                                            <img src="" class="card-img-top" alt=""
+                                                                style="background-color: blue; ">
+                                                            <div class="card-body">
+                                                                <p class="text-center">1</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="card">
+                                                            <img src="" class="card-img-top" alt=""
+                                                                style="background-color: goldenrod; ">
+                                                            <div class="card-body">
+                                                                <p class="text-center">2</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="card">
+                                                            <img src="" class="card-img-top" alt=""
+                                                                style="background-color: red;">
+                                                            <div class="card-body">
+                                                                <p class="text-center">3</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
                                 </div>
                             </div>
                         </div>
@@ -112,76 +183,90 @@
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
-                            <div class="row">
-
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: blue; ">
-                                    <div class="card-body">
-                                        <p class="text-center">Plava</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: goldenrod; ">
-                                    <div class="card-body">
-                                        <p class="text-center">Zlatna</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: red;">
-                                    <div class="card-body">
-                                        <p class="text-center">Crvena</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: whitesmoke;">
-                                    <div class="card-body">
-                                        <p class="text-center">Bela</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: green;">
-                                    <div class="card-body">
-                                        <p class="text-center">Zelena</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: grey;">
-                                    <div class="card-body">
-                                        <p class="text-center">Siva</p>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="" class="card-img-top" alt="" style="background-color: yellow;">
-                                    <div class="card-body">
-                                        <p class="text-center">Zuta</p>
+                            <div class="">
+                                <div  class="container form-check">
+                                    <div class="row">
+                                        
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt="" style="background-color: red; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" (click)='c1()' value="1" 
+                                                        id="defaultCheck1" >
+                                                    <label class="form-check-label " for="defaultCheck1">
+                                                        Crvena
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: green; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" (click)='c2()' value="2"
+                                                    id="defaultCheck2" >
+                                                <label class="form-check-label " for="defaultCheck2">
+                                                    Zelena
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: blue; " >
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="3"  (click)='c3()'
+                                                    id="defaultCheck3">
+                                                <label class="form-check-label " for="defaultCheck3">
+                                                    Plava
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt=""
+                                                style="background-color: whitesmoke; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="4"  (click)='c4()'
+                                                    id="defaultCheck4">
+                                                <label class="form-check-label " for="defaultCheck4">
+                                                    Bela
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt=""
+                                                style="background-color: goldenrod; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="5" (click)='c5()'
+                                                    id="defaultCheck5">
+                                                <label class="form-check-label " for="defaultCheck5">
+                                                    Zlatna
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: grey; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="6" (click)='c6()'
+                                                    id="defaultCheck6">
+                                                <label class="form-check-label " for="defaultCheck6">
+                                                    Siva
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: yellow; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="7" (click)='c7()'
+                                                    id="defaultCheck7">
+                                                <label class="form-check-label " for="defaultCheck7">
+                                                    Siva
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="table text-center">
-            <thead>
-                <th>Kabl za</th>
-                <th>Jack</th>
-                <th>Duzina</th>
-                <th>Boja</th>
-                <th>Sara</th>
-                <th>Debljina</th>
-            </thead>
-            <tbody>
-                <td>{{kablNaziv}}</td>
-                <td>Neutrik</td>
-                <td>{{kablDuzina}}</td>
-            </tbody>
-
-
-
         </div>
     </div>
 </div>

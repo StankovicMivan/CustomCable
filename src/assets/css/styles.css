@@ -10500,7 +10500,12 @@ section#contact form#contactForm :-ms-input-placeholder {
   height: 100px;
 
 }
-#controlSelect {
+#controlSelect{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#controlSelectLabel {
+  padding-top: 5px;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
@@ -10514,7 +10519,7 @@ p.rangeLabel {
   margin: 5px 0;
   background: rgb(136,136,136);
   font-size: 15px;
-  line-height 20px;
+  line-height: 20px;
 }
 
 p.rangeLabel:hover {
@@ -10527,3 +10532,12 @@ p.rangeLabel.selected {
   background-color: rgb(8, 173, 8);
   color: rgb(255,255,255);
 }
+.form-check .card img {
+  width: 100px;
+  height: 100px;
+}
+.form-check .card {
+  
+  text-align-last: center;
+}
+
