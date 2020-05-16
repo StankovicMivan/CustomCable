@@ -1,31 +1,29 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="../../assets/js/slideScript.js"></script>
 <!-- CYCIC == Create your custom instrument cable -->
-<div class="container">
-    <div class="container-fluid">
-        <div class="table text-center">
-            <thead>
-                <th>Kabl za</th>
-                <th>Jack</th>
-                <th>Duzina</th>
-                <th>Broj boja</th>
-                <th>Sara</th>
-                <th>Boja zastite kabla</th>
-                <th>Boja zastite jack-a</th>
-
-            </thead>
-            <tbody>
-                <td>{{kablNaziv}}</td>
-                <td>Neutrik</td>
-                <td>{{duzinaKabla}}</td>
-                <td>{{kablbrBoja}}</td>
-                <td>{{kablSara}}</td>
-                <td>{{kablboje}}</td>
-                <td>{{kablBojaJacka}}</td>
-            </tbody>
-
-
-
+<div class="container" id="create">
+    <div class="group">
+        <div class="container" style="align-content: center;">
+            <div class="table ">
+                <thead>
+                    <th>Kabl za</th>
+                    <th>Jack</th>
+                    <th>Duzina</th>
+                    <th>Broj boja</th>
+                    <th>Sara</th>
+                    <th>Boja zastite kabla</th>
+                    <th>Boja zastite jack-a</th>
+                </thead>
+                <tbody>
+                    <td>{{kablNaziv}}</td>
+                    <td>Neutrik</td>
+                    <td>{{duzinaKabla}}</td>
+                    <td>{{kablbrBoja}}</td>
+                    <td>{{kablSara}}</td>
+                    <td>{{kablboje}}</td>
+                    <td>{{kablBojaJacka}}</td>
+                </tbody>
+            </div>
         </div>
     </div>
     <div class="group">
@@ -37,7 +35,7 @@
                             <button class="btn btn-link btn-block text-center collapsed" type="button"
                                 data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
                                 aria-controls="collapseTwo">
-                                Namena kabla
+                                Step 1: What you need?
                             </button>
                         </h2>
                     </div>
@@ -75,7 +73,7 @@
                             <button class="btn btn-link btn-block text-center collapsed" type="button"
                                 data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
                                 aria-controls="collapseFour">
-                                Izaberi duzinu
+                                Step 2: What is your desired cable length?
                             </button>
                         </h2>
                     </div>
@@ -83,8 +81,9 @@
                         data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="rangeWrapper">
-                                <input id="slide" type="range" min="1" max="9" step="1" [(ngModel)]="kablDuzina"
-                                    (click)='proveraDuzine()' />
+                                <input class="slider" id="slide" type="range" min="1" max="9" step="1" [(ngModel)]="kablDuzina"
+                                    (click)='proveraDuzine()'  name='slide'/>
+                                <output for="slide"  > {{duzinaKabla}} </output>
 
                             </div>
                         </div>
@@ -96,7 +95,7 @@
                             <button class="btn btn-link btn-block text-center collapsed" type="button"
                                 data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                                 aria-controls="collapseThree">
-                                Izaberi jednu, dve ili tri boje!
+                                Step 3: Do you want your cable in one or two colors?
                             </button>
                         </h2>
                     </div>
@@ -107,13 +106,13 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label id="controlSelectLabel">U koliko boja zelite kabl? </label>
+                                            <label id="controlSelectLabel">How many colors do you want? </label>
                                         </div>
                                         <div class="col-sm-8">
                                             <select [(ngModel)]="kablbrBoja" class="form-control" id="controlSelect"
                                                 placeholder="Izaberi">
-                                                <option value="1">Jednoj</option>
-                                                <option value="2">Dve</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
                                             </select>
                                         </div>
                                     </div>
@@ -121,13 +120,13 @@
                                 <div class="container">
                                     <div class="row" *ngIf="kablbrBoja == 2">
                                         <div class="col-sm-4">
-                                            <label id="controlSelectLabel">Izaberite saru</label>
+                                            <label id="controlSelectLabel">Choose a knitting pattern.</label>
                                         </div>
                                         <div class="col-sm-8">
                                             <select [(ngModel)]="kablSara" class=form-control>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                                <option value="1">1st Pattern</option>
+                                                <option value="2">2nd Pattern</option>
+                                                <option value="3">3rd Pattern</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-12">
@@ -138,7 +137,7 @@
                                                             <img src="" class="card-img-top" alt=""
                                                                 style="background-color: blue; ">
                                                             <div class="card-body">
-                                                                <p class="text-center">1</p>
+                                                                <p class="text-center">1st Pattern</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,7 +146,7 @@
                                                             <img src="" class="card-img-top" alt=""
                                                                 style="background-color: goldenrod; ">
                                                             <div class="card-body">
-                                                                <p class="text-center">2</p>
+                                                                <p class="text-center">2nd Pattern</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -156,7 +155,7 @@
                                                             <img src="" class="card-img-top" alt=""
                                                                 style="background-color: red;">
                                                             <div class="card-body">
-                                                                <p class="text-center">3</p>
+                                                                <p class="text-center">3rd Pattern</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -177,55 +176,55 @@
                             <button class="btn btn-link btn-block text-center collapsed" type="button"
                                 data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                                 aria-controls="collapseTwo">
-                                Izaberi boju konca
+                                Step 4: What color do you want the connector protection to be?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="">
-                                <div  class="container form-check">
+                                <div class="container form-check">
                                     <div class="row">
-                                        
-                                            <div class="card">
-                                                <img src="" class="card-img-top" alt="" style="background-color: red; ">
-                                                <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" (click)='c1()' value="1" 
-                                                        id="defaultCheck1" >
-                                                    <label class="form-check-label " for="defaultCheck1">
-                                                        Crvena
-                                                    </label>
-                                                </div>
+
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: red; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" (click)='c1()' value="1"
+                                                    id="defaultCheck1">
+                                                <label class="form-check-label " for="defaultCheck1">
+                                                    Red
+                                                </label>
                                             </div>
-                                        
+                                        </div>
+
                                         <div class="card">
                                             <img src="" class="card-img-top" alt="" style="background-color: green; ">
                                             <div class="card-body">
                                                 <input class="form-check-input" type="checkbox" (click)='c2()' value="2"
-                                                    id="defaultCheck2" >
+                                                    id="defaultCheck2">
                                                 <label class="form-check-label " for="defaultCheck2">
-                                                    Zelena
+                                                    Green
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: blue; " >
+                                            <img src="" class="card-img-top" alt="" style="background-color: blue; ">
                                             <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="3"  (click)='c3()'
+                                                <input class="form-check-input" type="checkbox" value="3" (click)='c3()'
                                                     id="defaultCheck3">
                                                 <label class="form-check-label " for="defaultCheck3">
-                                                    Plava
+                                                    Blue
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="card">
                                             <img src="" class="card-img-top" alt=""
-                                                style="background-color: whitesmoke; ">
+                                                style="background-color: white; ">
                                             <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="4"  (click)='c4()'
+                                                <input class="form-check-input" type="checkbox" value="4" (click)='c4()'
                                                     id="defaultCheck4">
                                                 <label class="form-check-label " for="defaultCheck4">
-                                                    Bela
+                                                    White
                                                 </label>
                                             </div>
                                         </div>
@@ -236,17 +235,17 @@
                                                 <input class="form-check-input" type="checkbox" value="5" (click)='c5()'
                                                     id="defaultCheck5">
                                                 <label class="form-check-label " for="defaultCheck5">
-                                                    Zlatna
+                                                    Golden
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: grey; ">
+                                            <img src="" class="card-img-top" alt="" style="background-color: gray; ">
                                             <div class="card-body">
                                                 <input class="form-check-input" type="checkbox" value="6" (click)='c6()'
                                                     id="defaultCheck6">
                                                 <label class="form-check-label " for="defaultCheck6">
-                                                    Siva
+                                                    Gray
                                                 </label>
                                             </div>
                                         </div>
@@ -256,7 +255,93 @@
                                                 <input class="form-check-input" type="checkbox" value="7" (click)='c7()'
                                                     id="defaultCheck7">
                                                 <label class="form-check-label " for="defaultCheck7">
-                                                    Siva
+                                                    Yellow
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-center collapsed" type="button"
+                                data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                                aria-controls="collapseFive">
+                                Step 5: What is your desired potection color?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="">
+                                <div class="container form-check">
+                                    <div class="row">
+
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: red; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" (click)='c1()' value="1"
+                                                    id="defaultCheck1">
+                                                <label class="form-check-label " for="defaultCheck1">
+                                                    Red
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: green; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" (click)='c2()' value="2"
+                                                    id="defaultCheck2">
+                                                <label class="form-check-label " for="defaultCheck2">
+                                                    Green
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: blue; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="3" (click)='c3()'
+                                                    id="defaultCheck3">
+                                                <label class="form-check-label " for="defaultCheck3">
+                                                    Blue
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt=""
+                                                style="background-color: whitesmoke; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="4" (click)='c4()'
+                                                    id="defaultCheck4">
+                                                <label class="form-check-label " for="defaultCheck4">
+                                                    White
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt=""
+                                                style="background-color: black; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="5" (click)='c5()'
+                                                    id="defaultCheck5">
+                                                <label class="form-check-label " for="defaultCheck5">
+                                                    Black
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card">
+                                            <img src="" class="card-img-top" alt="" style="background-color: yellow; ">
+                                            <div class="card-body">
+                                                <input class="form-check-input" type="checkbox" value="7" (click)='c7()'
+                                                    id="defaultCheck7">
+                                                <label class="form-check-label " for="defaultCheck7">
+                                                    Yellow
                                                 </label>
                                             </div>
                                         </div>

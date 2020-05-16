@@ -4335,8 +4335,8 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border: 1px  white;
+  border-radius: 3.25rem;
 }
 .card > hr {
   margin-right: 0;
@@ -10509,9 +10509,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
-input[type="range"] {
-  width: 100%;
-}
+
 
 p.rangeLabel {
   font-family: "Arial", sans-serif;
