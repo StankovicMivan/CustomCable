@@ -1,8 +1,4 @@
-/*!
-    * Start Bootstrap - Agency v6.0.0 (https://startbootstrap.com/template-overviews/agency)
-    * Copyright 2013-2020 Start Bootstrap
-    * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
-    */
+
     (function ($) {
     "use strict"; // Start of use strict
 
@@ -38,7 +34,7 @@
     // Activate scrollspy to add active class to navbar items on scroll
     $("body").scrollspy({
         target: "#mainNav",
-        offset: 74,
+        offset: 100,
     });
 
     // Collapse Navbar
@@ -53,5 +49,4 @@
     navbarCollapse();
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
-    
 })(jQuery); // End of use strict

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy":" npm run build && gh-pages -d dist"
+    "deploy": " npm run build && gh-pages -d dist"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",
     "gh-pages": "^2.2.0",
+    "googleapis": "^39.2.0",
+    "request": "^2.88.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

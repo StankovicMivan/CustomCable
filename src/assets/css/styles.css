@@ -67,6 +67,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  /* margin-right: 10px; */
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -9952,6 +9953,7 @@ h3 {
 }
 body {
   overflow-x: hidden;
+  display: grid;
 }
 
 p {
