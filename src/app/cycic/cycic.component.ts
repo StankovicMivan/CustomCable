@@ -1,4 +1,4 @@
-import { Component,OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-cycic',
@@ -6,75 +6,76 @@ import { Component,OnInit, ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./cycic.component.css']
 })
 export class CycicComponent implements OnInit {
- 
+
   kablTip = 0;
-  kablDuzina : number = 1;
-  kablbrBoja  : number = 1;
-  kablboje = 0; 
-  kablNaziv ='';
-  
-  constructor(private ref: ChangeDetectorRef) { 
+  kablDuzina: number = 1;
+  kablbrBoja: number = 1;
+  kablboje = 0;
+  kablNaziv = '';
+
+  constructor(private ref: ChangeDetectorRef) {
     // ref.detectChanges();
-    
+
   }
 
   ngOnInit(): void {
     this.ref.detectChanges();
-    
- 
+
   }
 
   /**
    * selectCable
    */
-  guitarCable(){
-    this.kablTip =1;
+
+
+  guitarCable() {
+    this.kablTip = 1;
     this.checkCable();
   }
-  micCable(){
-    this.kablTip =2;
+  micCable() {
+    this.kablTip = 2;
     this.checkCable();
   }
-  rcaCable(){
-    this.kablTip =3;
+  rcaCable() {
+    this.kablTip = 3;
     this.checkCable();
   }
 
-  checkCable(){
-    if(this.kablTip == 1){
+  checkCable() {
+    if (this.kablTip == 1) {
       this.kablNaziv = 'Gitaru';
-    }if (this.kablTip == 2) {
+    } if (this.kablTip == 2) {
       this.kablNaziv = 'Mikrofon';
-    }if (this.kablTip == 3) {
+    } if (this.kablTip == 3) {
       this.kablNaziv = 'RCA na 6,35mm';
     }
   }
   duzinaKabla: string = '1 m';
 
-  proveraDuzine(){
-    if(this.kablDuzina == 1){
+  proveraDuzine() {
+    if (this.kablDuzina == 1) {
       this.duzinaKabla = '1 m';
-    }if(this.kablDuzina == 2){
-      this.duzinaKabla ='1,5 m';
-    }if(this.kablDuzina == 3){
+    } if (this.kablDuzina == 2) {
+      this.duzinaKabla = '1,5 m';
+    } if (this.kablDuzina == 3) {
       this.duzinaKabla = '2 m';
-    }if(this.kablDuzina == 4){
+    } if (this.kablDuzina == 4) {
       this.duzinaKabla = '2,5 m';
-    }if(this.kablDuzina == 5){
+    } if (this.kablDuzina == 5) {
       this.duzinaKabla = '3 m';
-    }if(this.kablDuzina == 6){
+    } if (this.kablDuzina == 6) {
       this.duzinaKabla = '3,5 m';
-    }if(this.kablDuzina == 7){
+    } if (this.kablDuzina == 7) {
       this.duzinaKabla = '5 m';
-    }if(this.kablDuzina == 8){
+    } if (this.kablDuzina == 8) {
       this.duzinaKabla = '6 m';
-    }if(this.kablDuzina == 9){
+    } if (this.kablDuzina == 9) {
       this.duzinaKabla = '10 m';
     }
   }
 
   kablSara = 0;
-  kablBojaJacka=0;
+  kablBojaJacka = 0;
 
   /*
    1 = crvena
@@ -85,7 +86,7 @@ export class CycicComponent implements OnInit {
    6 = siva
    7 = zuta
  */
-  boje : string = '';
+  boje: string = '';
   //provera broja boja
   boja1 = false;
   boja2 = false;
@@ -95,122 +96,122 @@ export class CycicComponent implements OnInit {
   boja6 = false;
   boja7 = false;
   counter = 0;
-  c1(){
-    if (this.boja1 ==false){
+  c1() {
+    if (this.boja1 == false) {
       this.counter++;
-      this.boja1 =true;
-      document.getElementById("defaultCheck1").setAttribute('checked','');
+      this.boja1 = true;
+      document.getElementById("defaultCheck1").setAttribute('checked', '');
       this.proveraBoje();
-      }else {
-      this.boja1 =false;
+    } else {
+      this.boja1 = false;
       this.counter--;
       document.getElementById("defaultCheck1").removeAttribute('checked');
       this.removeDisabled();
     }
   }
-  c2(){
-    if (this.boja2 ==false){
-      this.boja2 =true;
+  c2() {
+    if (this.boja2 == false) {
+      this.boja2 = true;
       this.counter++;
-      document.getElementById("defaultCheck2").setAttribute('checked',''); 
-      this.proveraBoje(); 
-    }else{
-      this.boja2 =false;
+      document.getElementById("defaultCheck2").setAttribute('checked', '');
+      this.proveraBoje();
+    } else {
+      this.boja2 = false;
       this.counter--;
       document.getElementById("defaultCheck2").removeAttribute('checked');
       this.removeDisabled();
-    }  
+    }
   }
-  c3(){
-    if (this.boja3 ==false){
-      this.boja3 =true;
+  c3() {
+    if (this.boja3 == false) {
+      this.boja3 = true;
       this.counter++;
-      document.getElementById("defaultCheck3").setAttribute('checked','');  
+      document.getElementById("defaultCheck3").setAttribute('checked', '');
       this.proveraBoje();
-    }else{
-      this.boja3 =false;
+    } else {
+      this.boja3 = false;
       this.counter--;
       document.getElementById("defaultCheck3").removeAttribute('checked');
       this.removeDisabled();
-    }  
+    }
   }
-  c4(){
-    if (this.boja4 ==false){
-      this.boja4 =true;
+  c4() {
+    if (this.boja4 == false) {
+      this.boja4 = true;
       this.counter++;
-      document.getElementById("defaultCheck4").setAttribute('checked','');  
+      document.getElementById("defaultCheck4").setAttribute('checked', '');
       this.proveraBoje();
-    }else{
-      this.boja4 =false;
+    } else {
+      this.boja4 = false;
       this.counter--;
       document.getElementById("defaultCheck4").removeAttribute('checked');
       this.removeDisabled();
-    }  
+    }
   }
-  c5(){
-    if (this.boja5 ==false){
-      this.boja5 =true;
+  c5() {
+    if (this.boja5 == false) {
+      this.boja5 = true;
       this.counter++;
-      document.getElementById("defaultCheck5").setAttribute('checked',''); 
+      document.getElementById("defaultCheck5").setAttribute('checked', '');
       this.proveraBoje();
-    }else{
-      this.boja5 =false;
+    } else {
+      this.boja5 = false;
       this.counter--;
       document.getElementById("defaultCheck5").removeAttribute('checked');
       this.removeDisabled();
-    }  
+    }
   }
-  c6(){
-    if (this.boja6 ==false){
-      this.boja6 =true;
+  c6() {
+    if (this.boja6 == false) {
+      this.boja6 = true;
       this.counter++;
-      document.getElementById("defaultCheck6").setAttribute('checked',''); 
+      document.getElementById("defaultCheck6").setAttribute('checked', '');
       this.proveraBoje();
-    }else{
-      this.boja6 =false;
+    } else {
+      this.boja6 = false;
       this.counter--;
       document.getElementById("defaultCheck6").removeAttribute('checked');
       this.removeDisabled();
-    }  
+    }
   }
-  c7(){
-    if (this.boja7 ==false){
-      this.boja7 =true;
+  c7() {
+    if (this.boja7 == false) {
+      this.boja7 = true;
       this.counter++;
-      document.getElementById("defaultCheck7").setAttribute('checked','');  
+      document.getElementById("defaultCheck7").setAttribute('checked', '');
       this.proveraBoje();
-    }else{
-      this.boja7 =false;
+    } else {
+      this.boja7 = false;
       this.counter--;
       document.getElementById("defaultCheck7").removeAttribute('checked');
       this.removeDisabled();
-    }  
+    }
   }
-  flag= false;
-  proveraBoje(){
-    if(this.counter ==this.kablbrBoja){
-      this.flag =true;
-      if(this.boja1 ==false){
-        document.getElementById("defaultCheck1").setAttribute('disabled',''); 
-      }if(this.boja2 ==false){   
-        document.getElementById("defaultCheck2").setAttribute('disabled',''); 
-      }if(this.boja3 ==false){
-        document.getElementById("defaultCheck3").setAttribute('disabled',''); 
-      }if(this.boja4 ==false){
-        document.getElementById("defaultCheck4").setAttribute('disabled',''); 
-      }if(this.boja5 ==false){
-        document.getElementById("defaultCheck5").setAttribute('disabled',''); 
-      }if(this.boja6 ==false){
-        document.getElementById("defaultCheck6").setAttribute('disabled',''); 
-      }if(this.boja7  ==false){
-        document.getElementById("defaultCheck7").setAttribute('disabled','');  
+  flag = false;
+  proveraBoje() {
+    if (this.counter == this.kablbrBoja) {
+      this.flag = true;
+      if (this.boja1 == false) {
+        document.getElementById("defaultCheck1").setAttribute('disabled', '');
+      } if (this.boja2 == false) {
+        document.getElementById("defaultCheck2").setAttribute('disabled', '');
+      } if (this.boja3 == false) {
+        document.getElementById("defaultCheck3").setAttribute('disabled', '');
+      } if (this.boja4 == false) {
+        document.getElementById("defaultCheck4").setAttribute('disabled', '');
+      } if (this.boja5 == false) {
+        document.getElementById("defaultCheck5").setAttribute('disabled', '');
+      } if (this.boja6 == false) {
+        document.getElementById("defaultCheck6").setAttribute('disabled', '');
+      } if (this.boja7 == false) {
+        document.getElementById("defaultCheck7").setAttribute('disabled', '');
       }
     }
-    
+
 
   }
-  removeDisabled(){
-    if(this.counter <this.kablbrBoja){
+  removeDisabled() {
+    if (this.counter < this.kablbrBoja) {
       document.getElementById("defaultCheck1").removeAttribute('disabled');
       document.getElementById("defaultCheck2").removeAttribute('disabled');
       document.getElementById("defaultCheck3").removeAttribute('disabled');
@@ -221,4 +222,92 @@ export class CycicComponent implements OnInit {
 
     }
   }
+  primaryColor = 0;
+  secondaryColor = 0;
+  previewPattern() {
+    if (this.kablSara == 1) {
+      if (this.primaryColor == 1 && this.secondaryColor == 1) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 2) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 3) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/right/pattern-1blue.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 4) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 5) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1yellow.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 6) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 7) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+    }
+    if (this.kablSara == 2) {
+      if (this.primaryColor == 1 && this.secondaryColor == 1) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 2) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+    }
+    if (this.kablSara == 3) {
+      if (this.primaryColor == 1 && this.secondaryColor == 1) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 2) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+    }
+    if (this.kablSara ==4) {
+      if (this.primaryColor == 1 && this.secondaryColor == 1) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 2) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+    }
+    if (this.kablSara == 5) {
+      if (this.primaryColor == 1 && this.secondaryColor == 1) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 2) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+    }
+    if (this.kablSara == 6) {
+      if (this.primaryColor == 1 && this.secondaryColor == 1) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+
+      }
+      if (this.primaryColor == 1 && this.secondaryColor == 2) {
+        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+
+      }
+    }
+
+
+
+  }
+
 }
