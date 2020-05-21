@@ -19,7 +19,7 @@
                     <td>Neutrik</td>
                     <td>{{duzinaKabla}}</td>
                     <td>{{kablbrBoja}}</td>
-                    <td>{{kablSara}}</td>
+                    <td>{{cablePattern}}</td>
                     <td>{{kablboje}}</td>
                     <td>{{kablBojaJacka}}</td>
                 </tbody>
@@ -123,13 +123,14 @@
                                             <label id="controlSelectLabel">Choose a knitting pattern.</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <select [(ngModel)]="kablSara" class=form-control>
+                                            <select [(ngModel)]="cablePattern" class="form-control"
+                                                (click)="previewPattern()">
                                                 <option value="1">1. Pattern</option>
                                                 <option value="2">2. Pattern</option>
                                                 <option value="3">3. Pattern</option>
-                                                <option value="1">4. Pattern</option>
-                                                <option value="2">5. Pattern</option>
-                                                <option value="3">6. Pattern</option>
+                                                <option value="4">4. Pattern</option>
+                                                <option value="5">5. Pattern</option>
+                                                <option value="6">6. Pattern</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-12 ">
@@ -197,7 +198,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -221,131 +222,76 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                         <div class="card-body">
                             <div *ngIf="kablbrBoja == 1" class="row">
-                                <div class="col-sm-4">
-                                    <label id="controlSelectLabel">Select color:</label>
-                                </div>
-                                <div class="col-sm-8">
-                                    <select  class=form-control>
-                                        <option value="1">1. White</option>
-                                        <option value="2">2. Red</option>
-                                        <option value="3">3. Blue</option>
-                                        <option value="4">4. Gold</option>
-                                        <option value="5">5. Yellow</option>
-                                        <option value="6">6. Green</option>
-                                        <option value="7">7. Gray</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div *ngIf="kablbrBoja == 2" class="row">
-                                <div class="col-sm-4">
-                                    <label id="controlSelectLabel">Select your Primary color</label>
-                                </div>
-                                <div class="col-sm-8">
-                                    <select [(ngModel)]='primaryColor' class=form-control (click)='previewPattern()'>
-                                        <option value="1">1. White</option>
-                                        <option value="2">2. Red</option>
-                                        <option value="3">3. Blue</option>
-                                        <option value="4">4. Gold</option>
-                                        <option value="5">5. Yellow</option>
-                                        <option value="6">6. Green</option>
-                                        <option value="7">7. Gray</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-4">
-                                    <label id="controlSelectLabel">Select your Secondary color</label>
-                                </div>
-                                <div class="col-sm-8">
-                                    <select [(ngModel)]='secondaryColor' class=form-control (click)='previewPattern()'>
-                                        <option value="1">1. White</option>
-                                        <option value="2">2. Red</option>
-                                        <option value="3">3. Blue</option>
-                                        <option value="4">4. Gold</option>
-                                        <option value="5">5. Yellow</option>
-                                        <option value="6">6. Green</option>
-                                        <option value="7">7. Gray</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div *ngIf="kablbrBoja == 2"><div><img id="previewPattern"></div></div>
-                            <!-- <div class="">
-                                <div class="container form-check">
+
+                                <div class="col-sm-6">
                                     <div class="row">
-
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: red; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" (click)='c1()' value="1"
-                                                    id="defaultCheck1">
-                                                <label class="form-check-label " for="defaultCheck1">
-                                                    Red
-                                                </label>
-                                            </div>
+                                        <div class="col-sm-6">
+                                            <label id="controlSelectLabel">Select color:</label>
                                         </div>
-
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: green; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" (click)='c2()' value="2"
-                                                    id="defaultCheck2">
-                                                <label class="form-check-label " for="defaultCheck2">
-                                                    Green
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: blue; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="3" (click)='c3()'
-                                                    id="defaultCheck3">
-                                                <label class="form-check-label " for="defaultCheck3">
-                                                    Blue
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: white; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="4" (click)='c4()'
-                                                    id="defaultCheck4">
-                                                <label class="form-check-label " for="defaultCheck4">
-                                                    White
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt=""
-                                                style="background-color: goldenrod; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="5" (click)='c5()'
-                                                    id="defaultCheck5">
-                                                <label class="form-check-label " for="defaultCheck5">
-                                                    Golden
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: gray; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="6" (click)='c6()'
-                                                    id="defaultCheck6">
-                                                <label class="form-check-label " for="defaultCheck6">
-                                                    Gray
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: yellow; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="7" (click)='c7()'
-                                                    id="defaultCheck7">
-                                                <label class="form-check-label " for="defaultCheck7">
-                                                    Yellow
-                                                </label>
-                                            </div>
+                                        <div class="col-sm-6">
+                                            <select class=form-control [(ngModel)]="singleColor" (click)="previewPatternSingleColor()">
+                                                <option value="1">White</option>
+                                                <option value="2">Red</option>
+                                                <option value="3">Blue</option>
+                                                <option value="4">Gold</option>
+                                                <option value="5">Yellow</option>
+                                                <option value="6">Green</option>
+                                                <option value="7">Gray</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                                <div class="col-sm-6">
+                                    <div *ngIf="kablbrBoja == 1">
+                                        <img id="previewPatternSingleColor"></div>
+                                </div>
+
+                            </div>
+                            <div *ngIf="kablbrBoja == 2" class="row">
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label id="controlSelectLabel">Select your Primary color: </label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select [(ngModel)]='primaryColor' class=form-control
+                                                (click)='previewPattern()'>
+                                                <option value="1">White</option>
+                                                <option value="2">Red</option>
+                                                <option value="3">Blue</option>
+                                                <option value="4">Gold</option>
+                                                <option value="5">Yellow</option>
+                                                <option value="6">Green</option>
+                                                <option value="7">Gray</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label id="controlSelectLabel">Select your Secondary color: </label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select [(ngModel)]='secondaryColor' class=form-control
+                                                (click)='previewPattern()'>
+                                                <option *ngIf="primaryColor != 1" value="1">White</option>
+                                                <option *ngIf="primaryColor != 2" value="2">Red</option>
+                                                <option *ngIf="primaryColor != 3" value="3">Blue</option>
+                                                <option *ngIf="primaryColor != 4" value="4">Gold</option>
+                                                <option *ngIf="primaryColor != 5" value="5">Yellow</option>
+                                                <option *ngIf="primaryColor != 6" value="6">Green</option>
+                                                <option *ngIf="primaryColor != 7" value="7">Gray</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div
+                                        *ngIf="kablbrBoja == 2 && secondaryColor != 0 && primaryColor !=0 && cablePattern != 0">
+                                        <img id="previewPattern"></div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

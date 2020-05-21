@@ -74,7 +74,7 @@ export class CycicComponent implements OnInit {
     }
   }
 
-  kablSara = 0;
+  cablePattern = 0;
   kablBojaJacka = 0;
 
   /*
@@ -224,90 +224,111 @@ export class CycicComponent implements OnInit {
   }
   primaryColor = 0;
   secondaryColor = 0;
+  srcPath = "";
+  srcPathBase = '../../assets/img/create/';
+  patternLeftOrRight = "";
+  patternColorFolder = "";
+  patternColorFileName = "";
+  patterColorSubFolder = "";
+  previousPath = "";
+
+
   previewPattern() {
-    if (this.kablSara == 1) {
-      if (this.primaryColor == 1 && this.secondaryColor == 1) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 2) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 3) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/right/pattern-1blue.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 4) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 5) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1yellow.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 6) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 7) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
+    if (this.cablePattern == 1 || this.cablePattern == 3 || this.cablePattern == 5) {
+      this.patternLeftOrRight = "right";
     }
-    if (this.kablSara == 2) {
-      if (this.primaryColor == 1 && this.secondaryColor == 1) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 2) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
+    if (this.cablePattern == 2 || this.cablePattern == 4 || this.cablePattern == 6) {
+      this.patternLeftOrRight = "left";
     }
-    if (this.kablSara == 3) {
-      if (this.primaryColor == 1 && this.secondaryColor == 1) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 2) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
+    if (this.primaryColor == 1) {
+      this.patternColorFolder = "white";
     }
-    if (this.kablSara ==4) {
-      if (this.primaryColor == 1 && this.secondaryColor == 1) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 2) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
+    if (this.primaryColor == 2) {
+      this.patternColorFolder = "red";
     }
-    if (this.kablSara == 5) {
-      if (this.primaryColor == 1 && this.secondaryColor == 1) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
-
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 2) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
-
-      }
+    if (this.primaryColor == 3) {
+      this.patternColorFolder = "blue";
     }
-    if (this.kablSara == 6) {
-      if (this.primaryColor == 1 && this.secondaryColor == 1) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-1.svg");
+    if (this.primaryColor == 4) {
+      this.patternColorFolder = "gold";
+    }
+    if (this.primaryColor == 5) {
+      this.patternColorFolder = "yellow";
+    }
+    if (this.primaryColor == 6) {
+      this.patternColorFolder = "green";
+    }
+    if (this.primaryColor == 7) {
+      this.patternColorFolder = "gray";
+    }
+    if (this.secondaryColor == 1) {
+      this.patterColorSubFolder = "white";
+    }
+    if (this.secondaryColor == 2) {
+      this.patterColorSubFolder = "red";
+    }
+    if (this.secondaryColor == 3) {
+      this.patterColorSubFolder = "blue";
+    }
+    if (this.secondaryColor == 4) {
+      this.patterColorSubFolder = "gold";
+    }
+    if (this.secondaryColor == 5) {
+      this.patterColorSubFolder = "yellow";
+    }
+    if (this.secondaryColor == 6) {
+      this.patterColorSubFolder = "green";
+    }
+    if (this.secondaryColor == 7) {
+      this.patterColorSubFolder = "gray";
+    }
 
-      }
-      if (this.primaryColor == 1 && this.secondaryColor == 2) {
-        document.getElementById("previewPattern").setAttribute('src', "../../assets/img/create/pattern/pattern-2.svg");
+    if (this.cablePattern == 1 || this.cablePattern == 2) {
+      this.patternColorFileName = "1";
+    }
+    if (this.cablePattern == 3 || this.cablePattern == 4) {
+      this.patternColorFileName = "2";
+    }
+    if (this.cablePattern == 5 || this.cablePattern == 6) {
+      this.patternColorFileName = "3";
+    }
 
+
+    if (this.primaryColor != 0 && this.secondaryColor != 0) {
+      if (this.secondaryColor == this.primaryColor) {
+        document.getElementById("previewPattern").setAttribute('src', this.previousPath);
+
+      } else {
+        this.srcPath = this.srcPathBase + this.patternLeftOrRight + "/" + this.patternColorFolder + "/" + this.patterColorSubFolder + "/" + this.patternColorFileName + '.svg';
+        this.previousPath = '';
+        this.previousPath += this.srcPath;
+        document.getElementById("previewPattern").setAttribute('src', this.srcPath);
       }
+
     }
 
 
 
   }
 
+
+  srcPathBaseForSingleColor = '../../assets/img/create/full';
+  singleColor =0;
+  srcFullPathForSingleColor ="";
+  /*
+  1 -> White
+  2 -> Red
+  3 -> Blue
+  4 -> Gold 
+  5 -> Yellow
+  6 -> Green
+  7 -> Gray
+  */
+  previewPatternSingleColor(){
+    this.srcFullPathForSingleColor = this.srcPathBaseForSingleColor + "/" + this.singleColor + '.svg';
+    if(this.singleColor != 0 ){
+      document.getElementById("previewPatternSingleColor").setAttribute('src', this.srcFullPathForSingleColor);
+     
+    }
+  }
 }
