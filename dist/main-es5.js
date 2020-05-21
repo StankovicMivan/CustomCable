@@ -1011,13 +1011,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](61, "img", 77);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "a", 77);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](62, "img", 78);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "p", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](64, "6. Pattern");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "button", 79);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](64, "Menu");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](65, "i", 80);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](66, "img", 81);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "div", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "p", 15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](69, "6. Pattern");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1049,7 +1063,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 81);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 85);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -1061,11 +1075,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "label", 32);
 
@@ -1075,7 +1089,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "select", 62);
 
@@ -1129,7 +1143,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "option", 79);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "option", 83);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "Gray");
 
@@ -1143,9 +1157,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 82);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, CycicComponent_div_100_div_23_Template, 2, 0, "div", 80);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, CycicComponent_div_100_div_23_Template, 2, 0, "div", 84);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1227,7 +1241,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function CycicComponent_div_101_option_34_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 79);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 83);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Gray");
 
@@ -1239,7 +1253,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 89);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 93);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -1251,11 +1265,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "label", 32);
 
@@ -1265,7 +1279,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "select", 62);
 
@@ -1319,7 +1333,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "option", 79);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "option", 83);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "Gray");
 
@@ -1333,7 +1347,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "label", 32);
 
@@ -1343,7 +1357,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 82);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "select", 62);
 
@@ -1361,21 +1375,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return ctx_r22.previewPattern();
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, CycicComponent_div_101_option_28_Template, 2, 0, "option", 82);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, CycicComponent_div_101_option_28_Template, 2, 0, "option", 86);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](29, CycicComponent_div_101_option_29_Template, 2, 0, "option", 83);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](29, CycicComponent_div_101_option_29_Template, 2, 0, "option", 87);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](30, CycicComponent_div_101_option_30_Template, 2, 0, "option", 84);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](30, CycicComponent_div_101_option_30_Template, 2, 0, "option", 88);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](31, CycicComponent_div_101_option_31_Template, 2, 0, "option", 85);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](31, CycicComponent_div_101_option_31_Template, 2, 0, "option", 89);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, CycicComponent_div_101_option_32_Template, 2, 0, "option", 86);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, CycicComponent_div_101_option_32_Template, 2, 0, "option", 90);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](33, CycicComponent_div_101_option_33_Template, 2, 0, "option", 87);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](33, CycicComponent_div_101_option_33_Template, 2, 0, "option", 91);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, CycicComponent_div_101_option_34_Template, 2, 0, "option", 88);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, CycicComponent_div_101_option_34_Template, 2, 0, "option", 92);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1383,9 +1395,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](36, CycicComponent_div_101_div_36_Template, 2, 0, "div", 80);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 82);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](36, CycicComponent_div_101_div_36_Template, 2, 0, "div", 84);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1843,7 +1857,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-cycic"]],
       decls: 148,
       vars: 12,
-      consts: [["id", "create", 1, "container"], [1, "group"], [1, "container", 2, "align-content", "center"], [1, "table"], [1, "container", 2, "padding-top", "25px"], ["id", "accordionExample", 1, "accordion"], [1, "card"], ["id", "headingOne", 1, "card-header"], [1, "mb-0"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseOne", "aria-expanded", "false", "aria-controls", "collapseTwo", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseOne", "aria-labelledby", "headingOne", "data-parent", "#accordionExample", 1, "collapse"], [1, "card-body"], [1, "row"], [1, "card", 2, "margin-right", "10px", "margin-left", "10px", 3, "click"], ["src", "assets/img/cycic/guitarcable.jpg", "alt", "...", 1, "card-img-top", 2, "width", "280px", "height", "250px"], [1, "text-center"], ["src", "assets/img/cycic/miccable.jpg", "alt", "...", 1, "card-img-top", 2, "width", "280px", "height", "250px", "border", "black 1px"], [1, "card-body", 2, "border", "black 1px"], ["src", "assets/img/cycic/rcacable.jpg", "alt", "...", 1, "card-img-top", 2, "width", "280px", "height", "250px"], [1, "ctext-center"], ["id", "headingFour", 1, "card-header"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseFour", "aria-expanded", "false", "aria-controls", "collapseFour", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseFour", "aria-labelledby", "headingFour", "data-parent", "#accordionExample", 1, "collapse"], [1, "rangeWrapper"], ["id", "slide", "type", "range", "min", "1", "max", "9", "step", "1", "name", "slide", 1, "slider", 3, "ngModel", "ngModelChange", "click"], ["for", "slide"], ["id", "headingThree", 1, "card-header"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseThree", "aria-expanded", "false", "aria-controls", "collapseThree", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseThree", "aria-labelledby", "headingThree", "data-parent", "#accordionExample", 1, "collapse"], [1, ""], [1, "container"], [1, "col-sm-4"], ["id", "controlSelectLabel"], [1, "col-sm-8"], ["id", "controlSelect", "placeholder", "Izaberi", 1, "form-control", 3, "ngModel", "ngModelChange"], ["value", "1"], ["value", "2"], ["class", "row", 4, "ngIf"], ["id", "headingTwo", 1, "card-header"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseTwo", "aria-expanded", "false", "aria-controls", "collapseTwo", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseTwo", "aria-labelledby", "headingTwo", "data-parent", "#accordionExample", 1, "collapse"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseFive", "aria-expanded", "false", "aria-controls", "collapseFive", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseFive", "aria-labelledby", "headingTwo", "data-parent", "#accordionExample", 1, "collapse"], [1, "container", "form-check"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "red"], ["type", "checkbox", "value", "1", "id", "defaultCheck1", 1, "form-check-input", 3, "click"], ["for", "defaultCheck1", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "green"], ["type", "checkbox", "value", "2", "id", "defaultCheck2", 1, "form-check-input", 3, "click"], ["for", "defaultCheck2", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "blue"], ["type", "checkbox", "value", "3", "id", "defaultCheck3", 1, "form-check-input", 3, "click"], ["for", "defaultCheck3", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "whitesmoke"], ["type", "checkbox", "value", "4", "id", "defaultCheck4", 1, "form-check-input", 3, "click"], ["for", "defaultCheck4", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "black"], ["type", "checkbox", "value", "5", "id", "defaultCheck5", 1, "form-check-input", 3, "click"], ["for", "defaultCheck5", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "yellow"], ["type", "checkbox", "value", "7", "id", "defaultCheck7", 1, "form-check-input", 3, "click"], ["for", "defaultCheck7", 1, "form-check-label"], [1, "form-control", 3, "ngModel", "ngModelChange", "click"], ["value", "3"], ["value", "4"], ["value", "5"], ["value", "6"], [1, "col-sm-12"], [2, "background-color", "#343A40", "width", "10px", "height", "10px"], [2, "background-color", "#FEC810", "width", "10px", "height", "10px"], [1, "col-ms-12"], [1, "col-ms-2"], ["src", "../../assets/img/create/pattern/pattern-1.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-1l.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-2.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-2l.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-3.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-3l.svg", "alt", "", 1, "card-img-top"], [1, "col-sm-6"], ["value", "7"], [4, "ngIf"], ["id", "previewPatternSingleColor"], ["value", "1", 4, "ngIf"], ["value", "2", 4, "ngIf"], ["value", "3", 4, "ngIf"], ["value", "4", 4, "ngIf"], ["value", "5", 4, "ngIf"], ["value", "6", 4, "ngIf"], ["value", "7", 4, "ngIf"], ["id", "previewPattern"]],
+      consts: [["id", "create", 1, "container"], [1, "group"], [1, "container", 2, "align-content", "center"], [1, "table"], [1, "container", 2, "padding-top", "25px"], ["id", "accordionExample", 1, "accordion"], [1, "card"], ["id", "headingOne", 1, "card-header"], [1, "mb-0"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseOne", "aria-expanded", "false", "aria-controls", "collapseTwo", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseOne", "aria-labelledby", "headingOne", "data-parent", "#accordionExample", 1, "collapse"], [1, "card-body"], [1, "row"], [1, "card", 2, "margin-right", "10px", "margin-left", "10px", 3, "click"], ["src", "assets/img/cycic/guitarcable.jpg", "alt", "...", 1, "card-img-top", 2, "width", "280px", "height", "250px"], [1, "text-center"], ["src", "assets/img/cycic/miccable.jpg", "alt", "...", 1, "card-img-top", 2, "width", "280px", "height", "250px", "border", "black 1px"], [1, "card-body", 2, "border", "black 1px"], ["src", "assets/img/cycic/rcacable.jpg", "alt", "...", 1, "card-img-top", 2, "width", "280px", "height", "250px"], [1, "ctext-center"], ["id", "headingFour", 1, "card-header"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseFour", "aria-expanded", "false", "aria-controls", "collapseFour", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseFour", "aria-labelledby", "headingFour", "data-parent", "#accordionExample", 1, "collapse"], [1, "rangeWrapper"], ["id", "slide", "type", "range", "min", "1", "max", "9", "step", "1", "name", "slide", 1, "slider", 3, "ngModel", "ngModelChange", "click"], ["for", "slide"], ["id", "headingThree", 1, "card-header"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseThree", "aria-expanded", "false", "aria-controls", "collapseThree", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseThree", "aria-labelledby", "headingThree", "data-parent", "#accordionExample", 1, "collapse"], [1, ""], [1, "container"], [1, "col-sm-4"], ["id", "controlSelectLabel"], [1, "col-sm-8"], ["id", "controlSelect", "placeholder", "Izaberi", 1, "form-control", 3, "ngModel", "ngModelChange"], ["value", "1"], ["value", "2"], ["class", "row", 4, "ngIf"], ["id", "headingTwo", 1, "card-header"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseTwo", "aria-expanded", "false", "aria-controls", "collapseTwo", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseTwo", "aria-labelledby", "headingTwo", "data-parent", "#accordionExample", 1, "collapse"], ["type", "button", "data-toggle", "collapse", "data-target", "#collapseFive", "aria-expanded", "false", "aria-controls", "collapseFive", 1, "btn", "btn-link", "btn-block", "text-center", "collapsed"], ["id", "collapseFive", "aria-labelledby", "headingTwo", "data-parent", "#accordionExample", 1, "collapse"], [1, "container", "form-check"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "red"], ["type", "checkbox", "value", "1", "id", "defaultCheck1", 1, "form-check-input", 3, "click"], ["for", "defaultCheck1", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "green"], ["type", "checkbox", "value", "2", "id", "defaultCheck2", 1, "form-check-input", 3, "click"], ["for", "defaultCheck2", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "blue"], ["type", "checkbox", "value", "3", "id", "defaultCheck3", 1, "form-check-input", 3, "click"], ["for", "defaultCheck3", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "whitesmoke"], ["type", "checkbox", "value", "4", "id", "defaultCheck4", 1, "form-check-input", 3, "click"], ["for", "defaultCheck4", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "black"], ["type", "checkbox", "value", "5", "id", "defaultCheck5", 1, "form-check-input", 3, "click"], ["for", "defaultCheck5", 1, "form-check-label"], ["src", "", "alt", "", 1, "card-img-top", 2, "background-color", "yellow"], ["type", "checkbox", "value", "7", "id", "defaultCheck7", 1, "form-check-input", 3, "click"], ["for", "defaultCheck7", 1, "form-check-label"], [1, "form-control", 3, "ngModel", "ngModelChange", "click"], ["value", "3"], ["value", "4"], ["value", "5"], ["value", "6"], [1, "col-sm-12"], [2, "background-color", "#343A40", "width", "10px", "height", "10px"], [2, "background-color", "#FEC810", "width", "10px", "height", "10px"], [1, "col-ms-12"], [1, "col-ms-2"], ["src", "../../assets/img/create/pattern/pattern-1.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-1l.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-2.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-2l.svg", "alt", "", 1, "card-img-top"], ["src", "../../assets/img/create/pattern/pattern-3.svg", "alt", "", 1, "card-img-top"], ["href", "#page-top", 1, "navbar-brand", "js-scroll-trigger"], ["src", "../../CustomCable/assets/img/navbar/logo.svg"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarResponsive", "aria-controls", "navbarResponsive", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", "navbar-toggler-right"], [1, "fas", "fa-bars", "ml-1"], ["src", "CustomCable/assets/img/create/pattern/pattern-3l.svg", "alt", "", 1, "card-img-top"], [1, "col-sm-6"], ["value", "7"], [4, "ngIf"], ["id", "previewPatternSingleColor"], ["value", "1", 4, "ngIf"], ["value", "2", 4, "ngIf"], ["value", "3", 4, "ngIf"], ["value", "4", 4, "ngIf"], ["value", "5", 4, "ngIf"], ["value", "6", 4, "ngIf"], ["value", "7", 4, "ngIf"], ["id", "previewPattern"]],
       template: function CycicComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -2160,7 +2174,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](90, "div", 30);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](91, CycicComponent_div_91_Template, 65, 1, "div", 37);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](91, CycicComponent_div_91_Template, 70, 1, "div", 37);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
