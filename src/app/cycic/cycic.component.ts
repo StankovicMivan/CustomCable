@@ -225,7 +225,7 @@ export class CycicComponent implements OnInit {
   primaryColor = 0;
   secondaryColor = 0;
   srcPath = "";
-  srcPathBase = '../../assets/img/create/';
+  srcPathBase = '../../CustomCable/assets/img/create/';
   patternLeftOrRight = "";
   patternColorFolder = "";
   patternColorFileName = "";
@@ -312,7 +312,7 @@ export class CycicComponent implements OnInit {
   }
 
 
-  srcPathBaseForSingleColor = '../../assets/img/create/full';
+  srcPathBaseForSingleColor = '../../CustomCable/assets/img/create/full';
   singleColor =0;
   srcFullPathForSingleColor ="";
   /*

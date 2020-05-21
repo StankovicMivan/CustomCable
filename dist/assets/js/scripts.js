@@ -3,7 +3,7 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
     */
-    (function ($) {
+(function ($) {
     "use strict"; // Start of use strict
 
     // Smooth scrolling using jQuery easing
@@ -38,12 +38,12 @@
     // Activate scrollspy to add active class to navbar items on scroll
     $("body").scrollspy({
         target: "#mainNav",
-        offset: 74,
+        offset: 100,
     });
 
     // Collapse Navbar
     var navbarCollapse = function () {
-        if ($("#mainNav").offset().top > 100) {
+        if ($("#mainNav").offset.top > 100) {
             $("#mainNav").addClass("navbar-shrink");
         } else {
             $("#mainNav").removeClass("navbar-shrink");
@@ -53,5 +53,4 @@
     navbarCollapse();
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
-    
 })(jQuery); // End of use strict
