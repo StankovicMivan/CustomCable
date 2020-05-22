@@ -1,4 +1,12 @@
 img {
     margin-bottom: 2px;
- 
+}
+
+#mainNav {
+    position: absolute;
+    max-width: 100%;
+}
+
+::content {
+    width: width=device-width;
 }

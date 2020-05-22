@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#page-top {
+    width: devide-width;
+}
+
+.app-root {
+    max-width: 100%;
+    position: absolute;
+    display: block;
+}
+
+::content {
+    width: width=device-width;
+}

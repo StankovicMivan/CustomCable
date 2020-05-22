@@ -5,3 +5,7 @@
  font-style: bold;
  font-size: 35px;
 }
+.timeline-image a {
+    color:white;
+    text-decoration: none;
+}

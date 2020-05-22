@@ -1,0 +1,23 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    /* Set the fixed height of the footer here */
+    line-height: 60px;
+    border-top: solid 1px yellow;
+    background-color: white;
+}
+
+
+/* .container {
+    width: auto;
+    max-width: 680px;
+    /* padding: 0 15px; */
+
+
+/* } */
+
+.app-router {
+    margin-bottom: 50px;
+}

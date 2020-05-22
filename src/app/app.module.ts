@@ -11,6 +11,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
 import { CycicComponent } from './cycic/cycic.component';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { HomeComponent } from './home/home.component'; // CLI imports AppRoutingModule
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { FormsModule } from '@angular/forms';
     ServiceComponent,
     GalleryComponent,
     AboutComponent,
-    CycicComponent
+    CycicComponent,
+    HomeComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule // CLI adds AppRoutingModule to the AppModule's imports array
   ],
   providers: [],
   bootstrap: [AppComponent]

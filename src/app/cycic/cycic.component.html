@@ -1,385 +1,400 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="../../assets/js/slideScript.js"></script>
 <!-- CYCIC == Create your custom instrument cable -->
-<div class="container" id="create">
-    <div class="group">
-        <div class="container" style="align-content: center;">
-            <div class="table ">
-                <thead>
-                    <th>Kabl za</th>
-                    <th>Jack</th>
-                    <th>Duzina</th>
-                    <th>Broj boja</th>
-                    <th>Sara</th>
-                    <th>Boja zastite kabla</th>
-                    <th>Boja zastite jack-a</th>
-                </thead>
-                <tbody>
-                    <td>{{kablNaziv}}</td>
-                    <td>Neutrik</td>
-                    <td>{{duzinaKabla}}</td>
-                    <td>{{kablbrBoja}}</td>
-                    <td>{{cablePattern}}</td>
-                    <td>{{kablboje}}</td>
-                    <td>{{kablBojaJacka}}</td>
-                </tbody>
+<div class="row">
+    
+    <div class="container col-12 col-md-8" id="create">
+        <div class="group">
+            <div class="container" style="padding-top: 25px;">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    Step 1: What you need?
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="card" style="margin-right: 10px;margin-left: 10px;"
+                                        (click)="guitarCable()">
+                                        <img src="assets/img/cycic/guitarcable.jpg" class="card-img-top" alt="..."
+                                            style="width: 280px;height: 250px;">
+                                        <div class="card-body">
+                                            <p class="text-center">Guitar</p>
+                                        </div>
+                                    </div>
+                                    <div class="card" style="margin-right: 10px;margin-left: 10px;"
+                                        (click)="micCable()">
+                                        <img src="assets/img/cycic/miccable.jpg" class="card-img-top" alt="..."
+                                            style="width: 280px;height: 250px;border: black 1px;">
+                                        <div class="card-body" style="border: black 1px;">
+                                            <p class="text-center">Mic</p>
+                                        </div>
+                                    </div>
+                                    <div class="card" style="margin-right: 10px;margin-left: 10px;"
+                                        (click)="rcaCable()">
+                                        <img src="assets/img/cycic/rcacable.jpg" class="card-img-top" alt="..."
+                                            style="width: 280px;height: 250px;">
+                                        <div class="card-body">
+                                            <p class="ctext-center">1/4 to RCA.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    Step 2: What is your desired cable length?
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="rangeWrapper">
+                                    <input class="slider" id="slide" type="range" min="1" max="9" step="1"
+                                        [(ngModel)]="kablDuzina" (click)='proveraDuzine()' name='slide' />
+                                    <output for="slide"> {{duzinaKabla}} </output>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Step 3: Do you want your cable in one or two colors?
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label id="controlSelectLabel">How many colors do you want? </label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <select [(ngModel)]="kablbrBoja" class="form-control" id="controlSelect"
+                                                    placeholder="Izaberi">
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row" *ngIf="kablbrBoja == 2">
+                                            <div class="col-sm-4">
+                                                <label id="controlSelectLabel">Choose a knitting pattern.</label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <select [(ngModel)]="cablePattern" class="form-control"
+                                                    (click)="previewPattern()">
+                                                    <option value="1">1. Pattern</option>
+                                                    <option value="2">2. Pattern</option>
+                                                    <option value="3">3. Pattern</option>
+                                                    <option value="4">4. Pattern</option>
+                                                    <option value="5">5. Pattern</option>
+                                                    <option value="6">6. Pattern</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <span>Primary color : <img
+                                                        style="background-color: #343A40; width: 10px; height: 10px;" /></span><br>
+                                                <span>Secondary color : <img
+                                                        style="background-color: #FEC810;width: 10px; height: 10px;" /></span>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="card-body">
+                                                    <div class="row">
+
+                                                        <div class="col-md-2">
+                                                            <div class="card">
+                                                                <img src="../../assets/img/create/pattern/pattern-1.svg"
+                                                                    class="card-img-top" alt="">
+                                                                <div class="card-body">
+                                                                    <p class="text-center">1. Pattern</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="card">
+                                                                <img src="../../assets/img/create/pattern/pattern-1l.svg"
+                                                                    class="card-img-top" alt="">
+                                                                <div class="card-body">
+                                                                    <p class="text-center">2. Pattern</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="card">
+                                                                <img src="../../assets/img/create/pattern/pattern-2.svg"
+                                                                    class="card-img-top" alt="">
+                                                                <div class="card-body">
+                                                                    <p class="text-center">3. Pattern</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="card">
+                                                                <img src="../../assets/img/create/pattern/pattern-2l.svg"
+                                                                    class="card-img-top" alt="">
+                                                                <div class="card-body">
+                                                                    <p class="text-center">4. Pattern</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="card">
+                                                                <img src="../../assets/img/create/pattern/pattern-3.svg"
+                                                                    class="card-img-top" alt="">
+                                                                <div class="card-body">
+                                                                    <p class="text-center">5. Pattern</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="card">
+                                                                <img src="../../assets/img/create/pattern/pattern-3l.svg"
+                                                                    class="card-img-top" alt="">
+                                                                <div class="card-body">
+                                                                    <p class="text-center">6. Pattern</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    Step 4: What color do you want for your chosen pattern?
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div *ngIf="kablbrBoja == 1" class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label id="controlSelectLabel">Select color:</label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select class=form-control [(ngModel)]="singleColor"
+                                                    (click)="previewPatternSingleColor()">
+                                                    <option value="1">White</option>
+                                                    <option value="2">Red</option>
+                                                    <option value="3">Blue</option>
+                                                    <option value="4">Gold</option>
+                                                    <option value="5">Yellow</option>
+                                                    <option value="6">Green</option>
+                                                    <option value="7">Gray</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div *ngIf="kablbrBoja == 1">
+                                            <img id="previewPatternSingleColor"></div>
+                                    </div>
+
+                                </div>
+                                <div *ngIf="kablbrBoja == 2" class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label id="controlSelectLabel">Select your Primary color: </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select [(ngModel)]='primaryColor' class=form-control
+                                                    (click)='previewPattern()'>
+                                                    <option value="1">White</option>
+                                                    <option value="2">Red</option>
+                                                    <option value="3">Blue</option>
+                                                    <option value="4">Gold</option>
+                                                    <option value="5">Yellow</option>
+                                                    <option value="6">Green</option>
+                                                    <option value="7">Gray</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label id="controlSelectLabel">Select your Secondary color: </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select [(ngModel)]='secondaryColor' class=form-control
+                                                    (click)='previewPattern()'>
+                                                    <option *ngIf="primaryColor != 1" value="1">White</option>
+                                                    <option *ngIf="primaryColor != 2" value="2">Red</option>
+                                                    <option *ngIf="primaryColor != 3" value="3">Blue</option>
+                                                    <option *ngIf="primaryColor != 4" value="4">Gold</option>
+                                                    <option *ngIf="primaryColor != 5" value="5">Yellow</option>
+                                                    <option *ngIf="primaryColor != 6" value="6">Green</option>
+                                                    <option *ngIf="primaryColor != 7" value="7">Gray</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div
+                                            *ngIf="kablbrBoja == 2 && secondaryColor != 0 && primaryColor !=0 && cablePattern != 0">
+                                            <img id="previewPattern"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    Step 5: What is your desired potection color?
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="container form-check">
+                                        <div class="row">
+
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt="" style="background-color: red; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" (click)='c1()'
+                                                        value="1" id="defaultCheck1">
+                                                    <label class="form-check-label " for="defaultCheck1">
+                                                        Red
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt=""
+                                                    style="background-color: green; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" (click)='c2()'
+                                                        value="2" id="defaultCheck2">
+                                                    <label class="form-check-label " for="defaultCheck2">
+                                                        Green
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt=""
+                                                    style="background-color: blue; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" value="3"
+                                                        (click)='c3()' id="defaultCheck3">
+                                                    <label class="form-check-label " for="defaultCheck3">
+                                                        Blue
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt=""
+                                                    style="background-color: whitesmoke; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" value="4"
+                                                        (click)='c4()' id="defaultCheck4">
+                                                    <label class="form-check-label " for="defaultCheck4">
+                                                        White
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt=""
+                                                    style="background-color: black; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" value="5"
+                                                        (click)='c5()' id="defaultCheck5">
+                                                    <label class="form-check-label " for="defaultCheck5">
+                                                        Black
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="card">
+                                                <img src="" class="card-img-top" alt=""
+                                                    style="background-color: yellow; ">
+                                                <div class="card-body">
+                                                    <input class="form-check-input" type="checkbox" value="7"
+                                                        (click)='c7()' id="defaultCheck7">
+                                                    <label class="form-check-label " for="defaultCheck7">
+                                                        Yellow
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="group">
-        <div class="container" style="padding-top: 25px;">
-            <div class="accordion" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-center collapsed" type="button"
-                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                                aria-controls="collapseTwo">
-                                Step 1: What you need?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="guitarCable()">
-                                    <img src="assets/img/cycic/guitarcable.jpg" class="card-img-top" alt="..."
-                                        style="width: 280px;height: 250px;">
-                                    <div class="card-body">
-                                        <p class="text-center">Guitar</p>
-                                    </div>
-                                </div>
-                                <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="micCable()">
-                                    <img src="assets/img/cycic/miccable.jpg" class="card-img-top" alt="..."
-                                        style="width: 280px;height: 250px;border: black 1px;">
-                                    <div class="card-body" style="border: black 1px;">
-                                        <p class="text-center">Mic</p>
-                                    </div>
-                                </div>
-                                <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="rcaCable()">
-                                    <img src="assets/img/cycic/rcacable.jpg" class="card-img-top" alt="..."
-                                        style="width: 280px;height: 250px;">
-                                    <div class="card-body">
-                                        <p class="ctext-center">1/4 to RCA.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingFour">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-center collapsed" type="button"
-                                data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
-                                aria-controls="collapseFour">
-                                Step 2: What is your desired cable length?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
-                            <div class="rangeWrapper">
-                                <input class="slider" id="slide" type="range" min="1" max="9" step="1"
-                                    [(ngModel)]="kablDuzina" (click)='proveraDuzine()' name='slide' />
-                                <output for="slide"> {{duzinaKabla}} </output>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-center collapsed" type="button"
-                                data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                                aria-controls="collapseThree">
-                                Step 3: Do you want your cable in one or two colors?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
-                            <div class="">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <label id="controlSelectLabel">How many colors do you want? </label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <select [(ngModel)]="kablbrBoja" class="form-control" id="controlSelect"
-                                                placeholder="Izaberi">
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container">
-                                    <div class="row" *ngIf="kablbrBoja == 2">
-                                        <div class="col-sm-4">
-                                            <label id="controlSelectLabel">Choose a knitting pattern.</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <select [(ngModel)]="cablePattern" class="form-control"
-                                                (click)="previewPattern()">
-                                                <option value="1">1. Pattern</option>
-                                                <option value="2">2. Pattern</option>
-                                                <option value="3">3. Pattern</option>
-                                                <option value="4">4. Pattern</option>
-                                                <option value="5">5. Pattern</option>
-                                                <option value="6">6. Pattern</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-12 ">
-                                            <span>Primary color : <img
-                                                    style="background-color: #343A40; width: 10px; height: 10px;" /></span><br>
-                                            <span>Secondary color : <img
-                                                    style="background-color: #FEC810;width: 10px; height: 10px;" /></span>
-                                        </div>
-                                        <div class="col-ms-12">
-                                            <div class="card-body">
-                                                <div class="row">
-
-                                                    <div class="col-ms-2">
-                                                        <div class="card">
-                                                            <img src="../../CustomCable/assets/img/create/pattern/pattern-1.svg"
-                                                                class="card-img-top" alt="">
-                                                            <div class="card-body">
-                                                                <p class="text-center">1. Pattern</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-ms-2">
-                                                        <div class="card">
-                                                            <img src="../../CustomCable/assets/img/create/pattern/pattern-1l.svg"
-                                                                class="card-img-top" alt="">
-                                                            <div class="card-body">
-                                                                <p class="text-center">2. Pattern</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-ms-2">
-                                                        <div class="card">
-                                                            <img src="../../CustomCable/assets/img/create/pattern/pattern-2.svg"
-                                                                class="card-img-top" alt="">
-                                                            <div class="card-body">
-                                                                <p class="text-center">3. Pattern</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-ms-2">
-                                                        <div class="card">
-                                                            <img src="../../CustomCable/assets/img/create/pattern/pattern-2l.svg"
-                                                                class="card-img-top" alt="">
-                                                            <div class="card-body">
-                                                                <p class="text-center">4. Pattern</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-ms-2">
-                                                        <div class="card">
-                                                            <img src="../../CustomCable/assets/img/create/pattern/pattern-3.svg"
-                                                                class="card-img-top" alt="">
-                                                            <div class="card-body">
-                                                                <p class="text-center">5. Pattern</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-ms-2">
-                                                        <div class="card">
-                                                            <img src="../../CustomCable/assets/img/create/pattern/pattern-3l.svg"
-                                                                class="card-img-top" alt="">
-                                                            <div class="card-body">
-                                                                <p class="text-center">6. Pattern</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-center collapsed" type="button"
-                                data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                aria-controls="collapseTwo">
-                                Step 4: What color do you want for your chosen pattern?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <div *ngIf="kablbrBoja == 1" class="row">
-
-                                <div class="col-sm-6">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <label id="controlSelectLabel">Select color:</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <select class=form-control [(ngModel)]="singleColor" (click)="previewPatternSingleColor()">
-                                                <option value="1">White</option>
-                                                <option value="2">Red</option>
-                                                <option value="3">Blue</option>
-                                                <option value="4">Gold</option>
-                                                <option value="5">Yellow</option>
-                                                <option value="6">Green</option>
-                                                <option value="7">Gray</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div *ngIf="kablbrBoja == 1">
-                                        <img id="previewPatternSingleColor"></div>
-                                </div>
-
-                            </div>
-                            <div *ngIf="kablbrBoja == 2" class="row">
-                                <div class="col-sm-6">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <label id="controlSelectLabel">Select your Primary color: </label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <select [(ngModel)]='primaryColor' class=form-control
-                                                (click)='previewPattern()'>
-                                                <option value="1">White</option>
-                                                <option value="2">Red</option>
-                                                <option value="3">Blue</option>
-                                                <option value="4">Gold</option>
-                                                <option value="5">Yellow</option>
-                                                <option value="6">Green</option>
-                                                <option value="7">Gray</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <label id="controlSelectLabel">Select your Secondary color: </label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <select [(ngModel)]='secondaryColor' class=form-control
-                                                (click)='previewPattern()'>
-                                                <option *ngIf="primaryColor != 1" value="1">White</option>
-                                                <option *ngIf="primaryColor != 2" value="2">Red</option>
-                                                <option *ngIf="primaryColor != 3" value="3">Blue</option>
-                                                <option *ngIf="primaryColor != 4" value="4">Gold</option>
-                                                <option *ngIf="primaryColor != 5" value="5">Yellow</option>
-                                                <option *ngIf="primaryColor != 6" value="6">Green</option>
-                                                <option *ngIf="primaryColor != 7" value="7">Gray</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-sm-6">
-                                    <div
-                                        *ngIf="kablbrBoja == 2 && secondaryColor != 0 && primaryColor !=0 && cablePattern != 0">
-                                        <img id="previewPattern"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-center collapsed" type="button"
-                                data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
-                                aria-controls="collapseFive">
-                                Step 5: What is your desired potection color?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
-                            <div class="">
-                                <div class="container form-check">
-                                    <div class="row">
-
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: red; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" (click)='c1()' value="1"
-                                                    id="defaultCheck1">
-                                                <label class="form-check-label " for="defaultCheck1">
-                                                    Red
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: green; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" (click)='c2()' value="2"
-                                                    id="defaultCheck2">
-                                                <label class="form-check-label " for="defaultCheck2">
-                                                    Green
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: blue; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="3" (click)='c3()'
-                                                    id="defaultCheck3">
-                                                <label class="form-check-label " for="defaultCheck3">
-                                                    Blue
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt=""
-                                                style="background-color: whitesmoke; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="4" (click)='c4()'
-                                                    id="defaultCheck4">
-                                                <label class="form-check-label " for="defaultCheck4">
-                                                    White
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: black; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="5" (click)='c5()'
-                                                    id="defaultCheck5">
-                                                <label class="form-check-label " for="defaultCheck5">
-                                                    Black
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="card">
-                                            <img src="" class="card-img-top" alt="" style="background-color: yellow; ">
-                                            <div class="card-body">
-                                                <input class="form-check-input" type="checkbox" value="7" (click)='c7()'
-                                                    id="defaultCheck7">
-                                                <label class="form-check-label " for="defaultCheck7">
-                                                    Yellow
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container col-12 col-md-4" id="cart">
+        <div class="group">
+            <div class="container" style="align-content: center;">
+                <div class="table ">
+                    <thead>
+                        <th>Kabl za</th>
+                        <th>Jack</th>
+                        <th>Duzina</th>
+                        <th>Broj boja</th>
+                        <th>Sara</th>
+                        <th>Boja zastite kabla</th>
+                        <th>Boja zastite jack-a</th>
+                    </thead>
+                    <tbody>
+                        <td>{{kablNaziv}}</td>
+                        <td>Neutrik</td>
+                        <td>{{duzinaKabla}}</td>
+                        <td>{{kablbrBoja}}</td>
+                        <td>{{cablePattern}}</td>
+                        <td>{{kablboje}}</td>
+                        <td>{{kablBojaJacka}}</td>
+                    </tbody>
                 </div>
             </div>
         </div>
