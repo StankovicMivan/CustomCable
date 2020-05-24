@@ -18,6 +18,7 @@
 }
 
 #cart {
+    display: block;
     margin-top: 50px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -29,6 +30,8 @@
 }
 
 #create {
+    display: block;
+    /* position: absolute; */
     margin-top: 50px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -128,9 +131,12 @@
     cursor: pointer;
 }
 
-.card-img-top {
+
+/* .card-img-top {
     /* border: 1px solid #000000; */
-}
+
+
+/* }  */
 
 .card img {
     height: 250px;

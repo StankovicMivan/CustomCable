@@ -7,6 +7,5 @@ img {
     max-width: 100%;
 }
 
-::content {
-    width: width=device-width;
-}
+
+/* button.navbar-toggler.navbar-toggler-right {} */

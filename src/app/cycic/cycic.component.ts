@@ -52,6 +52,7 @@ export class CycicComponent implements OnInit {
   }
   duzinaKabla: string = '1 m';
 
+
   proveraDuzine() {
     if (this.kablDuzina == 1) {
       this.duzinaKabla = '1 m';
@@ -310,7 +311,9 @@ export class CycicComponent implements OnInit {
 
 
   }
-
+  proveraD(){
+    
+  }
 
   srcPathBaseForSingleColor = '../../assets/img/create/full';
   singleColor =0;

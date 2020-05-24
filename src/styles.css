@@ -9,12 +9,14 @@ html {
     width: devide-width;
 }
 
-.app-root {
+
+/* .app-root {
     max-width: 100%;
     position: absolute;
     display: block;
-}
+} */
 
-::content {
+
+/* ::content {
     width: width=device-width;
-}
+} */
