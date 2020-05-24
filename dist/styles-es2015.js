@@ -11,7 +11,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(true);
 // Module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", "",{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,8EAA8E","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\n"]}]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\nhtml {\n    position: relative;\n    min-height: 100%;\n}\n\n#page-top {\n    width: devide-width;\n}\n\n/* .app-root {\n    max-width: 100%;\n    position: absolute;\n    display: block;\n} */\n\n/* ::content {\n    width: width=device-width;\n} */", "",{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,8EAA8E;;AAE9E;IACI,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;;AAGA;;;;GAIG;;AAGH;;GAEG","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\n\nhtml {\n    position: relative;\n    min-height: 100%;\n}\n\n#page-top {\n    width: devide-width;\n}\n\n\n/* .app-root {\n    max-width: 100%;\n    position: absolute;\n    display: block;\n} */\n\n\n/* ::content {\n    width: width=device-width;\n} */"]}]);
 // Exports
 module.exports = exports;
 
