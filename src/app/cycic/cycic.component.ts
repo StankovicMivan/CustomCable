@@ -20,7 +20,18 @@ export class CycicComponent implements OnInit {
 
   ngOnInit(): void {
     this.ref.detectChanges();
-
+    // using Twilio SendGrid's v3 Node.js Library
+    // https://github.com/sendgrid/sendgrid-nodejs
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      to: 'ivanjoca@gmail.com',
+      from: 'stankovicmivan@gmail.com',
+      subject: 'Sending with Twilio SendGrid is Fun',
+      text: 'and easy to do anywhere, even with Node.js',
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    };
+    sgMail.send(msg);
   }
 
   /**
@@ -311,13 +322,11 @@ export class CycicComponent implements OnInit {
 
 
   }
-  proveraD(){
-    
-  }
+
 
   srcPathBaseForSingleColor = '../../assets/img/create/full';
-  singleColor =0;
-  srcFullPathForSingleColor ="";
+  singleColor = 0;
+  srcFullPathForSingleColor = "";
   /*
   1 -> White
   2 -> Red
@@ -327,11 +336,12 @@ export class CycicComponent implements OnInit {
   6 -> Green
   7 -> Gray
   */
-  previewPatternSingleColor(){
+  previewPatternSingleColor() {
     this.srcFullPathForSingleColor = this.srcPathBaseForSingleColor + "/" + this.singleColor + '.svg';
-    if(this.singleColor != 0 ){
+    if (this.singleColor != 0) {
       document.getElementById("previewPatternSingleColor").setAttribute('src', this.srcFullPathForSingleColor);
-     
+
     }
   }
+
 }
