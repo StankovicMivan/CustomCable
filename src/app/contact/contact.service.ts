@@ -1,31 +1,65 @@
-import {Injectable} from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { catchError, retry } from 'rxjs/internal/operators';
 import { ContactMail } from '../mailtemplates/contact.model';
+import { Observable, of } from 'rxjs';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders(
+        {
+            'Content-Type': 'application/json'
+            // 'Authorization': 'Bearer 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'
+        }
+    )
+
+};
+const dataContact =
+{
+    "personalizations":
+        [{
+            "to":
+                [{ "email": "ivanjoca@gmail.com", "name": "John Doe" }],
+            "subject": "Hello, World!"
+        }],
+    "content": [{ "type": "text/plain", "value": "Heya!" }], "from": { "email": "stankovicmivan@gmail.com", "name": "Sam Smith" }, "reply_to": { "email": "sam.smith@example.com", "name": "Sam Smith" }
 };
 
 @Injectable()
-export class KlubService {
+export class ContactService {
 
-  constructor(private http:HttpClient) {}
+    constructor(private http: HttpClient) { }
 
-  private url = 'http://localhost:8082/api/klubovi';
- 
+    private url = 'http://localhost:8080/api/contact';
 
-//   public getKlubovi() {
-//     return this.http.get<Klub[]>(this.klubUrl);
-//   }
+    // post("/api/contact")
+    createContact(newContact: ContactMail) {
+       
+        this.http
+            .post<{ message: string }>(this.url, newContact)
+            .subscribe(responseData => {
+                console.log(responseData.message);
+            
+            });
+    }
+    // createContact(newContact: ContactMail):Observable<ContactMail> {
+    //     console.log(newContact);
+    //     return this.http.post<ContactMail>('http://localhost:8080/api/contact', newContact);
+    //     // return this.http.post<ContactMail>(this.url, newContact, httpOptions)
+    //     //   .pipe(
+    //     //     catchError(this.handleError('addSmartphone', newContact))
+    //     //   );
+    //   }
 
-//   public deleteKlub(klub) {
-//     return this.http.delete(this.klubUrl + "/"+ klub.id);
-//   }
+    private handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+            console.error(error);
+            this.log(`${operation} failed: ${error.message}`);
 
-  public send(klub) {
-    // return this.http.post<Klub>(this.klubUrl, klub);
-  }
-
+            return of(result as T);
+        };
+    }
+    private log(message: string) {
+        console.log(message);
+    }
 }

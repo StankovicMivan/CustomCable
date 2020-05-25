@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-const sgMail = require('@sendgrid/mail');
+// const sgMail = require('@sendgrid/mail');
 
 @Component({
   selector: 'app-cycic',
@@ -21,17 +21,21 @@ export class CycicComponent implements OnInit {
 
   ngOnInit(): void {
     this.ref.detectChanges();
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    let msg = {
-      to: 'ivanjoca@gmail.com',
-      from: 'stankovicmivan@gmail.com',
-      subject: 'Sending with Twilio SendGrid is Fun',
-      text: 'and easy to do anywhere, even with Node.js',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    };
-    sgMail.send(sendgrid);
+    // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    // let msg = {
+    //   to: 'ivanjoca@gmail.com',
+    //   from: 'stankovicmivan@gmail.com',
+    //   subject: 'Sending with Twilio SendGrid is Fun',
+    //   text: 'and easy to do anywhere, even with Node.js',
+    //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    // };
+    // sgMail.send(sendgrid);
+
+    
+
   }
 
+  
   /**
    * selectCable
    */

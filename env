@@ -1,3 +1,3 @@
-echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+echo "export SENDGRID_API_KEY='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'" > sendgrid.env
 echo "sendgrid.env" >> .gitignore
 source ./sendgrid.env
