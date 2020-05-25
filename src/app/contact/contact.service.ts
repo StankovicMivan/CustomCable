@@ -30,7 +30,7 @@ export class ContactService {
 
     constructor(private http: HttpClient) { }
 
-    private url = 'http://localhost:8080/api/contact';
+    private url = 'api/contact';
 
     // post("/api/contact")
     createContact(newContact: ContactMail) {
