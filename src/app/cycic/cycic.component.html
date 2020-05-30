@@ -3,7 +3,7 @@
 <!-- CYCIC == Create your custom instrument cable -->
 <div class="row">
 
-    <div class="container col-12 col-md-8" id="create">
+    <div class="container col-12 col-md-12" id="create">
         <div class="group">
             <div class="container" style="padding-top: 25px;">
                 <div class="accordion" id="accordionExample">
@@ -11,7 +11,7 @@
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-                                    Step 1: What you need?
+                                    <span id="spanOne">Step 1: What you need?</span>
                                 </button>
                             </h2>
                         </div>
@@ -21,19 +21,19 @@
                                     <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="guitarCable()">
                                         <img src="assets/img/cycic/guitarcable.jpg" class="card-img-top" alt="..." style="width: 280px;height: 250px;">
                                         <div class="card-body">
-                                            <p class="text-center">Guitar</p>
+                                            <span id='guitar' class="text-center">Guitar</span>
                                         </div>
                                     </div>
                                     <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="micCable()">
                                         <img src="assets/img/cycic/miccable.jpg" class="card-img-top" alt="..." style="width: 280px;height: 250px;border: black 1px;">
                                         <div class="card-body" style="border: black 1px;">
-                                            <p class="text-center">Mic</p>
+                                            <span id='mic' class="text-center">Mic</span>
                                         </div>
                                     </div>
                                     <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="rcaCable()">
                                         <img src="assets/img/cycic/rcacable.jpg" class="card-img-top" alt="..." style="width: 280px;height: 250px;">
                                         <div class="card-body">
-                                            <p class="ctext-center">1/4 to RCA.</p>
+                                            <span id='rca' class="ctext-center">1/4 to RCA.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                         <div class="card-header" id="headingFour">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Step 2: What is your desired cable length?
+                                   <span id="spanTwo">Step 2: What is your desired cable length?</span>
                                 </button>
                             </h2>
                         </div>
@@ -62,7 +62,7 @@
                         <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Step 3: Do you want your cable in one or two colors?
+                                    <span id='spanThree'>Step 3: Do you want your cable in one or two colors?</span>
                                 </button>
                             </h2>
                         </div>
@@ -72,22 +72,22 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <label id="controlSelectLabel">How many colors do you want? </label>
+                                                <label id="controlSelectLabel"><span id='colorNumberLabel'>How many colors do you want?</span></label>
                                             </div>
                                             <div class="col-sm-8">
-                                                <select [(ngModel)]="kablbrBoja" class="form-control" id="controlSelect" placeholder="Izaberi">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
+                                                <select [(ngModel)]="cableColorNumber" class="form-control" id="controlSelect" placeholder="Izaberi">
+                                                    <option value="1"><span id='cableColorOne'>One</span></option>
+                                                    <option value="2"><span id='cableColorTwo'>Two</span></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="container">
-                                        <div class="row" *ngIf="kablbrBoja == 2">
+                                        <div class="row" *ngIf="cableColorNumber == 2">
                                             <div class="col-sm-4">
-                                                <label id="controlSelectLabel">Choose a knitting pattern.</label>
+                                                <label id="controlSelectLabel"><span *ngIf="lang =='en'">Choose a knitting pattern</span><span *ngIf="lang =='sr'">Izaberi redni broj dole prikazanih sablona</span></label>
                                             </div>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-8" *ngIf="lang == 'en'">
                                                 <select [(ngModel)]="cablePattern" class="form-control" (click)="previewPattern()">
                                                     <option value="1">1. Pattern</option>
                                                     <option value="2">2. Pattern</option>
@@ -97,10 +97,26 @@
                                                     <option value="6">6. Pattern</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-12 ">
+                                            <div class="col-sm-8" *ngIf="lang == 'sr'">
+                                                <select [(ngModel)]="cablePattern" class="form-control" (click)="previewPattern()">
+                                                    <option value="1">1. Sablon</option>
+                                                    <option value="2">2. Sablon</option>
+                                                    <option value="3">3. Sablon</option>
+                                                    <option value="4">4. Sablon</option>
+                                                    <option value="5">5. Sablon</option>
+                                                    <option value="6">6. Sablon</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 " *ngIf="lang == 'en'">
                                                 <span>Primary color : <img
                                                         style="background-color: #343A40; width: 10px; height: 10px;" /></span><br>
                                                 <span>Secondary color : <img
+                                                        style="background-color: #FEC810;width: 10px; height: 10px;" /></span>
+                                            </div>
+                                            <div class="col-sm-12 " *ngIf="lang == 'sr'">
+                                                <span>Osnovna boja : <img
+                                                        style="background-color: #343A40; width: 10px; height: 10px;" /></span><br>
+                                                <span>Pomocna boja : <img
                                                         style="background-color: #FEC810;width: 10px; height: 10px;" /></span>
                                             </div>
                                             <div class="col-sm-12">
@@ -111,7 +127,8 @@
                                                             <div class="card">
                                                                 <img src="assets/img/create/pattern/pattern-1.svg" class="card-img-top" alt="">
                                                                 <div class="card-body">
-                                                                    <p class="text-center">1. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'en'">1. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'sr'">1. Sablon</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -119,7 +136,8 @@
                                                             <div class="card">
                                                                 <img src="assets/img/create/pattern/pattern-1l.svg" class="card-img-top" alt="">
                                                                 <div class="card-body">
-                                                                    <p class="text-center">2. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'en'">2. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'sr'">2. Sablon</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -127,7 +145,8 @@
                                                             <div class="card">
                                                                 <img src="assets/img/create/pattern/pattern-2.svg" class="card-img-top" alt="">
                                                                 <div class="card-body">
-                                                                    <p class="text-center">3. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'en'">3. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'sr'">3. Sablon</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -135,7 +154,8 @@
                                                             <div class="card">
                                                                 <img src="assets/img/create/pattern/pattern-2l.svg" class="card-img-top" alt="">
                                                                 <div class="card-body">
-                                                                    <p class="text-center">4. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'en'">4. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'sr'">4. Sablon</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -143,7 +163,8 @@
                                                             <div class="card">
                                                                 <img src="assets/img/create/pattern/pattern-3.svg" class="card-img-top" alt="">
                                                                 <div class="card-body">
-                                                                    <p class="text-center">5. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'en'">5. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'sr'">5. Sablon</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -151,7 +172,8 @@
                                                             <div class="card">
                                                                 <img src="assets/img/create/pattern/pattern-3l.svg" class="card-img-top" alt="">
                                                                 <div class="card-body">
-                                                                    <p class="text-center">6. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'en'">6. Pattern</p>
+                                                                    <p class="text-center" *ngIf="lang == 'sr'">6. Sablon</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -171,76 +193,76 @@
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Step 4: What color do you want for your chosen pattern?
-                                </button>
+                                    <span id='spanFour'>Step 4: What color do you want for your chosen pattern?</span></button>
                             </h2>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                <div *ngIf="kablbrBoja == 1" class="row">
+                                <div *ngIf="cableColorNumber == 1" class="row">
 
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <label id="controlSelectLabel">Select color:</label>
+                                                <label id="controlSelectLabel"><span *ngIf="lang == 'en'">Select color:</span><span *ngIf="lang == 'sr'">Izaberi boju:</span></label>
+
                                             </div>
                                             <div class="col-sm-6">
                                                 <select class=form-control [(ngModel)]="singleColor" (click)="previewPatternSingleColor()">
-                                                    <option value="1">White</option>
-                                                    <option value="2">Red</option>
-                                                    <option value="3">Blue</option>
-                                                    <option value="4">Gold</option>
-                                                    <option value="5">Yellow</option>
-                                                    <option value="6">Green</option>
-                                                    <option value="7">Gray</option>
+                                                    <option value="1"><span *ngIf="lang == 'en'">White</span><span *ngIf="lang == 'sr'">Bela</span></option>
+                                                    <option value="2"><span *ngIf="lang == 'en'">Red</span><span *ngIf="lang == 'sr'">Crvena</span></option>
+                                                    <option value="3"><span *ngIf="lang == 'en'">Blue</span><span *ngIf="lang == 'sr'">Plava</span></option>
+                                                    <option value="4"><span *ngIf="lang == 'en'">Gold</span><span *ngIf="lang == 'sr'">Zlatna</span></option>
+                                                    <option value="5"><span *ngIf="lang == 'en'">Yellow</span><span *ngIf="lang == 'sr'">Zuta</span></option>
+                                                    <option value="6"><span *ngIf="lang == 'en'">Green</span><span *ngIf="lang == 'sr'">Zelena</span></option>
+                                                    <option value="7"><span *ngIf="lang == 'en'">Gray</span><span *ngIf="lang == 'sr'">Siva</span></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div *ngIf="kablbrBoja == 1">
+                                        <div *ngIf="cableColorNumber == 1">
                                             <img id="previewPatternSingleColor"></div>
                                     </div>
 
                                 </div>
-                                <div *ngIf="kablbrBoja == 2" class="row">
+                                <div *ngIf="cableColorNumber == 2" class="row">
                                     <div class="col-sm-6">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <label id="controlSelectLabel">Select your Primary color: </label>
+                                                <label id="controlSelectLabel"><span *ngIf="lang == 'en'">Select your Primary color: </span><span *ngIf="lang == 'sr'">Izaberi osnovnu boju:</span></label>
                                             </div>
                                             <div class="col-sm-6">
-                                                <select [(ngModel)]='primaryColor' class=form-control (click)='previewPattern()'>
-                                                    <option value="1">White</option>
-                                                    <option value="2">Red</option>
-                                                    <option value="3">Blue</option>
-                                                    <option value="4">Gold</option>
-                                                    <option value="5">Yellow</option>
-                                                    <option value="6">Green</option>
-                                                    <option value="7">Gray</option>
+                                                <select [(ngModel)]='primaryColor ' class=form-control (click)='previewPattern() '>
+                                                    <option value="1"><span *ngIf="lang == 'en'">White</span><span *ngIf="lang == 'sr'">Bela</span></option>
+                                                    <option value="2"><span *ngIf="lang == 'en'">Red</span><span *ngIf="lang == 'sr'">Crvena</span></option>
+                                                    <option value="3"><span *ngIf="lang == 'en'">Blue</span><span *ngIf="lang == 'sr'">Plava</span></option>
+                                                    <option value="4"><span *ngIf="lang == 'en'">Gold</span><span *ngIf="lang == 'sr'">Zlatna</span></option>
+                                                    <option value="5"><span *ngIf="lang == 'en'">Yellow</span><span *ngIf="lang == 'sr'">Zuta</span></option>
+                                                    <option value="6"><span *ngIf="lang == 'en'">Green</span><span *ngIf="lang == 'sr'">Zelena</span></option>
+                                                    <option value="7"><span *ngIf="lang == 'en'">Gray</span><span *ngIf="lang == 'sr'">Siva</span></option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <label id="controlSelectLabel">Select your Secondary color: </label>
+                                                <label id="controlSelectLabel"><span *ngIf="lang == 'en'">Select your Secondary color:</span><span *ngIf="lang == 'sr'">Izaberi pomocnu boju:</span> </label>
                                             </div>
                                             <div class="col-sm-6">
-                                                <select [(ngModel)]='secondaryColor' class=form-control (click)='previewPattern()'>
-                                                    <option *ngIf="primaryColor != 1" value="1">White</option>
-                                                    <option *ngIf="primaryColor != 2" value="2">Red</option>
-                                                    <option *ngIf="primaryColor != 3" value="3">Blue</option>
-                                                    <option *ngIf="primaryColor != 4" value="4">Gold</option>
-                                                    <option *ngIf="primaryColor != 5" value="5">Yellow</option>
-                                                    <option *ngIf="primaryColor != 6" value="6">Green</option>
-                                                    <option *ngIf="primaryColor != 7" value="7">Gray</option>
+                                                <select [(ngModel)]='secondaryColor ' class=form-control (click)='previewPattern() '>
+                                                    <option *ngIf="primaryColor != 1" value="1"><span *ngIf="lang == 'en'">White</span><span *ngIf="lang == 'sr'">Bela</span></option>
+                                                    <option *ngIf="primaryColor != 2" value="2"><span *ngIf="lang == 'en'">Red</span><span *ngIf="lang == 'sr'">Crvena</span></option>
+                                                    <option *ngIf="primaryColor != 3" value="3"><span *ngIf="lang == 'en'">Blue</span><span *ngIf="lang == 'sr'">Plava</span></option>
+                                                    <option *ngIf="primaryColor != 4" value="4"><span *ngIf="lang == 'en'">Gold</span><span *ngIf="lang == 'sr'">Zlatna</span></option>
+                                                    <option *ngIf="primaryColor != 5" value="5"><span *ngIf="lang == 'en'">Yellow</span><span *ngIf="lang == 'sr'">Zuta</span></option>
+                                                    <option *ngIf="primaryColor != 6" value="6"><span *ngIf="lang == 'en'">Green</span><span *ngIf="lang == 'sr'">Zelena</span></option>
+                                                    <option *ngIf="primaryColor != 7" value="7"><span *ngIf="lang == 'en'">Gray</span><span *ngIf="lang == 'sr'">Siva</span></option>
                                                 </select>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="col-sm-6">
-                                        <div *ngIf="kablbrBoja == 2 && secondaryColor != 0 && primaryColor !=0 && cablePattern != 0">
+                                        <div *ngIf="cableColorNumber == 2 && secondaryColor != 0 && primaryColor !=0 && cablePattern != 0">
                                             <img id="previewPattern"></div>
                                     </div>
                                 </div>
@@ -252,7 +274,7 @@
                         <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Step 5: What is your desired potection color?
+                                    <span id="spanFive">Step 5: What is your desired potection color?</span>
                                 </button>
                             </h2>
                         </div>
@@ -265,9 +287,9 @@
                                             <div class="card">
                                                 <img src="" class="card-img-top" alt="" style="background-color: red; ">
                                                 <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" (click)='c1()' value="1" id="defaultCheck1">
+                                                    <input class="form-check-input" type="radio" (click)='c1() ' value="1" id="defaultCheck1">
                                                     <label class="form-check-label " for="defaultCheck1">
-                                                        Red
+                                                        <span *ngIf="lang == 'en'">Red</span><span *ngIf="lang == 'sr'">Crvena</span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -275,36 +297,36 @@
                                             <div class="card">
                                                 <img src="" class="card-img-top" alt="" style="background-color: green; ">
                                                 <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" (click)='c2()' value="2" id="defaultCheck2">
+                                                    <input class="form-check-input" type="radio" (click)='c2() ' value="2" id="defaultCheck2">
                                                     <label class="form-check-label " for="defaultCheck2">
-                                                        Green
+                                                        <span *ngIf="lang == 'en'">Green</span><span *ngIf="lang == 'sr'">Zelena</span>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="card">
                                                 <img src="" class="card-img-top" alt="" style="background-color: blue; ">
                                                 <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" value="3" (click)='c3()' id="defaultCheck3">
+                                                    <input class="form-check-input" type="radio" value="3" (click)='c3() ' id="defaultCheck3">
                                                     <label class="form-check-label " for="defaultCheck3">
-                                                        Blue
+                                                        <span *ngIf="lang == 'en'">Blue</span><span *ngIf="lang == 'sr'">Plava</span>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="card">
                                                 <img src="" class="card-img-top" alt="" style="background-color: whitesmoke; ">
                                                 <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" value="4" (click)='c4()' id="defaultCheck4">
+                                                    <input class="form-check-input" type="radio" value="4" (click)='c4() ' id="defaultCheck4">
                                                     <label class="form-check-label " for="defaultCheck4">
-                                                        White
+                                                        <span *ngIf="lang == 'en'">White</span><span *ngIf="lang == 'sr'">Bela</span>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="card">
                                                 <img src="" class="card-img-top" alt="" style="background-color: black; ">
                                                 <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" value="5" (click)='c5()' id="defaultCheck5">
+                                                    <input class="form-check-input" type="radio" value="5" (click)='c5() ' id="defaultCheck5">
                                                     <label class="form-check-label " for="defaultCheck5">
-                                                        Black
+                                                        <span *ngIf="lang == 'en'">Black</span><span *ngIf="lang == 'sr'">Crna</span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -312,12 +334,55 @@
                                             <div class="card">
                                                 <img src="" class="card-img-top" alt="" style="background-color: yellow; ">
                                                 <div class="card-body">
-                                                    <input class="form-check-input" type="checkbox" value="7" (click)='c7()' id="defaultCheck7">
-                                                    <label class="form-check-label " for="defaultCheck7">
-                                                        Yellow
+                                                    <input class="form-check-input" type="radio" value="6" (click)='c6() ' id="defaultCheck6">
+                                                    <label class="form-check-label " for="defaultCheck6">
+                                                        <span *ngIf="lang == 'en'">Yellow</span><span *ngIf="lang == 'sr'">Zuta</span>
                                                     </label>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingSix">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    <span id="spanFinal">Final Step: Confirm build?</span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="">
+                                    <div class="container form-check">
+                                        <div class="row">
+                                            <div class="group">
+                                                <div class="container" style="align-content: center;">
+                                                    <div class="table ">
+                                                        <thead>
+                                                            <th>Kabl za</th>
+                                                            <th>Jack</th>
+                                                            <th>Duzina</th>
+                                                            <!-- <th>Broj boja</th> -->
+                                                            <th *ngIf="cableColorNumber !=0">Pattern</th>
+                                                            <th>Jack shield</th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <td>{{kablNaziv}}</td>
+                                                            <td>Neutrik</td>
+                                                            <td>{{duzinaKabla}}</td>
+                                                            <!-- <td>{{kablbrBoja}}</td> -->
+                                                            <td *ngIf="cableColorNumber !=0 "><img id="previewPatternTwo"></td>
+                                                            <td>{{kablBojaJacka}}</td>
+                                                        </tbody>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -329,29 +394,6 @@
         </div>
     </div>
     <div class="container col-12 col-md-4" id="cart">
-        <div class="group">
-            <div class="container" style="align-content: center;">
-                <div class="table ">
-                    <thead>
-                        <th>Kabl za</th>
-                        <th>Jack</th>
-                        <th>Duzina</th>
-                        <th>Broj boja</th>
-                        <th>Sara</th>
-                        <th>Boja zastite kabla</th>
-                        <th>Boja zastite jack-a</th>
-                    </thead>
-                    <tbody>
-                        <td>{{kablNaziv}}</td>
-                        <td>Neutrik</td>
-                        <td>{{duzinaKabla}}</td>
-                        <td>{{kablbrBoja}}</td>
-                        <td>{{cablePattern}}</td>
-                        <td>{{kablboje}}</td>
-                        <td>{{kablBojaJacka}}</td>
-                    </tbody>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>

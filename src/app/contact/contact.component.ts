@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ContactService } from './contact.service';
 import{ HttpClient, HttpHeaders} from '@angular/common/http';
 import { ContactMail } from '../mailtemplates/contact.model';
+import {ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 // import {ContactService} from './contact.service';
 
 @Component({
@@ -10,12 +12,22 @@ import { ContactMail } from '../mailtemplates/contact.model';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  lang: string = this.route.snapshot.params['lang'];
   
-  constructor(private http: HttpClient, private ref: ChangeDetectorRef) { }
+  constructor(private http: HttpClient, private ref: ChangeDetectorRef, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ref.detectChanges();
-    
+    if(this.lang =='sr'){
+
+      
+      document.getElementById('name').setAttribute('placeholder', 'Ime i prezime');
+      document.getElementById('email').setAttribute('placeholder', 'Email adresa');
+      document.getElementById('phone').setAttribute('placeholder', 'Broj telefona');
+      document.getElementById('message').setAttribute('placeholder', 'Vasa poruka');
+      document.getElementById('btnS').innerHTML = "Posalji";
+      
+    }
   }
   message : ContactMail ;
   yourName: string ='';
@@ -23,17 +35,17 @@ export class ContactComponent implements OnInit {
   yourPhone: string = '';
   yourMessage: string = '';
 
-
   sendContactMail(){
     this.message = new ContactMail(this.yourName, this.yourEmail, this.yourPhone, this.yourMessage);
     // console.log(this.message);
-    
+    console.log(this.lang);
     let contactService= new ContactService(this.http);
     contactService.createContact(this.message);
     
     // this.contactService.postMail();
   
   }
+
 
  
   
@@ -53,62 +65,3 @@ export class ContactComponent implements OnInit {
   
 }
 
-
-//  httpOptions = {
-  //   headers: new HttpHeaders(
-  //       {
-  //           'Content-Type': 'application/json',
-  //           'Authorization': 'Bearer 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'
-  //       }
-  //   )
-
-// };
-//    adata = {
-//     "personalizations":
-//         [{
-//             "to":
-//                 [{ "email": "ivanjoca@gmail.com", "name": "John Doe" }],
-//             "subject": "Hello, World!"
-//         }],
-//     "content": [{ "type": "text/plain", "value": "Heya!" }], "from": { "email": "stankovicmivan@gmail.com", "name": "Sam Smith" }, "reply_to": { "email": "sam.smith@example.com", "name": "Sam Smith" }
-// };
-
-//  let data = JSON.stringify({
-  //   "personalizations": [
-  //     {
-  //       "to": [
-  //         {
-  //           "email": "ivanjoca@example.com",
-  //           "name": "Ivan Stankovic"
-  //         }
-  //       ],
-  //       "dynamic_template_data": {
-  //         "verb": "",
-  //         "adjective": "",
-  //         "noun": "",
-  //         "currentDayofWeek": ""
-  //       },
-  //       "subject": "Hello, World!"
-  //     }
-  //   ],
-  //   "from": {
-  //     "email": "stankovicmivan@gmail.com",
-  //     "name": "John Doe"
-  //   },
-  //   "reply_to": {
-  //     "email": "noreply@johndoe.com",
-  //     "name": "John Doe"
-  //   }
-  // });
-  // let xhr = new XMLHttpRequest();
-  // xhr.withCredentials = true;
-  // xhr.addEventListener("readystatechange", function () {
-  //   if (this.readyState === this.DONE) {
-  //     console.log(this.responseText);
-  //   }
-  // });
-  // xhr.open("POST", "https://api.sendgrid.com/v3/mail/send");
-  // xhr.setRequestHeader("authorization", "Bearer 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");
-  // xhr.setRequestHeader("content-type", "application/json");
-  
-  // xhr.send(data);

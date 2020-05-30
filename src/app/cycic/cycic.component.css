@@ -144,6 +144,12 @@
     background-color: #f8f8f899;
 }
 
+#previewPatternTwo {
+    height: 150px;
+    width: 100%;
+    background-color: #FBFBFB;
+}
+
 .card .card-body p {
     height: 10px;
     border: none;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  lang: string = this.route.snapshot.params['lang'];
+  constructor(private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if(this.lang =='sr'){
+
+      
+      document.getElementById('choiceOne').innerHTML = '1. izbor';
+      document.getElementById('choiceTwo').innerHTML = '2. izbor';
+      document.getElementById('choiceThree').innerHTML = '3. izbor';
+      document.getElementById('choiceFour').innerHTML = '4. izbor';
+
+    }
   }
 
+  create(){
+    this.router.navigate(['create/' , this.lang]);
+  }
 }

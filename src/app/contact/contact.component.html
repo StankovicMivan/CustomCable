@@ -2,8 +2,8 @@
 <section class="page-section" id="contact">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">If you have some questions, just send us a email.</h3>
+            <h2 class="section-heading text-uppercase"><span *ngIf="lang =='en'">Contact Us</span><span *ngIf="lang =='sr'">Kontaktirajte nas</span></h2>
+            <h3 class="section-subheading text-muted"><span *ngIf="lang =='en'">If you have some questions, just send us a email.</span><span *ngIf="lang =='sr'">Ako imate nekih pitanja, posaljite nam email.</span></h3>
         </div>
         <form id="contactForm" name="EmailTestForm" novalidate="novalidate" action="https://formspree.io/xgenovgq" method="POST">
             <div class="row align-items-stretch mb-5">
