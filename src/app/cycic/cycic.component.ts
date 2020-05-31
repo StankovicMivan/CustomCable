@@ -1,8 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { OrderMail } from '../mailtemplates/order.model';
+import { CycicService } from './cycic.service';
 // const sgMail = require('@sendgrid/mail');
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-cycic',
   templateUrl: './cycic.component.html',
@@ -16,9 +18,15 @@ export class CycicComponent implements OnInit {
   cableColorNumber: number = 0;
   kablboje = 0;
   kablNaziv = '';
+  yourName: string;
+  yourEmail: string;
+  yourPhone: string;
+  yourAddress: string;
+  city: string;
+  zipCode: number;
 
-  constructor(private ref: ChangeDetectorRef, private router: Router, private route: ActivatedRoute) {
-    
+  constructor(private ref: ChangeDetectorRef, private router: Router, private route: ActivatedRoute, private http: HttpClient) {
+
   }
 
   ngOnInit(): void {
@@ -47,7 +55,28 @@ export class CycicComponent implements OnInit {
 
 
   }
+  sendOrder() {
+    let order = new OrderMail(
+      this.yourName,
+      this.yourEmail,
+      this.yourPhone,
+      this.yourAddress,
+      this.city,
+      this.zipCode,
+      this.kablTip,
+      this.cableLenght,
+      this.cableColorNumber,
+      this.cablePattern,
+      this.singleColor,
+      this.primaryColor,
+      this.secondaryColor,
+      this.cableProtectionColor);
+    // console.log(this.message);
+    console.log(this.lang);
+    let orderService = new CycicService(this.http);
+    orderService.createOrder(order);
 
+  }
 
   /**
    * selectCable
@@ -77,26 +106,35 @@ export class CycicComponent implements OnInit {
     }
   }
   duzinaKabla: string = '1 m';
-
+  cableLenght: number = 0;
 
   proveraDuzine() {
     if (this.kablDuzina == 1) {
+      this.cableLenght = 1;
       this.duzinaKabla = '1 m';
     } if (this.kablDuzina == 2) {
+      this.cableLenght = 1.5;
       this.duzinaKabla = '1,5 m';
     } if (this.kablDuzina == 3) {
+      this.cableLenght = 2;
       this.duzinaKabla = '2 m';
     } if (this.kablDuzina == 4) {
+      this.cableLenght = 2.5;
       this.duzinaKabla = '2,5 m';
     } if (this.kablDuzina == 5) {
+      this.cableLenght = 3;
       this.duzinaKabla = '3 m';
     } if (this.kablDuzina == 6) {
+      this.cableLenght = 3.5;
       this.duzinaKabla = '3,5 m';
     } if (this.kablDuzina == 7) {
+      this.cableLenght = 5;
       this.duzinaKabla = '5 m';
     } if (this.kablDuzina == 8) {
+      this.cableLenght = 6;
       this.duzinaKabla = '6 m';
     } if (this.kablDuzina == 9) {
+      this.cableLenght = 10;
       this.duzinaKabla = '10 m';
     }
   }
@@ -113,6 +151,7 @@ export class CycicComponent implements OnInit {
    6 = siva
    7 = zuta
  */
+  cableProtectionColor = 0;
   boje: string = '';
   //provera broja boja
   color1 = false;
@@ -357,5 +396,7 @@ export class CycicComponent implements OnInit {
       document.getElementById("previewPatternTwo").setAttribute('src', this.srcFullPathForSingleColor);
     }
   }
+
+
 
 }

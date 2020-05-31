@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{Router} from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -8,22 +8,38 @@ import{Router} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.lang = document.getElementById('mainNav').getAttribute('lang');
   }
 
-  lang = 'en';
+  lang = '';
+ 
+
   // path = '';
   setLangLink (event: any){
-    // window.location.reload();
-    this.router.navigate(['/' , this.lang]);
-    // console.log(this.lang);
+
+    
+    document.getElementById('mainNav').setAttribute('lang', this.lang);
+    // this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
+    if(document.getElementById('mainNav').getAttribute('lang') != this.lang){
+      this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
+    
+      location.reload();
+    }
+ 
+    // this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
+    
   }
   setLangLinkClick (){
-    // window.location.reload();
-    this.router.navigate(['/' , this.lang]);
+    document.getElementById('mainNav').setAttribute('lang', this.lang);
     // console.log(this.lang);
+      if(document.getElementById('mainNav').getAttribute('lang') != this.lang){
+        this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
+    
+        location.reload();
+    }
   }
   contactLink(){
     this.router.navigate(['contact/' , this.lang]);

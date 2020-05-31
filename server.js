@@ -2,7 +2,7 @@
 const http = require("http");
 const express = require('express');
 const path = require('path');
-// const cors = require('cors');
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const sgMail = require('@sendgrid/mail');
 
-// app.use(cors());
+app.use(cors());
 app.use(express.static(__dirname + '/dist'));
 
 app.get('/*', function(req, res) {
@@ -32,52 +32,70 @@ app.use((req, res, next) => {
     );
     next();
 });
+// const { SENDGRID_API_KEY } = require('./sendgrid');
+
 
 app.post("/api/contact", (req, res, next) => {
-    console.log('unutar server post-a');
+    console.log('unutar server post-a contact');
     const mail = req.body;
     console.log(mail);
-    sgMail.setApiKey('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');
+    // sgMail.setApiKey('');
+    // let msg = {
+    //     to: 'info@customcable.in.rs',
+    //     from: mail.yourEmail,
+    //     subject: 'Custom Cable: contact form',
+    //     // text: 'and easy to do anywhere, even with Node.js',
+    //     html: mail.yourMessage,
+    // };
+    // sgMail.send(msg);
+    // let msg2 = {
+    //     to: mail.yourEmail,
+    //     from: mail.yourEmail,
+    //     subject: 'Custom Cable: contact form',
+    //     // text: 'and easy to do anywhere, even with Node.js',
+    //     html: mail.yourMessage,
+    // };
+    // sgMail.send(msg2);
+
+
+    // const sgMail = require('@sendgrid/mail');
+
+    sgMail.setApiKey("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");
+    const msg = {
+        to: 'test@example.com',
+        from: 'test@example.com',
+        subject: 'Sending with Twilio SendGrid is Fun',
+        text: 'and easy to do anywhere, even with Node.js',
+        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    };
+    sgMail.send(msg);
+
+
+    res.status(201).json({
+        message: 'Email sent successfully'
+    });
+});
+app.post("/api/order", (req, res, next) => {
+    console.log('unutar server post-a order');
+    const mail = req.body;
+    console.log(mail);
+    sgMail.setApiKey("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");
     let msg = {
         to: 'ivanjoca@gmail.com',
         from: mail.yourEmail,
         subject: 'Custom Cable: contact form',
         // text: 'and easy to do anywhere, even with Node.js',
-        html: yourMessage,
+        html: mail.yourMessage,
     };
     sgMail.send(msg);
     res.status(201).json({
         message: 'Email sent successfully'
     });
 });
-// app.post("/api/contact", function(req) {
-//     console.log('unutar server post-a');
-//     var newContact = req.body;
-//     // newContact.createDate = new Date();
-
-//     // if (!req.body.name) {
-//     //     handleError(res, "Invalid user input", "Must provide a name.", 400);
-//     // } else {
-//     //     console.log(this.newContact);
-//     // }
-
-// });
-app.listen(process.env.PORT || 8080);
-
-
-
-
-
-// using Twilio SendGrid's v3 Node.js Library
-// https://github.com/sendgrid/sendgrid-nodejs
-
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-// let msg = {
-//     to: 'ivanjoca@gmail.com',
-//     from: 'stankovicmivan@gmail.com',
-//     subject: 'Sending with Twilio SendGrid is Fun',
-//     text: 'and easy to do anywhere, even with Node.js',
-//     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-// };
-// sgMail.send(sendgrid);
-// Start the app by listening on the default Heroku port
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+// app.listen(process.env.PORT || 8080);
+var server = app.listen(process.env.PORT || 8080, function() {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+});
