@@ -25,6 +25,7 @@ const dataContact =
     "content": [{ "type": "text/plain", "value": "Heya!" }], "from": { "email": "stankovicmivan@gmail.com", "name": "Sam Smith" }, "reply_to": { "email": "sam.smith@example.com", "name": "Sam Smith" }
 };
 //      "build": "ng build --prod --base-href=/CustomCable/",
+<<<<<<< HEAD
 // "postinstall": "ng build --aot --prod --output-path dist",
 // "heroku-postbuild": "ng build --prod"
 @Injectable()
