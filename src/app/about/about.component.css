@@ -1,11 +1,34 @@
 .circleNumber {
- padding-bottom: px;
- color: #343A40;
- text-shadow: #343A40;
- font-style: bold;
- font-size: 35px;
+    padding-bottom: px;
+    /* color: #343A40; */
+    text-shadow: #343A40;
+    font-style: bold;
+    font-size: 35px;
 }
+
 .timeline-image a {
-    color:white;
+    color: #343A40;
     text-decoration: none;
+}
+
+.timeline-image a:hover {
+    color: #FEC810;
+    text-decoration: none;
+}
+
+a:hover {
+    pointer-events: none;
+}
+
+a h4 :hover {
+    color: #FEC810;
+}
+
+#create:hover {
+    background-color: #343A40;
+    color: #FEC810;
+}
+
+#create:hover a h4:hover {
+    color: #FEC810;
 }

@@ -9,3 +9,7 @@ img {
 
 
 /* button.navbar-toggler.navbar-toggler-right {} */
+
+li {
+    cursor: pointer;
+}

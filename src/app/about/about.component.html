@@ -1,7 +1,10 @@
 <section class="page-section" id="process">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Process</h2>
+            <!-- <h2 class="section-heading text-uppercase" *ngIf="lang == 'en'">We offer you the opportunity to create your own cable </h2>
+            -->
+            <h4 class="section-heading text-uppercase" *ngIf="lang == 'en'">What can I custom? </h4>
+            <h2 class="section-heading text-uppercase" *ngIf="lang == 'sr'">Sta je na meni da odaberem?</h2>
             <h3 class="section-subheading text-muted"></h3>
         </div>
         <ul class="timeline">
@@ -10,14 +13,17 @@
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>1st choice</h4>
+                        <span id=choiceOne class="h4">Cable type</span>
                     </div>
                     <div class="timeline-body">
-                        <p>
-                            "We offer you the opportunity to create your own cable. It is up to you to mark what you
-                            need."
-                        </p>
-                        <p class="text-muted"> (Guitar, microphone, sound system, etc.)</p>
+                        <span *ngIf="lang == 'en'">
+                            "Choose cable usage. Do you need cable for a guitar, microphone or sound system? "
+                        </span>
+                        <span *ngIf="lang == 'sr'">
+                            "Nudimo vam mogucnost da kreirate kabel bas onakav kakav vi zelite. Tako da krenimo od namene."
+                        </span>
+                        <!-- <p class="text-muted" *ngIf="lang == 'en'"> ()</p> -->
+                        <p class="text-muted" *ngIf="lang == 'sr'"> (Gitara, mikrofon, zvucni sistem ...)</p>
                     </div>
                 </div>
             </li>
@@ -26,11 +32,10 @@
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>2nd choice</h4>
+                        <span id=choiceTwo class="h4">Length</span>
                     </div>
                     <div class="timeline-body">
-                        <p>"It is up to you to decide on the desired cable length.<br> If none of the standard lengths
-                            suits you, send us an email with a measure that would suit you."</p>
+                        <p>"We offer lengths from 1 to 10 meters. If none of the standard lengths suits you,<span style='cursor:pointer; color:red'> make your order by sending us email."</span></p>
                     </div>
                 </div>
             </li>
@@ -39,13 +44,10 @@
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>3rd choice</h4>
+                        <span id=choiceThree class="h4">Color & Pattern</span>
                     </div>
                     <div class="timeline-body">
-                        <p class="">"Each cable we make is protected with 48 or 64 threads of quality thread, depending
-                            on the purpose of the cable.
-                            That's why we give you the opportunity to choose whether you want one or two colors. In case
-                            of choosing two colors, you get the possibility to choose a knitting pattern."</p>
+                        <p class="">"Cables are protected with the high-quality thread, that consists of 48 or 64 threads. You can choose one or two colors for the protection thread. In the case of choosing two colors, you get the possibility to choose between 6 different knitting patterns."</p>
                     </div>
                 </div>
             </li>
@@ -54,19 +56,18 @@
                 </div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
-                        <h4>4th choice</h4>
+                        <span id=choiceFour class="h4">Jack connector protection</span>
                     </div>
                     <div class="timeline-body">
-                        <p class="">"In the very end, you can choose the color of the protection of the connector
-                            itself.
-                            The protection passes over the connector and one small part of the cable and thus prevents
-                            possible damage to the connection between the cable and the connector."</p>
+                        <p class="">"In the very end, choose the color of the jack connector protection. The protection passes over the connector and one small part of the cable and thus prevents possible damage to the connection between the cable
+                            and the connector."</p>
                     </div>
                 </div>
             </li>
             <li class="timeline-inverted">
-                <div class="timeline-image"><a href="/cycic">
-                        <h4>Create<br />Your<br />Story!</h4>
+                <div id="create" class="timeline-image" style="cursor: pointer;">
+                    <a (click)="create()">
+                        <h4><br>Custom<br>Cable<br></h4>
                     </a>
 
                 </div>
@@ -74,7 +75,9 @@
                     <div class="timeline-heading">
                         <span class="h5">Ready,</span><span class="h4"> set,</span><span class="h3"> and Begin!</span>
                     </div>
-                    <div class="timeline-body"><a class="a"></a></div>
+                    <div class="timeline-body">
+                        <a class="a"></a>
+                    </div>
                 </div>
             </li>
         </ul>

@@ -1,14 +1,33 @@
 .masthead {
     margin-top: 0px;
     position: inherit;
-    width: 100%;
+    max-width: 100%;
 }
 
 header.masthead {
     padding-top: 50px;
 }
 
+@media (min-width: 300px){
+    img {
+        max-height: 250px;
+        max-width: 250px;
+    }
+    .header.masthead .masthead-heading{
+        font-size: 1 rem;
+    }        
+
+
+}
+
+
+@media (min-width: 576px) {
 img {
-    height: 450px;
-    width: 450px;
+    max-height: 400px;
+    max-width: 400px;
+    
+}
+  .header.masthead .masthead-heading{
+        font-size: 1 rem;
+    }  
 }

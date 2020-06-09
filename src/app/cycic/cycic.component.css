@@ -144,8 +144,39 @@
     background-color: #f8f8f899;
 }
 
+#previewPatternTwo {
+    height: 150px;
+    width: 100%;
+    background-color: #FBFBFB;
+}
+
 .card .card-body p {
     height: 10px;
     border: none;
     padding: 0px;
+}
+
+#contactFormOrder {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border: 0.1px solid rgba(190, 182, 58, 0.377);
+    border-radius: 10px;
+}
+
+#orderPreview {
+    border: 0.1px solid rgba(190, 182, 58, 0.377);
+    border-radius: 10px;
+    padding-top: 13px;
+    padding-bottom: 3px;
+    margin-left: -12px;
+    padding-left: 12px;
+    margin-right: -12px;
+    padding-right: 12px;
+    margin-bottom: -1px;
+}
+
+#containerCreate {
+    padding-top: 65px;
+    padding-bottom: 45px;
+    display: grid;
 }

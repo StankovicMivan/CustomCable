@@ -1,15 +1,21 @@
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" lang="en">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/"><img src="assets/img/navbar/logo.svg" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+        <a class="navbar-brand js-scroll-trigger"><img style="cursor: pointer;" (click)="homeLink()" src="assets/img/navbar/logo.svg" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/cycic">Create</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/gallery">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about">About</a></li>
+                <li class="nav-item"><a id='create' class="nav-link js-scroll-trigger" (click)="createLink() ">Create</a></li>
+                <li class="nav-item"><a id='gallery' class="nav-link js-scroll-trigger" (click)="galleryLink() ">Gallery</a></li>
+                <li class="nav-item"><a id='about' class="nav-link js-scroll-trigger" (click)="aboutLink() ">About</a></li>
                 <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li> -->
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/contact">Contact</a></li>
+                <li class="nav-item">
+                    <a id='contact' class="nav-link js-scroll-trigger" (click)="contactLink() ">Contact</a></li>
             </ul>
+            <select [(ngModel)]="lang " (click)="setLangLinkClick()" (keyup)='setLangLink($event)' (pan)="setLangLink($event)">
+                <option value='en'>English</option>'
+                <option value='sr'>Serbian</option>'
+            </select>
         </div>
     </div>
 </nav>

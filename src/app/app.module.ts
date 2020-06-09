@@ -12,7 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { CycicComponent } from './cycic/cycic.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import { HomeComponent } from './home/home.component'; // CLI imports AppRoutingModule
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
