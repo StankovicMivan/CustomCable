@@ -39,28 +39,12 @@ app.post("/api/contact", (req, res, next) => {
     console.log('unutar server post-a contact');
     const mail = req.body;
     console.log(mail);
-    // sgMail.setApiKey('');
-    // let msg = {
-    //     to: 'info@customcable.in.rs',
-    //     from: mail.yourEmail,
-    //     subject: 'Custom Cable: contact form',
-    //     // text: 'and easy to do anywhere, even with Node.js',
-    //     html: mail.yourMessage,
-    // };
-    // sgMail.send(msg);
-    // let msg2 = {
-    //     to: mail.yourEmail,
-    //     from: mail.yourEmail,
-    //     subject: 'Custom Cable: contact form',
-    //     // text: 'and easy to do anywhere, even with Node.js',
-    //     html: mail.yourMessage,
-    // };
-    // sgMail.send(msg2);
+
 
 
     // const sgMail = require('@sendgrid/mail');
 
-    sgMail.setApiKey("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");
+    sgMail.setApiKey("");
     const msg = {
         to: 'test@example.com',
         from: 'test@example.com',
@@ -79,15 +63,7 @@ app.post("/api/order", (req, res, next) => {
     console.log('unutar server post-a order');
     const mail = req.body;
     console.log(mail);
-    sgMail.setApiKey("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");
-    let msg = {
-        to: 'ivanjoca@gmail.com',
-        from: mail.yourEmail,
-        subject: 'Custom Cable: contact form',
-        // text: 'and easy to do anywhere, even with Node.js',
-        html: mail.yourMessage,
-    };
-    sgMail.send(msg);
+
     res.status(201).json({
         message: 'Email sent successfully'
     });
