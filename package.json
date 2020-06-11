@@ -13,9 +13,9 @@
     "private": true,
     "dependencies": {
         "@angular/animations": "~9.1.7",
+        "@angular/cli": "^9.1.6",
         "@angular/common": "~9.1.7",
         "@angular/compiler": "~9.1.7",
-        "@angular/cli": "^9.1.6",
         "@angular/compiler-cli": "~9.1.7",
         "@angular/core": "~9.1.7",
         "@angular/forms": "~9.1.7",
@@ -29,6 +29,7 @@
         "express": "^4.17.1",
         "gh-pages": "^2.2.0",
         "googleapis": "^39.2.0",
+        "mongodb": "^3.5.8",
         "path": "^0.12.7",
         "request": "^2.88.2",
         "rxjs": "~6.5.4",

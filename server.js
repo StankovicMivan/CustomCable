@@ -7,10 +7,8 @@ const app = express();
 const bodyParser = require('body-parser');
 
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-const sgMail = require('@sendgrid/mail');
 
 app.use(cors());
 app.use(express.static(__dirname + '/dist'));
@@ -63,9 +61,19 @@ app.post("/api/order", (req, res, next) => {
     console.log('unutar server post-a order');
     const mail = req.body;
     console.log(mail);
+    var mongo = require('mongodb');
+    var MongoClient = require('mongodb').MongoClient;
+    var url = process.env.MONGODB_URI;
+    var poruka = '';
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        poruka = "Database created!";
+
+        db.close();
+    });
 
     res.status(201).json({
-        message: 'Email sent successfully'
+        message: poruka
     });
 });
 var distDir = __dirname + "/dist/";
