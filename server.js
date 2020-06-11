@@ -35,24 +35,24 @@ app.use((req, res, next) => {
 // const { SENDGRID_API_KEY } = require('./sendgrid');
 
 
+
 app.post("/api/contact", (req, res, next) => {
     console.log('unutar server post-a contact');
     const mail = req.body;
     console.log(mail);
 
+    const sgMail = require('@sendgrid/mail');
 
+    sgMail.setApiKey(process.env.SENDGRID);
 
-    // const sgMail = require('@sendgrid/mail');
+    const msg = {
+        to: mail.yourEmail,
+        from: 'info@customcable.in.rs',
+        subject: 'Contact',
+        text: mail.yourMessage,
 
-    // sgMail.setApiKey("");
-    // const msg = {
-    //     to: 'test@example.com',
-    //     from: 'test@example.com',
-    //     subject: 'Sending with Twilio SendGrid is Fun',
-    //     text: 'and easy to do anywhere, even with Node.js',
-    //     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    // };
-    // sgMail.send(msg);
+    };
+    sgMail.send(msg);
 
 
     res.status(201).json({
