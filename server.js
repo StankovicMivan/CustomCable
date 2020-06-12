@@ -81,7 +81,7 @@ app.post("/api/order", (req, res, next) => {
 
 
     res.status(201).json({
-        message: 'Successfully'
+        message: order.yourEmail
     });
 });
 
