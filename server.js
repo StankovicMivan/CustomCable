@@ -75,14 +75,7 @@ app.post("/api/order", (req, res, next) => {
         dbo.collection("order").insertOne(order, function(err, res) {
             if (err) throw err;
 
-            const msg = {
-                to: mail.yourEmail,
-                from: 'order@customcable.in.rs',
-                subject: 'Order',
-                text: mail
-
-            };
-            sgMail.send(msg);
+            sendMail(order);
             db.close();
         });
     });
@@ -92,6 +85,16 @@ app.post("/api/order", (req, res, next) => {
         message: 'Successfully'
     });
 });
+sendMail(value: any) {
+    const msg = {
+        to: value.yourEmail,
+        from: 'order@customcable.in.rs',
+        subject: 'Order',
+        text: value
+
+    };
+    sgMail.send(msg);
+}
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 // app.listen(process.env.PORT || 8080);
