@@ -62,24 +62,25 @@ app.post("/api/order", (req, res, next) => {
     const order = req.body;
     console.log(order);
 
-    var MongoClient = require('mongodb').MongoClient;
+    var MongoClient = require('mongodb');
     var url = process.env.MONGODB_URI;
 
     MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
+        // if (err) throw err;
         var dbo = db.db("heroku_r7k8xww0");
         // var myobj = { name: "Company Inc", address: "Highway 37" };
-        dbo.collection("contact").insertOne(order, function(err, res) {
+        dbo.collection("order").insertOne(order, function(err, res) {
             if (err) throw err;
-            console.log("1 document inserted");
+            res.status(201).json({
+                message: '1 document inserted'
+            });
+
             db.close();
         });
     });
 
 
-    res.status(201).json({
-        message: poruka
-    });
+
 });
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
