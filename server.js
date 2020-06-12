@@ -75,16 +75,21 @@ app.post("/api/order", (req, res, next) => {
             if (err) throw err;
 
             const msg = {
-                to: [
-                    { "email": mail.yourEmail },
-                    { "email": 'order@customcable.in.rs' }
-                ],
+                to: mail.yourEmail,
                 from: 'order@customcable.in.rs',
                 subject: 'Order',
                 text: mail
 
             };
             sgMail.send(msg);
+            const msg2 = {
+                to: 'order@customcable.in.rs',
+                from: 'order@customcable.in.rs',
+                subject: 'Order',
+                text: mail
+
+            };
+            sgMail.send(msg2);
             db.close();
         });
     });
