@@ -59,18 +59,23 @@ app.post("/api/contact", (req, res, next) => {
 });
 app.post("/api/order", (req, res, next) => {
     console.log('unutar server post-a order');
-    const mail = req.body;
-    console.log(mail);
-    var mongo = require('mongodb');
+    const order = req.body;
+    console.log(order);
+
     var MongoClient = require('mongodb').MongoClient;
     var url = process.env.MONGODB_URI;
-    var poruka = '';
+
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
-        poruka = "Database created!";
-
-        db.close();
+        var dbo = db.db("heroku_r7k8xww0");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("contact").insertOne(order, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
+        });
     });
+
 
     res.status(201).json({
         message: poruka

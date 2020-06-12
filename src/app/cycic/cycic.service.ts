@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/internal/operators';
-import { ContactMail } from '../mailtemplates/contact.model';
 import { Observable, of } from 'rxjs';
 import { OrderMail } from '../mailtemplates/order.model';
 
@@ -33,14 +32,7 @@ export class CycicService {
             
             });
     }
-    // createContact(newContact: ContactMail):Observable<ContactMail> {
-    //     console.log(newContact);
-    //     return this.http.post<ContactMail>('http://localhost:8080/api/contact', newContact);
-    //     // return this.http.post<ContactMail>(this.url, newContact, httpOptions)
-    //     //   .pipe(
-    //     //     catchError(this.handleError('addSmartphone', newContact))
-    //     //   );
-    //   }
+    
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {

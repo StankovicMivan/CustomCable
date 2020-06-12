@@ -71,7 +71,6 @@ export class CycicComponent implements OnInit {
       this.primaryColor,
       this.secondaryColor,
       this.cableProtectionColor);
-    // console.log(this.message);
     console.log(this.lang);
     let orderService = new CycicService(this.http);
     orderService.createOrder(order);
