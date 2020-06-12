@@ -87,14 +87,14 @@ function sendMailOrder(data) {
 
     };
     sgMail.send(msg);
-    // const msg2 = {
-    //     to: 'order@customcable.in.rs',
-    //     from: 'order@customcable.in.rs',
-    //     subject: 'Order',
-    //     text: data
+    const msg2 = {
+        to: 'order@customcable.in.rs',
+        from: 'order@customcable.in.rs',
+        subject: 'Order',
+        text: 'porudzbina'
 
-    // };
-    // sgMail.send(msg2);
+    };
+    sgMail.send(msg2);
 };
 
 function sendMongoDBInfo(data) {
@@ -125,6 +125,14 @@ function sendMailContact(data) {
 
     };
     sgMail.send(msg);
+    const msg2 = {
+        to: 'info@customcable.in.rs',
+        from: 'info@customcable.in.rs',
+        subject: 'Contact',
+        text: data.yourMessage
+
+    };
+    sgMail.send(msg2);
 };
 
 
