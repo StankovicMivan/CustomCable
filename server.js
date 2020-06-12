@@ -60,7 +60,7 @@ app.post("/api/contact", (req, res, next) => {
 app.post("/api/order", (req, res, next) => {
     console.log('unutar server post-a order');
     const order = req.body;
-    console.log(order);
+    // console.log(order);
 
 
 
@@ -73,8 +73,16 @@ app.post("/api/order", (req, res, next) => {
         // var myobj = { name: "Company Inc", address: "Highway 37" };
         dbo.collection("order").insertOne(order, function(err, res) {
             if (err) throw err;
+            const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey(process.env.SENDGRID);
+            const msg = {
+                to: order.yourEmail,
+                from: 'order@customcable.in.rs',
+                subject: 'Order',
+                text: order
 
-            sendMail(order);
+            };
+            sgMail.send(msg);
             db.close();
         });
     });
