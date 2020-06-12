@@ -39,18 +39,7 @@ app.post("/api/contact", (req, res, next) => {
     const mail = req.body;
     console.log(mail);
 
-    const sgMail = require('@sendgrid/mail');
-
-    sgMail.setApiKey(process.env.SENDGRID);
-
-    const msg = {
-        to: mail.yourEmail,
-        from: 'info@customcable.in.rs',
-        subject: 'Contact',
-        text: mail.yourMessage,
-
-    };
-    sgMail.send(msg);
+    sendMongoDBInfo(mail);
 
 
     res.status(201).json({
@@ -62,22 +51,7 @@ app.post("/api/order", (req, res, next) => {
     const order = req.body;
     console.log(order);
 
-
-
-    var MongoClient = require('mongodb');
-    var url = process.env.MONGODB_URI;
-
-    MongoClient.connect(url, function(err, db) {
-        // if (err) throw err;
-        var dbo = db.db("heroku_r7k8xww0");
-        // var myobj = { name: "Company Inc", address: "Highway 37" };
-        dbo.collection("order").insertOne(order, function(err, res) {
-            if (err) throw err;
-
-            sendMail(order);
-            db.close();
-        });
-    });
+    sendMongoDBOrder(order);
 
 
     res.status(201).json({
@@ -85,7 +59,24 @@ app.post("/api/order", (req, res, next) => {
     });
 });
 
-function sendMail(data) {
+function sendMongoDBOrder(data) {
+    var MongoClient = require('mongodb');
+    var url = process.env.MONGODB_URI;
+
+    MongoClient.connect(url, function(err, db) {
+        // if (err) throw err;
+        var dbo = db.db("heroku_r7k8xww0");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("order").insertOne(data, function(err, res) {
+            if (err) throw err;
+
+            sendMailOrder(data);
+            db.close();
+        });
+    });
+}
+
+function sendMailOrder(data) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID);
     const msg = {
@@ -96,7 +87,48 @@ function sendMail(data) {
 
     };
     sgMail.send(msg);
+    // const msg2 = {
+    //     to: 'order@customcable.in.rs',
+    //     from: 'order@customcable.in.rs',
+    //     subject: 'Order',
+    //     text: data
+
+    // };
+    // sgMail.send(msg2);
 };
+
+function sendMongoDBInfo(data) {
+    var MongoClient = require('mongodb');
+    var url = process.env.MONGODB_URI;
+
+    MongoClient.connect(url, function(err, db) {
+        // if (err) throw err;
+        var dbo = db.db("heroku_r7k8xww0");
+        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("contact").insertOne(data, function(err, res) {
+            if (err) throw err;
+
+            sendMailContact(data);
+            db.close();
+        });
+    });
+}
+
+function sendMailContact(data) {
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID);
+    const msg = {
+        to: data.yourEmail,
+        from: 'info@customcable.in.rs',
+        subject: 'Contact',
+        text: data.yourMessage
+
+    };
+    sgMail.send(msg);
+};
+
+
+
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 // app.listen(process.env.PORT || 8080);
