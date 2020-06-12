@@ -30,7 +30,6 @@ app.use((req, res, next) => {
     );
     next();
 });
-// const { SENDGRID_API_KEY } = require('./sendgrid');
 
 
 
@@ -62,6 +61,9 @@ app.post("/api/order", (req, res, next) => {
     const order = req.body;
     console.log(order);
 
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID);
+
     var MongoClient = require('mongodb');
     var url = process.env.MONGODB_URI;
 
@@ -71,16 +73,26 @@ app.post("/api/order", (req, res, next) => {
         // var myobj = { name: "Company Inc", address: "Highway 37" };
         dbo.collection("order").insertOne(order, function(err, res) {
             if (err) throw err;
-            res.status(201).json({
-                message: '1 document inserted'
-            });
 
+            const msg = {
+                to: [
+                    { "email": mail.yourEmail },
+                    { "email": 'order@customcable.in.rs' }
+                ],
+                from: 'order@customcable.in.rs',
+                subject: 'Order',
+                text: mail
+
+            };
+            sgMail.send(msg);
             db.close();
         });
     });
 
 
-
+    res.status(201).json({
+        message: 'Successfully order'
+    });
 });
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
