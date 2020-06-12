@@ -62,8 +62,7 @@ app.post("/api/order", (req, res, next) => {
     const order = req.body;
     console.log(order);
 
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SENDGRID);
+
 
     var MongoClient = require('mongodb');
     var url = process.env.MONGODB_URI;
@@ -85,16 +84,19 @@ app.post("/api/order", (req, res, next) => {
         message: 'Successfully'
     });
 });
-sendMail(value: any) {
+
+function sendMail(data) {
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID);
     const msg = {
-        to: value.yourEmail,
+        to: data.yourEmail,
         from: 'order@customcable.in.rs',
         subject: 'Order',
-        text: value
+        text: data
 
     };
     sgMail.send(msg);
-}
+};
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 // app.listen(process.env.PORT || 8080);
