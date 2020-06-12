@@ -30,6 +30,7 @@ app.use((req, res, next) => {
     );
     next();
 });
+// const { SENDGRID_API_KEY } = require('./sendgrid');
 
 
 
@@ -82,21 +83,13 @@ app.post("/api/order", (req, res, next) => {
 
             };
             sgMail.send(msg);
-            const msg2 = {
-                to: 'order@customcable.in.rs',
-                from: 'order@customcable.in.rs',
-                subject: 'Order',
-                text: mail
-
-            };
-            sgMail.send(msg2);
             db.close();
         });
     });
 
 
     res.status(201).json({
-        message: 'Successfully order'
+        message: 'Successfully'
     });
 });
 var distDir = __dirname + "/dist/";
