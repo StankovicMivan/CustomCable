@@ -6,11 +6,11 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-    {path: 'create/:lang', component: CycicComponent},
-    {path: 'about/:lang', component: AboutComponent},
-    {path: 'contact/:lang', component: ContactComponent},
-    {path: ':lang', component: HomeComponent},
-    {path: '**', component: HomeComponent},
+    {path: 'create', component: CycicComponent,runGuardsAndResolvers: 'always'},
+    {path: 'about', component: AboutComponent,runGuardsAndResolvers: 'always'},
+    {path: 'contact', component: ContactComponent,runGuardsAndResolvers: 'always'},
+    {path: '', component: HomeComponent,runGuardsAndResolvers: 'always'},
+    {path: '**', component: HomeComponent,runGuardsAndResolvers: 'always'},
     
 ];
 

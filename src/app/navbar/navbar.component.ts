@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{Router} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { OrderMod } from '../mailtemplates/orderMod';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -8,53 +9,54 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router,private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lang = document.getElementById('mainNav').getAttribute('lang');
+    this.lang = localStorage.getItem('lang');
+    console.log(this.lang);
   }
 
   lang = '';
- 
+
 
   // path = '';
-  setLangLink (event: any){
+  setLangLink(event: any) {
+    localStorage.setItem('lang', this.lang);
+    console.log(this.lang);
 
+    // this.router.navigate(['', this.lang]);
+
+    location.reload();
+
+
+  }
+  setLangLinkClick() {
+    localStorage.setItem('lang', this.lang);
+    console.log(this.lang);
     
-    document.getElementById('mainNav').setAttribute('lang', this.lang);
-    // this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
-    if(document.getElementById('mainNav').getAttribute('lang') != this.lang){
-      this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
-    
-      location.reload();
-    }
- 
-    // this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
-    
+    location.reload();
+    // this.router.navigate(['' , this.lang]);
+
   }
-  setLangLinkClick (){
-    document.getElementById('mainNav').setAttribute('lang', this.lang);
-    // console.log(this.lang);
-      if(document.getElementById('mainNav').getAttribute('lang') != this.lang){
-        this.router.navigate(['/' , document.getElementById('mainNav').getAttribute('lang')]);
-    
-        location.reload();
-    }
+  contactLink() {
+    this.router.navigate(['contact/']);
   }
-  contactLink(){
-    this.router.navigate(['contact/' , this.lang]);
+  createLink() {
+    this.router.navigate(['create/']);
   }
-  createLink(){
-    this.router.navigate(['create/' , this.lang]);
+  aboutLink() {
+    this.router.navigate(['about/']);
   }
-  aboutLink(){
-    this.router.navigate(['about/' , this.lang]);
+  galleryLink() {
+    this.router.navigate(['gallery/']);
   }
-  galleryLink(){
-    this.router.navigate(['gallery/' , this.lang]);
-  }
-  homeLink(){
-    this.router.navigate(['/' , this.lang]);
+  homeLink() {
+    this.router.navigate(['/']);
   }
 
+  orders = JSON.parse(localStorage.getItem('orders'));
+  print() {
+    this.orders = JSON.parse(localStorage.getItem('orders'));
+    console.log(this.orders.length);
+  }
 }

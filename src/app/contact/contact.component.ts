@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  lang: string = this.route.snapshot.params['lang'];
+  lang;
   
   constructor(private http: HttpClient, private ref: ChangeDetectorRef, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ref.detectChanges();
+    this.lang = localStorage.getItem('lang');
     if(this.lang =='sr'){
 
       

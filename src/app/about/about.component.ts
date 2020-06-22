@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
-  lang: string = this.route.snapshot.params['lang'];
+  lang;
   constructor(private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.lang = localStorage.getItem('lang');
     if(this.lang =='sr'){
 
       
@@ -25,6 +26,6 @@ export class AboutComponent implements OnInit {
   }
 
   create(){
-    this.router.navigate(['create/' , this.lang]);
+    this.router.navigate(['create/' ]);
   }
 }

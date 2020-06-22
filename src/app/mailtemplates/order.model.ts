@@ -1,3 +1,5 @@
+import { OrderMod } from './orderMod';
+
 export class OrderMail {
 
     yourName: string;
@@ -7,14 +9,7 @@ export class OrderMail {
     yourEmail: string;
     yourPhone: string;
 
-    cableType: number;
-    calbeLength: number;
-    cableColorNumber: number;
-    cablePattern: number;
-    cableColor: number;
-    cableColorPrimary: number;
-    cableColorSecondary: number;
-    cableJackProtection: number;
+    orders : OrderMod[];
 
 
     constructor(
@@ -24,14 +19,7 @@ export class OrderMail {
         yourAddress: string,
         city: string,
         zipCode : number,
-        cableType: number,
-        calbeLength: number,
-        cableColorNumber: number,
-        cablePattern: number,
-        cableColor: number,
-        cableColorPrimary: number,
-        cableColorSecondary: number,
-        cableJackProtection: number
+        orders: OrderMod[]
     ) {
         this.yourName = name;
         this.yourEmail = email;
@@ -39,15 +27,8 @@ export class OrderMail {
         this.yourAddress = yourAddress;
         this.city = city;
         this.zipCode =zipCode;
+        this.orders = orders;
         
-        this.cableType = cableType;
-        this.calbeLength = calbeLength;
-        this.cableColorNumber = cableColorNumber;
-        this.cablePattern = cablePattern;
-        this.cableColor = cableColor;
-        this.cableColorPrimary = cableColorPrimary;
-        this.cableColorSecondary = cableColorSecondary;
-        this.cableJackProtection = cableJackProtection;
 
 
     }
