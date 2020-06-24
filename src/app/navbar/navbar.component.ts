@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
 
     // this.router.navigate(['', this.lang]);
 
-    location.reload();
+    this.reloadPage();
 
 
   }
@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
     sessionStorage.setItem('lang', this.lang);
     console.log(this.lang);
 
-    location.reload();
+    this.reloadPage();
     // this.router.navigate(['' , this.lang]);
 
   }
@@ -86,11 +86,14 @@ export class NavbarComponent implements OnInit {
   tempOrders: OrderMod[] = [];
   counter = 0;
   remove(orderId: number) {
-    this.orders.splice(orderId);
+    // this.orders.splice(orderId);
     this.orders.forEach(i => {
-      if (i != null) {
+      console.log('print array before remove' + i);
+      if (i.orderId != orderId) {
         this.tempOrders[this.counter] = i;
         this.counter++;
+      }else {
+
       }
       
     });
@@ -100,5 +103,12 @@ export class NavbarComponent implements OnInit {
     sessionStorage.setItem('orders', JSON.stringify(this.tempOrders));
     console.log(this.tempOrders)
     this.counter = 0;
+    this.reloadPage();
+  }
+  reloadPage(){
+    location.reload();
+  }
+  goToOrderPreview(){
+    this.router.navigate(['cart/']);
   }
 }

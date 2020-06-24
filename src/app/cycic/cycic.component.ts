@@ -362,26 +362,27 @@ export class CycicComponent implements OnInit {
   // }
   acceptOrder2(cableNumber:number) {
     console.log(this.srcFullPathForColor);
-    this.orderData = new OrderMod(
-      this.orderPrice,
-      this.orderId,
-      this.orderNumber,
-      this.cableType,
-      this.cableLenght,
-      this.cableColorNumber,
-      this.cablePattern,
-      this.singleColor,
-      this.primaryColor,
-      this.secondaryColor,
-      this.cableProtectionColor,
-      this.srcFullPathForColor);
+    
    
    
     // if(JSON.parse(sessionStorage.getItem('orderID')) == null){
     //   sessionStorage.setItem('orderID',this.orderId.toString());
     //  console.log('if 1.');
     // }else{
-      this.orderId = JSON.parse(sessionStorage.getItem('orderID'));
+      this.orderId = parseInt(sessionStorage.getItem('orderID'));
+      this.orderData = new OrderMod(
+        this.orderPrice,
+        this.orderId,
+        this.orderNumber,
+        this.cableType,
+        this.cableLenght,
+        this.cableColorNumber,
+        this.cablePattern,
+        this.singleColor,
+        this.primaryColor,
+        this.secondaryColor,
+        this.cableProtectionColor,
+        this.srcFullPathForColor);
       console.log(this.orderId);
     // }
     // if(JSON.parse(sessionStorage.getItem('orders')) == null){
@@ -394,10 +395,15 @@ export class CycicComponent implements OnInit {
       // console.log('else 2.');
       this.orders = JSON.parse(sessionStorage.getItem('orders'));
       this.orders[this.orderId] = this.orderData;
+      console.log(this.orders);
       this.orderId++;
-      sessionStorage.setItem('orderID',this.orderId.toString());
+      console.log(this.orderId);
       sessionStorage.setItem('orders',JSON.stringify(this.orders));
+      sessionStorage.setItem('orderID',this.orderId.toString());
+      
       this.resetData();
+      this.reloadPage();
+      alert('Order confirmed and added to cart');
     // }
     
   }
@@ -531,6 +537,8 @@ export class CycicComponent implements OnInit {
 
   }
 
-  
+  reloadPage(){
+    location.reload();
+  }
 
 }
