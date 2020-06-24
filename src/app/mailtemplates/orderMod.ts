@@ -1,4 +1,5 @@
 export class OrderMod {
+    orderPrice: number;
     orderId: number;
     orderNumber: string;
     cableType: number;
@@ -12,6 +13,7 @@ export class OrderMod {
     srcFullPathForColor: string;
 
     constructor(
+        orderPrice: number,
         orderId: number,
         orderNumber: string,
         cableType: number,
@@ -26,7 +28,7 @@ export class OrderMod {
 
 
     ) {
-
+        this.orderPrice= orderPrice;
         this.orderId = orderId;
         this.orderNumber = orderNumber;
         this.cableType = cableType;

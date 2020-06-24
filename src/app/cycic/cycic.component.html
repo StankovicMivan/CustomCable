@@ -289,7 +289,7 @@
 
                                 </div>
                                 <div class="col-sm-6">
-                                    <select class=form-control [(ngModel)]="cableProtectionColor" (click)='click5()'>
+                                    <select class=form-control [(ngModel)]="cableProtectionColor" (change)='click5()'>
                                                     <option value="1" ><span *ngIf="lang == 'en'">White</span><span *ngIf="lang == 'sr'">Bela</span></option>
                                                     <option value="2"><span *ngIf="lang == 'en'">Red</span><span *ngIf="lang == 'sr'">Crvena</span></option>
                                                     <option value="3"><span *ngIf="lang == 'en'">Blue</span><span *ngIf="lang == 'sr'">Plava</span></option>
@@ -338,7 +338,7 @@
                             <div class="container form-check">
                                 <div>
                                     <div class=" " style="align-content: center; " id='orderPreview'>
-                                        <div class="table ">
+                                        <div class="table " *ngIf="cableProtectionColor != 0">
                                             <thead>
                                                 <th>
                                                     <span>#</span>
@@ -363,6 +363,10 @@
                                                     <span *ngIf="lang == 'en'">Jack shield</span>
                                                     <span *ngIf="lang == 'sr'">Zaštita konektora</span>
                                                 </th>
+                                                <th>
+                                                    <span *ngIf="lang == 'en'">Price</span>
+                                                    <span *ngIf="lang == 'sr'">Cena</span>
+                                                </th>
                                             </thead>
                                             <tbody>
                                                 <td>{{orderId+1}}</td>
@@ -372,8 +376,9 @@
                                                 <!-- <td>{{kablbrBoja}}</td> -->
                                                 <td *ngIf="orderNumber !='' "><img src="{{srcFullPathForColor}}"></td>
                                                 <td>{{cableProtectionColor}}</td>
-                                                <td *ngIf="cableColorNumber !=0 && singleColor != 0 || primaryColor !=0"><button class="btn btn-primary" (click)="acceptOrder2(orderId)">accept config</button></td>
-                                                <td *ngIf="cableColorNumber !=0 && singleColor != 0 || primaryColor !=0"><button class="btn btn-primary" (click)="delOrder(orderId)">delete</button></td>
+                                                <td>{{orderPrice}}RSD.</td>
+                                                <td *ngIf="cableColorNumber !=0 && singleColor != 0 || primaryColor !=0"><button class="btn btn-primary" (click)="acceptOrder2(orderId)">Confirm</button></td>
+                                                <td *ngIf="cableColorNumber !=0 && singleColor != 0 || primaryColor !=0"><button class="btn btn-primary" (click)="resetData()">Remove</button></td>
 
                                             </tbody>
                                         </div>

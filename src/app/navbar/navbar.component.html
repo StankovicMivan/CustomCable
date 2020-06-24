@@ -39,39 +39,73 @@
                 <option value='sr'>Serbian</option>'
             </select>
         </div>
-    </div>
-    <div class="cart float-right" style="padding-right: 10px;">
-        <label (click)='print()' data-toggle="collapse" data-target="#ViewCart">
-            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            <span class="items-count">{{orders.length}}
-            </span> 
-        </label>
-        <div class="items-list collapse" id="ViewCart">
-            <div class="item" *ngFor="let order of orders">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="item-pic">
-                            <img src="{{order.srcFullPathForColor}}" class="img-fluid" alt="product">
+        <div class="cart float-right" style="padding-right: 10px;">
+            <label (click)='print()' data-toggle="collapse" data-target="#ViewCart">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                <span class="items-count">{{orderSize}}
+                </span> 
+            </label>
+            <div class="items-list collapse" id="ViewCart">
+                <div class="item" *ngFor="let order of orders">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="item-pic">
+                                <img src="{{order.srcFullPathForColor}}" class="img-fluid" alt="product" style="border: 0px solid">
+                            </div>
                         </div>
+                        <div class="col-8 pl-0">
+                            <h6 class="item-name" *ngIf="order.cableType == 1">
+                                <span *ngIf="lang == 'sr'">Gitara</span>
+                                <span *ngIf="lang == 'en'">Guitar</span>
+                                <span> - </span><span>{{order.calbeLength}}m</span>
+                                <span *ngIf="order.cableJackProtection == 1"> - WHITE</span>
+                                <span *ngIf="order.cableJackProtection == 2"> - RED</span>
+                                <span *ngIf="order.cableJackProtection == 3"> - BLUE</span>
+                                <span *ngIf="order.cableJackProtection == 4"> - YELLOW</span>
+                                <span *ngIf="order.cableJackProtection == 5"> - GREEN</span>
+                                <span *ngIf="order.cableJackProtection == 6"> - BLACK</span>
+
+                            </h6>
+                            <h6 class="item-name" *ngIf="order.cableType == 2">
+                                <span *ngIf="lang == 'sr'">Mikrofon</span>
+                                <span *ngIf="lang == 'en'">Mic</span>
+                                <span> - </span><span>{{order.calbeLength}}m</span>
+                                <span *ngIf="order.cableJackProtection == 1"> - WHITE</span>
+                                <span *ngIf="order.cableJackProtection == 2"> - RED</span>
+                                <span *ngIf="order.cableJackProtection == 3"> - BLUE</span>
+                                <span *ngIf="order.cableJackProtection == 4"> - YELLOW</span>
+                                <span *ngIf="order.cableJackProtection == 5"> - GREEN</span>
+                                <span *ngIf="order.cableJackProtection == 6"> - BLACK</span>
+                            </h6>
+                            <h6 class="item-name" *ngIf="order.cableType == 3">
+                                <span *ngIf="lang == 'sr'">Rca</span>
+                                <span *ngIf="lang == 'en'">Rca</span>
+                                <span> - </span><span>{{order.calbeLength}}m</span>
+                                <span *ngIf="order.cableJackProtection == 1"> - WHITE</span>
+                                <span *ngIf="order.cableJackProtection == 2"> - RED</span>
+                                <span *ngIf="order.cableJackProtection == 3"> - BLUE</span>
+                                <span *ngIf="order.cableJackProtection == 4"> - YELLOW</span>
+                                <span *ngIf="order.cableJackProtection == 5"> - GREEN</span>
+                                <span *ngIf="order.cableJackProtection == 6"> - BLACK</span>
+                            </h6>
+                            <p class="item-price">{{order.orderPrice}} RSD</p>
+                            <span class="item-remove"><i class="fa fa-times" aria-hidden="true" (click)='remove(order.orderId)'></i></span>
+                        </div>
+
                     </div>
-                    <div class="col-8 pl-0">
-                        <h6 class="item-name" *ngIf="order.cableType == 1">
-                            <span *ngIf="lang == 'sr'">Gitara</span>
-                            <span *ngIf="lang == 'en'">Guitar</span>
-                        </h6>
-                        <h6 class="item-name" *ngIf="order.cableType == 2">
-                            <span *ngIf="lang == 'sr'">Mikrofon</span>
-                            <span *ngIf="lang == 'en'">Mic</span>
-                        </h6>
-                        <h6 class="item-name" *ngIf="order.cableType == 3">
-                            <span *ngIf="lang == 'sr'">Rca</span>
-                            <span *ngIf="lang == 'en'">Rca</span>
-                        </h6>
-                        <p class="item-price">$50</p>
-                        <span class="item-remove"><i class="fa fa-times" aria-hidden="true"></i></span>
-                    </div>
+
+                </div>
+                <div class="col-8 pl-0">
+                    <h6 class="item-name float-left">
+                        <span *ngIf="lang == 'sr'">Ukupno: </span>
+                        <span *ngIf="lang == 'en'">Total price:</span>
+
+                    </h6>
+                    <h6 class="item-price float-right">{{totalPrice}} RSD</h6>
+
                 </div>
             </div>
         </div>
     </div>
+
 </nav>

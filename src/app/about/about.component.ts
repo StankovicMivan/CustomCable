@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit {
   constructor(private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang');
+    this.lang = sessionStorage.getItem('lang');
     if(this.lang =='sr'){
 
       

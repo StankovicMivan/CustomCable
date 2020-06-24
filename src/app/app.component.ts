@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderMod } from './mailtemplates/orderMod';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +16,25 @@ export class AppComponent {
   //     this.router.navigate([path]);
   //   }
   // }
+  orderId ;
+  orders: OrderMod[] = [];
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    if(localStorage.getItem('lang') != 'en'){
-
+    if(sessionStorage.getItem('lang') != 'en' && sessionStorage.getItem('lang') != 'sr' ){
+      sessionStorage.setItem('lang', 'en');
     }else{
-      localStorage.setItem('lang', 'en');
+      // sessionStorage.setItem('lang', 'en');
     }
-   
+    if(sessionStorage.getItem('orderID') != '0' && sessionStorage.getItem('orderID') != null){
+
+    }else {
+      
+      this.orderId = 0;
+      sessionStorage.setItem('orderID', this.orderId);
+      sessionStorage.setItem('orders', JSON.stringify(this.orders));
+    }
+
+    
   }
 }

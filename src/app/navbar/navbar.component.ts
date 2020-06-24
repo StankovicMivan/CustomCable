@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { OrderMod } from '../mailtemplates/orderMod';
+import { stringify } from 'querystring';
+import { INT_TYPE } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,8 +14,10 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang');
-    console.log(this.lang);
+    this.lang = sessionStorage.getItem('lang');
+    // console.log(this.lang);
+    // console.log(sessionStorage.getItem('orderID'));
+    this.orderSize = parseInt(sessionStorage.getItem('orderID'));
   }
 
   lang = '';
@@ -21,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   // path = '';
   setLangLink(event: any) {
-    localStorage.setItem('lang', this.lang);
+    sessionStorage.setItem('lang', this.lang);
     console.log(this.lang);
 
     // this.router.navigate(['', this.lang]);
@@ -31,9 +35,9 @@ export class NavbarComponent implements OnInit {
 
   }
   setLangLinkClick() {
-    localStorage.setItem('lang', this.lang);
+    sessionStorage.setItem('lang', this.lang);
     console.log(this.lang);
-    
+
     location.reload();
     // this.router.navigate(['' , this.lang]);
 
@@ -54,9 +58,47 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  orders = JSON.parse(localStorage.getItem('orders'));
+  orders: OrderMod[] = [];
+  orderSize = this.orders.length;
+  totalPrice = 0;
+  orderIdString;
+  // orders = ;
   print() {
-    this.orders = JSON.parse(localStorage.getItem('orders'));
-    console.log(this.orders.length);
+    if (JSON.parse(sessionStorage.getItem('orders')) == null) {
+
+    } else {
+      this.orders = JSON.parse(sessionStorage.getItem('orders'));
+    }
+    this.orderIdString = this.orderSize;
+    console.log(this.orders);
+    // console.log(sessionStorage.getItem('orderID'));
+    sessionStorage.setItem('orderID', this.orderIdString);
+    // console.log(sessionStorage.getItem('orderID'));
+    this.orderSize = this.orders.length;
+    this.totalPrice = 0;
+    if (sessionStorage.getItem('orders') != null) {
+      this.orders = JSON.parse(sessionStorage.getItem('orders'));
+      this.orders.forEach(i => {
+        this.totalPrice += i.orderPrice;
+      });
+    }
+  }
+  tempOrders: OrderMod[] = [];
+  counter = 0;
+  remove(orderId: number) {
+    this.orders.splice(orderId);
+    this.orders.forEach(i => {
+      if (i != null) {
+        this.tempOrders[this.counter] = i;
+        this.counter++;
+      }
+      
+    });
+    var orderidnumber = parseInt(sessionStorage.getItem('orderID'));
+    orderidnumber =orderidnumber-1;
+    sessionStorage.setItem('orderID',orderidnumber.toString());
+    sessionStorage.setItem('orders', JSON.stringify(this.tempOrders));
+    console.log(this.tempOrders)
+    this.counter = 0;
   }
 }

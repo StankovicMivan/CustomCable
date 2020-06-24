@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { OrderMail } from '../mailtemplates/order.model';
 import { CycicService } from './cycic.service';
-// const sgMail = require('@sendgrid/mail');
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { from } from 'rxjs';
 import { OrderMod } from '../mailtemplates/orderMod';
@@ -27,13 +26,16 @@ export class CycicComponent implements OnInit {
   zipCode: number;
   orderNumber: string;
   orderData: OrderMod;
+  orderPreview: OrderMod;
+  orderPrice: number;
+
   constructor(private ref: ChangeDetectorRef, private router: Router, private route: ActivatedRoute, private http: HttpClient) {
 
   }
   lang;
   ngOnInit(): void {
     this.ref.detectChanges();
-    this.lang = localStorage.getItem('lang');
+    this.lang = sessionStorage.getItem('lang');
     //Script for manual translate
     if (this.lang == 'sr') {
       //first tab
@@ -142,6 +144,7 @@ export class CycicComponent implements OnInit {
       this.cableLenght = 10;
       this.duzinaKabla = '10 m';
     }
+    this.orderPriceCheck();
     this.orderNumberCheck();
   }
 
@@ -187,7 +190,7 @@ export class CycicComponent implements OnInit {
   flag = false;
   click6() {
     if (this.flag == false) {
-      this.acceptOrder();
+      // this.acceptOrder();
      
       this.flag = true;
     }else {
@@ -226,7 +229,8 @@ export class CycicComponent implements OnInit {
     }
   }
 
-
+  
+  
 
   primaryColor = 0;
   secondaryColor = 0;
@@ -338,28 +342,29 @@ export class CycicComponent implements OnInit {
   }
   orderId = 0;
   srcFullPathForColor = "";
-  acceptOrder() {
-    this.orderData = new OrderMod(
+  // acceptOrder() {
+  //   this.orderData = new OrderMod(
       
-      this.orderId,
-      this.orderNumber,
-      this.cableType,
-      this.cableLenght,
-      this.cableColorNumber,
-      this.cablePattern,
-      this.singleColor,
-      this.primaryColor,
-      this.secondaryColor,
-      this.cableProtectionColor,
-      this.srcFullPathForColor);
-    this.orders[this.orderId] = this.orderData;
-    this.orderId++;
-    console.log(this.orders);
-  }
+  //     this.orderId,
+  //     this.orderNumber,
+  //     this.cableType,
+  //     this.cableLenght,
+  //     this.cableColorNumber,
+  //     this.cablePattern,
+  //     this.singleColor,
+  //     this.primaryColor,
+  //     this.secondaryColor,
+  //     this.cableProtectionColor,
+  //     this.srcFullPathForColor);
+  //   this.orders[this.orderId] = this.orderData;
+  //   this.orderId++;
+  //   console.log(this.orders);
+  // }
   acceptOrder2(cableNumber:number) {
+    console.log(this.srcFullPathForColor);
     this.orderData = new OrderMod(
-      
-      cableNumber,
+      this.orderPrice,
+      this.orderId,
       this.orderNumber,
       this.cableType,
       this.cableLenght,
@@ -371,30 +376,102 @@ export class CycicComponent implements OnInit {
       this.cableProtectionColor,
       this.srcFullPathForColor);
    
-    this.orderId = JSON.parse(localStorage.getItem('orderID'));
-    this.orders = JSON.parse(localStorage.getItem('orders'));
-    this.orders[this.orderId] = this.orderData;
-    this.orderId++;
-    localStorage.setItem('orders',JSON.stringify(this.orders));
-    localStorage.setItem('orderID',JSON.stringify(this.orderId));
-    console.log('prikaz iz locala');
-    console.log(JSON.parse(localStorage.getItem('orders')));
+   
+    // if(JSON.parse(sessionStorage.getItem('orderID')) == null){
+    //   sessionStorage.setItem('orderID',this.orderId.toString());
+    //  console.log('if 1.');
+    // }else{
+      this.orderId = JSON.parse(sessionStorage.getItem('orderID'));
+      console.log(this.orderId);
+    // }
+    // if(JSON.parse(sessionStorage.getItem('orders')) == null){
+     
+    //   this.orders[this.orderId] = this.orderData;
+    //   sessionStorage.setItem('orders',JSON.stringify(this.orders));
+    //   this.resetData();
+    //   console.log('if 2.');
+    // }else{
+      // console.log('else 2.');
+      this.orders = JSON.parse(sessionStorage.getItem('orders'));
+      this.orders[this.orderId] = this.orderData;
+      this.orderId++;
+      sessionStorage.setItem('orderID',this.orderId.toString());
+      sessionStorage.setItem('orders',JSON.stringify(this.orders));
+      this.resetData();
+    // }
+    
+  }
+  orderPriceCheck(){
+    if(this.cableLenght ==1){
+      this.orderPrice = 1900;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==1.5){
+      this.orderPrice = 2200;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==2){
+      this.orderPrice = 2500;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==2.5){
+      this.orderPrice = 2800;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==3){
+      this.orderPrice = 3200;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==3.5){
+      this.orderPrice = 3450;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==5){
+      this.orderPrice = 4200;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==6){
+      this.orderPrice = 4700;
+      this.additionalPriceforMICandRCA();
+    }
+    if(this.cableLenght ==10){
+      this.orderPrice = 6950;
+      this.additionalPriceforMICandRCA();
+    }
+  }
+  additionalPriceforMICandRCA(){
+    if(this.cableType == 2 || this.cableType ==3){
+      this.orderPrice += 350;
+    }
+  }
+  resetData(){
+      this.orderPrice = 0;
+      this.orderNumber = '';
+      this.cableType= 0;
+      this.cableLenght= 0;
+      this.cableColorNumber= 0;
+      this.cablePattern= 0;
+      this.singleColor= 0;
+      this.primaryColor= 0;
+      this.secondaryColor= 0;
+      this.cableProtectionColor= 0;
+      this.srcFullPathForColor = "";
   }
   editOrder() {
-    this.orderData = new OrderMod(
-      this.orderId,
-      this.orderNumber,
-      this.cableType,
-      this.cableLenght,
-      this.cableColorNumber,
-      this.cablePattern,
-      this.singleColor,
-      this.primaryColor,
-      this.secondaryColor,
-      this.cableProtectionColor,
-      this.srcFullPathForColor);
-    this.orders[this.orderId -1] =this.orderData;
-    this.orderId;
+    // this.orderData = new OrderMod(
+    //   this.orderId,
+    //   this.orderNumber,
+    //   this.cableType,
+    //   this.cableLenght,
+    //   this.cableColorNumber,
+    //   this.cablePattern,
+    //   this.singleColor,
+    //   this.primaryColor,
+    //   this.secondaryColor,
+    //   this.cableProtectionColor,
+    //   this.srcFullPathForColor);
+    // this.orders[this.orderId ] =this.orderData;
+    // this.orderId;
   }
   delOrder(cableNumber: number){
     
@@ -426,11 +503,12 @@ export class CycicComponent implements OnInit {
   */
   previewPatternSingleColor() {
     this.srcFullPathForSingleColor = this.srcPathBaseForSingleColor + "/" + this.singleColor + '.svg';
-    this.stepFive();
+  
 
     if (this.singleColor != 0) {
       document.getElementById("previewPatternSingleColor").setAttribute('src', this.srcFullPathForSingleColor);
       this.srcFullPathForColor = this.srcFullPathForSingleColor;
+      this.stepFive();
       // document.getElementById("previewPatternTwo").setAttribute('src', this.srcFullPathForSingleColor);
     }
     this.orderNumberCheck();
@@ -453,14 +531,6 @@ export class CycicComponent implements OnInit {
 
   }
 
-  // orderNumberIdent(){
-  //   console.log(this.orderNumber.charAt(3));
-  //   if(this.orderNumber.charAt(3) == '1'){
-  //     console.log('jedna boja');
-  //   }
-  //   if(this.orderNumber.charAt(3) == '2'){
-  //     console.log('dve boje');
-  //   }
-  // }
+  
 
 }
