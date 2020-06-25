@@ -35,39 +35,47 @@
         <td>{{i.orderPrice}}RSD.</td>
 
     </tbody>
+    <div class="col-8">
+        <div class="h6 item-name " >
+            <span *ngIf="lang == 'sr'">Ukupno: </span>
+            <span *ngIf="lang == 'en'">Total price:</span>
+            <span class="item-price float-right">{{totalPrice}} RSD</span>     
+        </div>
+       
 
-    <!-- <div>
+    </div>
+    <div>
     <div class="form ">
         <div class="row align-items-stretch mb-5 " id='contactFormOrder'>
             <div class="col-md-12 ">
                 <div class="form-group ">
-                    <input type="text " [(ngModel)]="yourName " name="name " class="form-control " id="name " type="text " placeholder="Your Name * " required="required " data-validation-required-message="Please enter your name. " />
+                    <input type="text " [(ngModel)]="yourName" name="name " class="form-control " id="name " type="text " placeholder="Your Name * " required="required " data-validation-required-message="Please enter your name. " />
                     <p class="help-block text-danger "></p>
                 </div>
                 <div class="row ">
                     <div class="col-md-6 ">
                         <div class="form-group ">
-                            <input type="text " [(ngModel)]="city " name="name " class="form-control " id="city " type="text " placeholder="Your City * " required="required " data-validation-required-message="Please enter your city. " />
+                            <input type="text " [(ngModel)]="city" name="name " class="form-control " id="city " type="text " placeholder="Your City * " required="required " data-validation-required-message="Please enter your city. " />
                             <p class="help-block text-danger "></p>
                         </div>
                     </div>
                     <div class="col-md-6 ">
                         <div class="form-group ">
-                            <input type="text " [(ngModel)]="zipCode " name="name " class="form-control " id="zipCode " type="text " placeholder="Your ZipCode * " required="required " data-validation-required-message="Please enter your zipcode. " />
+                            <input type="text " [(ngModel)]="zipCode" name="name " class="form-control " id="zipCode " type="text " placeholder="Your ZipCode * " required="required " data-validation-required-message="Please enter your zipcode. " />
                             <p class="help-block text-danger "></p>
                         </div>
                     </div>
                 </div>
                 <div class="form-group ">
-                    <input type="text " [(ngModel)]="yourAddress " name="name " class="form-control " id="name " type="text " placeholder="Your Address * " required="required " data-validation-required-message="Please enter your address. " />
+                    <input type="text " [(ngModel)]="yourAddress" name="name " class="form-control " id="name " type="text " placeholder="Your Address * " required="required " data-validation-required-message="Please enter your address. " />
                     <p class="help-block text-danger "></p>
                 </div>
                 <div class="form-group ">
-                    <input type="email " [(ngModel)]="yourEmail " class="form-control " name="_replyto " id="email " type="email " placeholder="Your Email * " required="required " data-validation-required-message="Please enter your email address. " />
+                    <input type="email " [(ngModel)]="yourEmail" class="form-control " name="_replyto " id="email " type="email " placeholder="Your Email * " required="required " data-validation-required-message="Please enter your email address. " />
                     <p class="help-block text-danger "></p>
                 </div>
                 <div class="form-group mb-md-0 ">
-                    <input type="number " [(ngModel)]="yourPhone " name="tel " class="form-control " id="phone " type="tel " placeholder="Your Phone * " required="required " data-validation-required-message="Please enter your phone number. " />
+                    <input type="number " [(ngModel)]="yourPhone" name="tel " class="form-control " id="phone " type="tel " placeholder="Your Phone * " required="required " data-validation-required-message="Please enter your phone number. " />
                     <p class="help-block text-danger "></p>
                 </div>
             </div>
@@ -79,5 +87,5 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 </div>
