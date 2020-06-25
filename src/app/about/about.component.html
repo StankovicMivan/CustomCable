@@ -4,7 +4,7 @@
             <!-- <h2 class="section-heading text-uppercase" *ngIf="lang == 'en'">We offer you the opportunity to create your own cable </h2>
             -->
             <h4 class="section-heading text-uppercase" *ngIf="lang == 'en'">What can I custom? </h4>
-            <h2 class="section-heading text-uppercase" *ngIf="lang == 'sr'">Sta je na meni da odaberem?</h2>
+            <h4 class="section-heading text-uppercase" *ngIf="lang == 'sr'">Šta mogu ja da biram?</h4>
             <h3 class="section-subheading text-muted"></h3>
         </div>
         <ul class="timeline">
@@ -17,13 +17,14 @@
                     </div>
                     <div class="timeline-body">
                         <span *ngIf="lang == 'en'">
-                            "Choose cable usage. Do you need cable for a guitar, microphone or sound system? "
+                            "Choose cable usage. Do you need cable for a guitar, microphone or sound system?"
                         </span>
                         <span *ngIf="lang == 'sr'">
-                            "Nudimo vam mogucnost da kreirate kabel bas onakav kakav vi zelite. Tako da krenimo od namene."
+                            "Izaberite namenu kabla. Da li vam je kabl potreban za gitaru, mikrofon, neki zvucni sistem
+                            itd...?"
                         </span>
                         <!-- <p class="text-muted" *ngIf="lang == 'en'"> ()</p> -->
-                        <p class="text-muted" *ngIf="lang == 'sr'"> (Gitara, mikrofon, zvucni sistem ...)</p>
+                        <!-- <p class="text-muted" *ngIf="lang == 'sr'"> (Gitara, mikrofon, zvucni sistem ...)</p> -->
                     </div>
                 </div>
             </li>
@@ -35,7 +36,12 @@
                         <span id=choiceTwo class="h4">Length</span>
                     </div>
                     <div class="timeline-body">
-                        <p>"We offer lengths from 1 to 10 meters. If none of the standard lengths suits you,<span style='cursor:pointer; color:red'> make your order by sending us email."</span></p>
+                        <span *ngIf="lang == 'en'">"We offer lengths from 1 to 10 meters. If none of the standard
+                            lengths suits you,<span style='cursor:pointer; color:red' (click)='toContact()'> make your
+                                order by sending us email."</span></span>
+                        <span *ngIf="lang == 'sr'">"Nudimo vam izbor dužine od 1 do 10 metara. Ako vam ne odgovara ni
+                            jedna od ponuđenih dužina,<span style='cursor:pointer; color:red' (click)='toContact()'>
+                                napravite porudžbinu slanjem email-a."</span></span>
                     </div>
                 </div>
             </li>
@@ -47,7 +53,14 @@
                         <span id=choiceThree class="h4">Color & Pattern</span>
                     </div>
                     <div class="timeline-body">
-                        <p class="">"Cables are protected with the high-quality thread, that consists of 48 or 64 threads. You can choose one or two colors for the protection thread. In the case of choosing two colors, you get the possibility to choose between 6 different knitting patterns."</p>
+                        <span *ngIf="lang == 'en'">"Cables are protected with the high-quality thread, that consists of
+                            48 or 64 threads. You can choose one or two colors for the protection thread. In the case of
+                            choosing two colors, you get the possibility to choose between 6 different knitting
+                            patterns."</span>
+                        <span *ngIf="lang == 'sr'">"Kablovi su zaštićeni sa visoko kvalitetnim koncem, koji se sastoji
+                            od 48 ili 64 niti. Možete izabrati zaštitu u jednoj ili dve boje konca. U slučaju odabira
+                            dve boje, pored izbora boja birate i šablon po kojem će se zaštita isplesti oko vašeg
+                            kabla."</span>
                     </div>
                 </div>
             </li>
@@ -59,8 +72,12 @@
                         <span id=choiceFour class="h4">Jack connector protection</span>
                     </div>
                     <div class="timeline-body">
-                        <p class="">"In the very end, choose the color of the jack connector protection. The protection passes over the connector and one small part of the cable and thus prevents possible damage to the connection between the cable
-                            and the connector."</p>
+                        <span *ngIf="lang == 'en'">"In the very end, choose the color of the jack connector protection.
+                            The protection passes over the connector and one small part of the cable and thus prevents
+                            possible damage to the connection between the cable
+                            and the connector."</span>
+                        <span *ngIf="lang == 'sr'">"Za sam kraj, izaberite boju zaštite konektora.
+                            Zaštita prelazi preko konektora i jednog malog dela kabla i na taj način štiti kabl na mestu gde se spaja kabl i konektor. "</span>
                     </div>
                 </div>
             </li>

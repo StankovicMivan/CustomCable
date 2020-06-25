@@ -39,21 +39,21 @@ export class CycicComponent implements OnInit {
     //Script for manual translate
     if (this.lang == 'sr') {
       //first tab
-      document.getElementById('spanOne').innerText = '1. korak: Izaberite namenu';
+      document.getElementById('spanOne').innerText = '1. korak: Izaberite tip kabla';
       document.getElementById('guitar').innerHTML = 'Gitaru';
       document.getElementById('mic').innerHTML = 'Mikrofon';
       document.getElementById('rca').innerHTML = 'RCA na 6,35mm';
       //2. tab
-      document.getElementById('spanTwo').innerText = '2. korak: Izaberite zeljenu duzinu';
+      document.getElementById('spanTwo').innerText = '2. korak: Izaberite željenu dužinu';
       //3.tab
-      document.getElementById('spanThree').innerText = '3. korak: Izaberite u koliko boja zelis kabl';
-      document.getElementById('colorNumberLabel').innerText = 'U koliko boja zelite izradu kabla?';
+      document.getElementById('spanThree').innerText = '3. korak: Izaberite u koliko boja želite kabl';
+      document.getElementById('colorNumberLabel').innerText = 'U koliko boja želite izradu kabla?';
       document.getElementById('cableColorOne').innerText = 'Jednoj';
       document.getElementById('cableColorTwo').innerText = 'Dve';
       //4. tab
-      document.getElementById('spanFour').innerText = '4. korak: Izaberite boju u odnosu na prethodni izbor';
-      document.getElementById('spanFive').innerText = '5. korak: Izaberite boju zastite oko konektora';
-      document.getElementById('spanFinal').innerText = 'Poslednji korak: Potvrdi kreirano';
+      document.getElementById('spanFour').innerText = '4. korak: Izaberite boju zaštite kabla';
+      document.getElementById('spanFive').innerText = '5. korak: Izaberite boju zaštite konektora';
+      document.getElementById('spanFinal').innerText = 'Pregled kreiranog';
 
 
     }

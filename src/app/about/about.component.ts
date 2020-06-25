@@ -17,15 +17,18 @@ export class AboutComponent implements OnInit {
     if(this.lang =='sr'){
 
       
-      document.getElementById('choiceOne').innerHTML = '1. izbor';
-      document.getElementById('choiceTwo').innerHTML = '2. izbor';
-      document.getElementById('choiceThree').innerHTML = '3. izbor';
-      document.getElementById('choiceFour').innerHTML = '4. izbor';
+      document.getElementById('choiceOne').innerHTML = 'Tip kabla';
+      document.getElementById('choiceTwo').innerHTML = 'Dužina';
+      document.getElementById('choiceThree').innerHTML = 'Boja i šablon';
+      document.getElementById('choiceFour').innerHTML = 'Boja zaštite konektora';
 
     }
   }
 
   create(){
     this.router.navigate(['create/' ]);
+  }
+  toContact(){
+    this.router.navigate(['contact/'])
   }
 }

@@ -1,45 +1,42 @@
-<thead class="table " style="margin-top: 200px;">
-    <th>
-        <span>#</span>
-    </th>
-    <!-- <th>
-                                                    <span *ngIf="lang == 'en'">ID</span>
-                                                    <span *ngIf="lang == 'sr'">Šifra</span>
-                                                </th> -->
-    <th>
-        <span *ngIf="lang == 'en'">Type</span>
-        <span *ngIf="lang == 'sr'">Tip</span>
-    </th>
-    <th>
-        <span *ngIf="lang == 'en'">Length</span>
-        <span *ngIf="lang == 'sr'">Dužina</span>
-    </th>
-    <th>
-        <span *ngIf="lang=='en' ">Pattern</span>
-        <span *ngIf="lang=='sr' ">Šablon</span>
-    </th>
-    <th>
-        <span *ngIf="lang=='en' ">Jack shield</span>
-        <span *ngIf="lang=='sr' ">Zaštita konektora</span>
-    </th>
-    <th>
-        <span *ngIf="lang=='en' ">Price</span>
-        <span *ngIf="lang=='sr' ">Cena</span>
-    </th>
-</thead>
-<tbody *ngFor="let i of orders ">
-    <td>{{i.orderId+1}}</td>
-    <!-- <td>{{orderNumber}}</td> -->
-    <td>{{i.cableType}}</td>
-    <td>{{i.cableLenght}}</td>
-    <!-- <td>{{kablbrBoja}}</td> -->
-    <td><img src="{{i.srcFullPathForColor}} "></td>
-    <td>{{i.cableProtectionColor}}</td>
-    <td>{{i.orderPrice}}RSD.</td>
+<div style="margin-top: 100px;margin-left: 20px;margin-right: 20px;margin-bottom: 30px; ">
+    <thead class="table " >
+        <th>
+            <span>#</span>
+        </th>
+        <th>
+            <span *ngIf="lang == 'en'">Type</span>
+            <span *ngIf="lang == 'sr'">Tip</span>
+        </th>
+        <th>
+            <span *ngIf="lang == 'en'">Length</span>
+            <span *ngIf="lang == 'sr'">Dužina</span>
+        </th>
+        <th>
+            <span *ngIf="lang=='en' ">Pattern</span>
+            <span *ngIf="lang=='sr' ">Šablon</span>
+        </th>
+        <th>
+            <span *ngIf="lang=='en' ">Jack shield</span>
+            <span *ngIf="lang=='sr' ">Zaštita konektora</span>
+        </th>
+        <th>
+            <span *ngIf="lang=='en' ">Price</span>
+            <span *ngIf="lang=='sr' ">Cena</span>
+        </th>
+    </thead>
+    <tbody *ngFor="let i of orders ">
+        <td>{{i.orderId+1}}</td>
+        <!-- <td>{{orderNumber}}</td> -->
+        <td>{{i.cableType}}</td>
+        <td>{{i.calbeLength}}</td>
+        <!-- <td>{{kablbrBoja}}</td> -->
+        <td><img src="{{i.srcFullPathForColor}} "></td>
+        <td>{{check(i.cableJackProtection)}}</td>
+        <td>{{i.orderPrice}}RSD.</td>
 
-</tbody>
+    </tbody>
 
-<!-- <div>
+    <!-- <div>
     <div class="form ">
         <div class="row align-items-stretch mb-5 " id='contactFormOrder'>
             <div class="col-md-12 ">
@@ -83,3 +80,4 @@
         </div>
     </div>
 </div> -->
+</div>
