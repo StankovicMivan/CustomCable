@@ -80,6 +80,35 @@ export class OrderPreviewComponent implements OnInit {
    
     return this.answ;
   }
+  answ2;
+  checkType = function checkType(params:number) {
+    if(params ==1){
+      if(this.lang == 'sr'){
+        this.answ2 = 'Gitara';
+      }else{
+        this.answ2 = 'Guitar';
+      }
+    }
+    if(params ==2){
+      if(this.lang == 'sr'){
+        this.answ2 = 'Mikrofon';
+      }else{
+        this.answ2 = 'Mic';
+      }
+    }
+    if(params ==3){
+      if(this.lang == 'sr'){
+        this.answ2 = 'RCA';
+      }else{
+        this.answ2 = 'RCA';
+      }
+    }
+    
+    
+    
+   
+    return this.answ2;
+  }
   sendOrder() {
     if(this.validation()){
       let order = new OrderMail(
@@ -107,6 +136,31 @@ export class OrderPreviewComponent implements OnInit {
     // let orderService = new CycicService(this.http);
     // orderService.createOrder(order);
 
+  }
+  tempOrders: OrderMod[] = [];
+  counter = 0;
+  remove(orderId: number) {
+    // this.orders.splice(orderId);
+    this.orders.forEach(i => {
+      console.log('print array before remove' + i);
+      if (i.orderId != orderId) {
+        this.tempOrders[this.counter] = i;
+        this.counter++;
+      }else {
+
+      }
+      
+    });
+    var orderidnumber = parseInt(sessionStorage.getItem('orderID'));
+    orderidnumber =orderidnumber-1;
+    sessionStorage.setItem('orderID',orderidnumber.toString());
+    sessionStorage.setItem('orders', JSON.stringify(this.tempOrders));
+    console.log(this.tempOrders)
+    this.counter = 0;
+    this.reloadPage();
+  }
+  reloadPage(){
+    location.reload();
   }
   validation = function analyzeValitate(){
     if(this.yourName ==null){

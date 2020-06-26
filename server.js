@@ -91,7 +91,7 @@ function sendMailOrder(data) {
         to: 'order@customcable.in.rs',
         from: 'order@customcable.in.rs',
         subject: 'Order',
-        text: 'porudzbina'
+        text: JSON.stringify(data)
 
     };
     sgMail.send(msg2);
