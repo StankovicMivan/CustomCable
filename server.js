@@ -77,7 +77,36 @@ function sendMongoDBOrder(data) {
 }
 
 function sendMailOrder(data) {
-    firstrow = "<table class='table table-hover .w-auto'><thead id='thead' class='thead-light text-center '><tr><th class='col-1 col-xs-1'><span>#</span></th><th class='col-3 col-xs-3'><span *ngIf='lang == 'en''>Type</span><span *ngIf='lang == 'sr''>Tip</span></th><th class='col-1 col-xs-1'><span *ngIf='lang == 'en''>Length</span><span *ngIf='lang == 'sr''>Dužina</span></th><th class='col-3 col-xs-3'><span *ngIf='lang=='en' '>Pattern</span><span *ngIf='lang=='sr' '>Šablon</span></th><th class='col-2 col-xs-2'><span *ngIf='lang=='en' '>Jack shield</span><span *ngIf='lang=='sr' '>Zaštita konektora</span></th><th class='col-1 col-xs-1'><span *ngIf='lang=='en' '>Price</span><span *ngIf='lang=='sr' '>Cena</span></th><th class='col-1 col-xs-1'><span *ngIf='lang=='en' '>Price</span><span *ngIf='lang=='sr' '>Cena</span></th></tr></thead>";
+    type = '';
+    length = '';
+    pattern = '';
+    shild = '';
+    price = '';
+
+    if (lang == 'en') {
+        type = "Type";
+        length = 'Length';
+        pattern = 'Pattern';
+        shild = 'Jack shield';
+        price = 'Price';
+    }
+    if (lang == 'sr') {
+        type = "Tip";
+        length = 'Dužina';
+        pattern = 'Šablon';
+        shild = 'Zaštita konektora';
+        price = 'Cena';
+    }
+
+    firstrow = "<table><thead style='text-align: center;'>" +
+        "<tr>" +
+        "<th><span>#</span></th>" +
+        "<th><span>" + type + "</span></th>" +
+        "<th><span>" + length + "</span></th>" +
+        "<th><span>" + pattern + "</span></th>" +
+        "<th><span>" + shild + "</span></th>" +
+        "<th><span>" + price + "</span></th>" +
+        "</tr></thead>";
     secondRow = "<tbody class='text-center'>"
     temp = "";
     orders = [];
@@ -85,24 +114,20 @@ function sendMailOrder(data) {
     orders.forEach(i => {
         console.log(i);
         if (i != null) {
-            temp = "<tr> <td class='col-1 col-xs-1'><span>" + i.orderId + 1 +
-                "</span></td> <td class='col-3 col-xs-3'><span>" + i.cableType + "</span></td>" +
-                "<td class='col-1 col-xs-1'><span>" + i.calbeLength + "m</span></td>" +
-                "<td class='col-3 col-xs-3'><img id='patternPreview' src=" + i.srcFullPathForColor + "></td>" +
-                "<td class='col-2 col-xs-2'><span>" + i.cableJackProtection + "</span></td>" +
-                "<td class='col-1 col-xs-1'><span>" + i.orderPrice + "RSD.</span></td></tr>"
+            temp = "<tr>" +
+                "<td><span>" + (i.orderId + 1) + "</span></td>" +
+                "<td><span>" + i.cableType + "</span></td>" +
+                "<td><span>" + i.calbeLength + "m</span></td>" +
+                "<td><img src=" + photoSrcParser(i.srcFullPathForColor) + "></td>" +
+                "<td><span>" + i.cableJackProtection + "</span></td>" +
+                "<td><span>" + i.orderPrice + "RSD.</span></td></tr>"
 
         }
         secondRow += temp;
 
     });
+
     secondRow += "</tbody></table>";
-
-
-    //         
-    //         
-    //         <td class="col-1 col-xs-1"><span class="item-remove" (click)='remove(i.orderId)'><i class="fa fa-times" aria-hidden="true" (click)='remove(i.orderId)'></i></span></td></tr></tbody></table>
-
 
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID);
@@ -163,7 +188,9 @@ function sendMailContact(data) {
 };
 
 
-
+function photoSrcParser(src) {
+    return ("src/" + src.substr(6));
+}
 
 
 var distDir = __dirname + "/dist/";

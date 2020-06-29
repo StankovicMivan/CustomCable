@@ -96,19 +96,19 @@
 
                 </div>
                 <div class="col-8 pl-0">
-                    <div class="h6 item-name float-left" >
+                    <div class="h6 item-name float-left">
                         <span *ngIf="lang == 'sr'">Ukupno: </span>
                         <span *ngIf="lang == 'en'">Total price:</span>
                         <span class="item-price float-right">{{totalPrice}} RSD</span>
                         <span class=" float-right">
                             <button class="btn btn-primary" (click)='goToOrderPreview()'>
                                 <span *ngIf="lang == 'sr'">Poruči</span>
-                                <span *ngIf="lang == 'en'">Order</span>
-                            </button>
+                        <span *ngIf="lang == 'en'">Order</span>
+                        </button>
                         </span>
-                        
+
                     </div>
-                   
+
 
                 </div>
             </div>
