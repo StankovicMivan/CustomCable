@@ -82,7 +82,7 @@ function sendMailOrder(data) {
     pattern = '';
     shild = '';
     price = '';
-
+    lang = 'en';
     if (lang == 'en') {
         type = "Type";
         length = 'Length';
