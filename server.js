@@ -88,7 +88,7 @@ function sendMailOrder(data) {
             temp = "<tr> <td class='col-1 col-xs-1'><span>" + i.orderId + 1 +
                 "</span></td> <td class='col-3 col-xs-3'><span>" + i.cableType + "</span></td>" +
                 "<td class='col-1 col-xs-1'><span>" + i.calbeLength + "m</span></td>" +
-                "<td class='col-3 col-xs-3'><img id='patternPreview' src=" + i.srcFullPathForColor. + "></td>" +
+                "<td class='col-3 col-xs-3'><img id='patternPreview' src=" + i.srcFullPathForColor + "></td>" +
                 "<td class='col-2 col-xs-2'><span>" + i.cableJackProtection + "</span></td>" +
                 "<td class='col-1 col-xs-1'><span>" + i.orderPrice + "RSD.</span></td></tr>"
 
