@@ -189,7 +189,7 @@ function sendMailContact(data) {
 
 
 function photoSrcParser(src) {
-    return ("src/" + src.substr(6));
+    return ("https://raw.githubusercontent.com/StankovicMivan/CustomCable/master/src/" + src.substr(6));
 }
 
 
