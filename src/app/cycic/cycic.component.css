@@ -12,7 +12,7 @@
 }
 
 .mb-0 {
-    font-family: tableFont;
+    font-family: mySecFont;
     font-size: 25px;
     font-weight: 30px;
 }
@@ -45,7 +45,7 @@
 }
 
 .mb-0 .btn-link {
-    font-size: 23px;
+    font-size: 20pt;
     text-decoration: unset;
     color: white;
     background-color: #343A40;

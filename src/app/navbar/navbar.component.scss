@@ -1,0 +1,7 @@
+@use "sass:math" as math;
+$global-variable: global value;
+.container {
+    // $global-variable: margin-left/2;
+    margin-left: auto/2;
+    // margin-right: 0px;
+}

@@ -1,33 +1,43 @@
+@font-face {
+    font-family: mySecFont;
+    src: url(../../assets/fonts/Roboto-BoldItalic.ttf);
+}
+
 .masthead {
     margin-top: 0px;
     position: inherit;
     max-width: 100%;
 }
 
+.masthead-heading.text-uppercase {
+    font-family: mySecFont;
+}
+
+a>span {
+    font-family: mySecFont;
+    font-size: 15pt;
+}
+
 header.masthead {
     padding-top: 50px;
 }
 
-@media (min-width: 300px){
+@media (min-width: 300px) {
     img {
         max-height: 250px;
         max-width: 250px;
     }
-    .header.masthead .masthead-heading{
+    .header.masthead .masthead-heading {
         font-size: 1 rem;
-    }        
-
-
+    }
 }
-
 
 @media (min-width: 576px) {
-img {
-    max-height: 400px;
-    max-width: 400px;
-    
-}
-  .header.masthead .masthead-heading{
+    img {
+        max-height: 400px;
+        max-width: 400px;
+    }
+    .header.masthead .masthead-heading {
         font-size: 1 rem;
-    }  
+    }
 }
