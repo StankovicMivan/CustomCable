@@ -1,94 +1,163 @@
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <div class="section-heading text-uppercase">
+                <span class="h2" *ngIf="lang == 'en'">Gallery</span>
+                <span class="h2" *ngIf="lang == 'sr'">Galerija</span>
+            </div>
+            <h3 class=" h3 section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1"
-                        ><div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt=""
-                    /></a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                    </div>
-                </div>
+        <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+            <!--Controls-->
+            <div class="controls-top">
+                <button class="btn btn-floating btn-secondary" href="#carousel-with-lb" data-slide="prev"></button>
+                <button class="btn btn-floating btn-secondary" href="#carousel-with-lb" data-slide="next"></button>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2"
-                        ><div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt=""
-                    /></a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Explore</div>
-                        <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                    </div>
+            <!--/.Controls-->
+
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
+                <li data-target="#carousel-with-lb" data-slide-to="1" class="secondary-color"></li>
+                <li data-target="#carousel-with-lb" data-slide-to="2" class="secondary-color"></li>
+            </ol>
+            <!--/.Indicators-->
+
+            <!--Slides and lightbox-->
+
+            <div class="carousel-inner mdb-lightbox" role="listbox">
+                <div id="mdb-lightbox-ui"></div>
+                <!--First slide-->
+                <div class=" carousel-item active text-center">
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0234.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0234.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0235.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0235.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0246.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0246.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0234.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0247.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0235.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0261.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0246.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0262.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3"
-                        ><div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt=""
-                    /></a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Finish</div>
-                        <div class="portfolio-caption-subheading text-muted">Identity</div>
-                    </div>
+                <!--/.First slide-->
+
+                <!--Second slide-->
+                <div class=" carousel-item active text-center">
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0234.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0234.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0235.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0235.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0246.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0246.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0234.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0247.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0235.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0261.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0246.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0262.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4"
-                        ><div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt=""
-                    /></a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lines</div>
-                        <div class="portfolio-caption-subheading text-muted">Branding</div>
-                    </div>
+                <!--/.Second slide-->
+
+                <div class=" carousel-item active text-center">
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0234.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0234.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0235.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0235.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0246.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0246.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0234.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0247.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0235.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0261.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
+                    <figure class="col-md-4 d-md-inline-block">
+                        <a href="../../assets/img/gallery/DSCN0246.JPG" data-size="1600x1067">
+                            <img src="../../assets/img/gallery/DSCN0262.JPG" class="img-fluid">
+                        </a>
+                    </figure>
+
                 </div>
+
+
+
+
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5"
-                        ><div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt=""
-                    /></a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Southwest</div>
-                        <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6"
-                        ><div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt=""
-                    /></a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Window</div>
-                        <div class="portfolio-caption-subheading text-muted">Photography</div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
+
 </section>

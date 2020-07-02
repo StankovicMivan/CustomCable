@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
+  lang = '';
   constructor() { }
 
   ngOnInit(): void {
+    this.lang = sessionStorage.getItem('lang');
   }
 
 }
