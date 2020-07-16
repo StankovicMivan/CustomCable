@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a id='gallery' class="nav-link js-scroll-trigger" (click)="galleryLink()">
                         <span *ngIf="lang == 'en'">Gallery</span>
-                        <span *ngIf="lang == 'sr'">Slike</span>
+                        <span *ngIf="lang == 'sr'">Galerija</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -109,7 +109,7 @@
 
             </div>
             <div class="col-8 pl-0">
-                <div class="h6 item-name float-left">
+                <div class="h6 item-name ">
                     <span *ngIf="lang == 'sr'">Ukupno: </span>
                     <span *ngIf="lang == 'en'">Total price:</span>
                     <span class="item-price float-right">{{totalPrice}} RSD</span>

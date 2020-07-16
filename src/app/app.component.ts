@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderMod } from './mailtemplates/orderMod';
+import { Discount } from './mailtemplates/discount.model';
+import { CycicService } from './cycic/cycic.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +19,12 @@ export class AppComponent {
   //     this.router.navigate([path]);
   //   }
   // }
+  http: HttpClient;
   orderId ;
   orders: OrderMod[] = [];
+  private orderService = new CycicService(this.http);
+  // discounts : Discount[] = []
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -33,8 +40,10 @@ export class AppComponent {
       this.orderId = 0;
       sessionStorage.setItem('orderID', this.orderId);
       sessionStorage.setItem('orders', JSON.stringify(this.orders));
+     
     }
 
-    
+    // this.orderService.discountOrder();
+    // this.discounts = JSON.parse(sessionStorage.getItem('discounts'));
   }
 }

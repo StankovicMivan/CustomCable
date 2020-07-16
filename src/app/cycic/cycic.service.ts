@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angul
 import { catchError, retry } from 'rxjs/internal/operators';
 import { Observable, of } from 'rxjs';
 import { OrderMail } from '../mailtemplates/order.model';
+import { Discount } from '../mailtemplates/discount.model';
 
 
 const httpOptions = {
@@ -21,7 +22,7 @@ export class CycicService {
     constructor(private http: HttpClient) { }
 
     private url = 'api/order';
-
+    discounts: Discount [] = [];
     // post("/api/contact")
     createOrder(newOdred: OrderMail) {
        console.log('contact service ts');
@@ -31,6 +32,15 @@ export class CycicService {
                 console.log(responseData.message);
             
             });
+    }
+    discountOrder(){
+        this.http
+        .post<{ discounts: string }>('api/discont',null)
+        .subscribe(responseData => {
+            this.discounts = JSON.parse(responseData.discounts);
+            sessionStorage.setItem('discounts',JSON.stringify(this.discounts));
+        });
+        
     }
     
 

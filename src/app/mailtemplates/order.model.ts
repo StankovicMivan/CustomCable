@@ -1,7 +1,8 @@
 import { OrderMod } from './orderMod';
 
 export class OrderMail {
-
+    
+    id : number;
     yourName: string;
     yourAddress: string;
     city: string;
@@ -13,6 +14,7 @@ export class OrderMail {
 
 
     constructor(
+        id : number,
         name: string,
         email: string,
         phone: string,
@@ -21,6 +23,7 @@ export class OrderMail {
         zipCode : number,
         orders: OrderMod[]
     ) {
+        this.id =  id;
         this.yourName = name;
         this.yourEmail = email;
         this.yourPhone = phone;

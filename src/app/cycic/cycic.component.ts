@@ -75,22 +75,7 @@ export class CycicComponent implements OnInit {
 
   }
 
-  sendOrder() {
 
-
-    let order = new OrderMail(
-      this.yourName,
-      this.yourEmail,
-      this.yourPhone,
-      this.yourAddress,
-      this.city,
-      this.zipCode,
-      this.orders);
-    console.log(this.lang);
-    let orderService = new CycicService(this.http);
-    orderService.createOrder(order);
-
-  }
 
   /**
    * selectCable
@@ -207,7 +192,7 @@ export class CycicComponent implements OnInit {
      
       this.flag = true;
     }else {
-      this.editOrder();
+      // this.editOrder();
     }
       
 
@@ -378,10 +363,7 @@ export class CycicComponent implements OnInit {
     
    
    
-    // if(JSON.parse(sessionStorage.getItem('orderID')) == null){
-    //   sessionStorage.setItem('orderID',this.orderId.toString());
-    //  console.log('if 1.');
-    // }else{
+    
       this.orderId = parseInt(sessionStorage.getItem('orderID'));
       this.orderData = new OrderMod(
         this.orderPrice,
@@ -397,15 +379,7 @@ export class CycicComponent implements OnInit {
         this.cableProtectionColor,
         this.srcFullPathForColor);
       console.log(this.orderId);
-    // }
-    // if(JSON.parse(sessionStorage.getItem('orders')) == null){
-     
-    //   this.orders[this.orderId] = this.orderData;
-    //   sessionStorage.setItem('orders',JSON.stringify(this.orders));
-    //   this.resetData();
-    //   console.log('if 2.');
-    // }else{
-      // console.log('else 2.');
+   
       this.orders = JSON.parse(sessionStorage.getItem('orders'));
       this.orders[this.orderId] = this.orderData;
       console.log(this.orders);
@@ -422,15 +396,15 @@ export class CycicComponent implements OnInit {
   }
   orderPriceCheck(){
     if(this.cableLenght ==1){
-      this.orderPrice = 1900;
+      this.orderPrice = 2250;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==1.5){
-      this.orderPrice = 2200;
+      this.orderPrice = 2500;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==2){
-      this.orderPrice = 2500;
+      this.orderPrice = 2600;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==2.5){
@@ -438,19 +412,19 @@ export class CycicComponent implements OnInit {
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==3){
-      this.orderPrice = 3200;
+      this.orderPrice = 3300;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==3.5){
-      this.orderPrice = 3450;
+      this.orderPrice = 3500;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==5){
-      this.orderPrice = 4200;
+      this.orderPrice = 4300;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==6){
-      this.orderPrice = 4700;
+      this.orderPrice = 4600;
       this.additionalPriceforMICandRCA();
     }
     if(this.cableLenght ==10){
@@ -467,7 +441,7 @@ export class CycicComponent implements OnInit {
       this.orderPrice = 0;
       this.orderNumber = '';
       this.cableType= 0;
-      this.cableLenght= 0;
+      this.cableLenght= 1;
       this.cableColorNumber= 0;
       this.cablePattern= 0;
       this.singleColor= 0;
@@ -475,28 +449,20 @@ export class CycicComponent implements OnInit {
       this.secondaryColor= 0;
       this.cableProtectionColor= 0;
       this.srcFullPathForColor = "";
+      this.reloadPage();
   }
-  editOrder() {
-    // this.orderData = new OrderMod(
-    //   this.orderId,
-    //   this.orderNumber,
-    //   this.cableType,
-    //   this.cableLenght,
-    //   this.cableColorNumber,
-    //   this.cablePattern,
-    //   this.singleColor,
-    //   this.primaryColor,
-    //   this.secondaryColor,
-    //   this.cableProtectionColor,
-    //   this.srcFullPathForColor);
-    // this.orders[this.orderId ] =this.orderData;
-    // this.orderId;
+  patternPick(number:number){
+    console.log(number);
+    this.cablePattern = number;
+    this.stepFour();
+    this.previewPattern();
+
   }
   delOrder(cableNumber: number){
     
       this.orderNumber = '';
       this.cableType =0;
-      this.cableLenght =0;
+      this.cableLenght =1;
       this.cableColorNumber =0;
       this.cablePattern =0;
       this.singleColor =0;
@@ -537,6 +503,7 @@ export class CycicComponent implements OnInit {
     document.getElementById("stepTwo").removeAttribute('disabled');
   }
   stepThree() {
+    this.proveraDuzine();
     document.getElementById("stepThree").removeAttribute('disabled');
   }
   stepFour() {
@@ -554,4 +521,78 @@ export class CycicComponent implements OnInit {
     location.reload();
   }
 
+  checkType = function checkType(params: number) {
+    if (params == 1) {
+      if (this.lang == 'sr') {
+        this.answ2 = 'Gitara';
+      } else {
+        this.answ2 = 'Guitar';
+      }
+    }
+    if (params == 2) {
+      if (this.lang == 'sr') {
+        this.answ2 = 'Mikrofon';
+      } else {
+        this.answ2 = 'Mic';
+      }
+    }
+    if (params == 3) {
+      if (this.lang == 'sr') {
+        this.answ2 = 'RCA';
+      } else {
+        this.answ2 = 'RCA';
+      }
+    }
+
+
+
+
+    return this.answ2;
+  }
+  check = function colorCheck(params: number) {
+    if (params == 1) {
+      if (this.lang == 'sr') {
+        this.answ = 'Bela';
+      } else {
+        this.answ = 'White';
+      }
+    }
+    if (params == 2) {
+      if (this.lang == 'sr') {
+        this.answ = 'Crvena';
+      } else {
+        this.answ = 'Red';
+      }
+    }
+    if (params == 3) {
+      if (this.lang == 'sr') {
+        this.answ = 'Plava';
+      } else {
+        this.answ = 'Blue';
+      }
+    }
+    if (params == 4) {
+      if (this.lang == 'sr') {
+        this.answ = 'Žuta';
+      } else {
+        this.answ = 'Yellow';
+      }
+    }
+    if (params == 5) {
+      if (this.lang == 'sr') {
+        this.answ = 'Zelena';
+      } else {
+        this.answ = 'Green';
+      }
+    }
+    if (params == 6) {
+      if (this.lang == 'sr') {
+        this.answ = 'Crna';
+      } else {
+        this.answ = 'Black';
+      }
+    }
+
+    return this.answ;
+  }
 }

@@ -59,18 +59,59 @@ app.post("/api/order", (req, res, next) => {
     });
 });
 
+app.post("/api/discont", (req, res) => {
+    console.log('unutar server get order');
+
+    const MongoClient = require('mongodb').MongoClient;
+
+    let rezultat;
+
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("heroku_r7k8xww0");
+
+        dbo.collection("discount").find({}).toArray(function(err, result) {
+            if (err) throw err;
+
+            rezultat = result;
+
+
+            console.log(rezultat)
+            res.status(201).json({
+                discounts: JSON.stringify(rezultat)
+            })
+            db.close();
+        });
+
+
+    });
+
+
+
+
+    // res.send(poruka);
+
+});
+
+
 function sendMongoDBOrder(data) {
     var MongoClient = require('mongodb');
     var url = process.env.MONGODB_URI;
+    var ObjectID = require("bson-objectid");
 
     MongoClient.connect(url, function(err, db) {
-        // if (err) throw err;
         var dbo = db.db("heroku_r7k8xww0");
-        // var myobj = { name: "Company Inc", address: "Highway 37" };
+        data.id = ObjectID.generate();
+        data._id = {
+            oid: string = data.id
+        }
+
+        console.log(data);
         dbo.collection("order").insertOne(data, function(err, res) {
             if (err) throw err;
 
-            sendMailOrder(data);
+            // sendMailOrder(data);
             db.close();
         });
     });
