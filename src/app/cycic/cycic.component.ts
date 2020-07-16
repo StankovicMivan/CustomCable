@@ -44,7 +44,7 @@ export class CycicComponent implements OnInit {
 
       document.getElementById('guitar').innerHTML = 'Gitaru';
       document.getElementById('mic').innerHTML = 'Mikrofon';
-      document.getElementById('rca').innerHTML = 'RCA na 6,35mm';
+      document.getElementById('other').innerHTML = 'Ostalo';
       //2. tab
       document.getElementById('spanTwo1').innerText = '2. korak:';
       document.getElementById('spanTwo2').innerText = 'Izaberite željenu dužinu';
@@ -434,7 +434,7 @@ export class CycicComponent implements OnInit {
   }
   additionalPriceforMICandRCA(){
     if(this.cableType == 2 || this.cableType ==3){
-      this.orderPrice += 350;
+      this.orderPrice += 500;
     }
   }
   resetData(){

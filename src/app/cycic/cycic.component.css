@@ -400,3 +400,10 @@
     padding-right: unset;
     padding-left: unset;
 }
+
+.row#first div {
+    display: block;
+    width: auto;
+    margin-left: 30px;
+    margin-right: 30px;
+}

@@ -14,36 +14,54 @@
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="guitarCable()">
-                            <img src="assets/img/cycic/guitarcable.jpg" class="card-img-top" alt="..." style="width: 280px;height: 250px;">
-                            <div class="card-body">
-                                <span id='guitar' class="text-center">Guitar</span>
-                            </div>
+                    <div class="row" id='first'>
+                        <div>
+                            <input type="radio" id="guitar" name="type" value="type" (click)="guitarCable()">
+                            <label for=" guitar "> 
+                                <span id='guitar' class="text-center "> Guitar</span>
+                            </label>
                         </div>
-                        <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="micCable()">
-                            <img src="assets/img/cycic/miccable.jpg" class="card-img-top" alt="..." style="width: 280px;height: 250px;border: black 1px;">
-                            <div class="card-body" style="border: black 1px;">
-                                <span id='mic' class="text-center">Mic</span>
-                            </div>
+                        <div>
+                            <input type="radio" id="mic" name="type" value="type" (click)="micCable()">
+                            <label for="mic">
+                                <span id='mic' class="text-center"> Mic</span>
+                            </label>
                         </div>
-                        <div class="card" style="margin-right: 10px;margin-left: 10px;" (click)="rcaCable()">
-                            <img src="assets/img/cycic/rcacable.jpg" class="card-img-top" alt="..." style="width: 280px;height: 250px;">
-                            <div class="card-body">
-                                <span id='rca' class="ctext-center">1/4 to RCA.</span>
-                            </div>
+                        <div>
+                            <input type="radio" id="other" name="type" value="type" (click)="rcaCable()">
+                            <label for="other">  
+                                <span id='other' class="text-center"> Others</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div> <input type="radio" id="male" name="type" value="male">
-                            <label for="male">Guitar</label></div>
-                        <div> <input type="radio" id="male" name="type" value="male">
-                            <label for="male">Mic</label></div>
+                    <div class="row" *ngIf="cableType != 0">
 
-                        <div> <input type="radio" id="other" name="type" value="male">
-                            <label for="other">Other</label></div>
-
-
+                        <div class="card" style="display: block; " *ngIf="cableType ==1">
+                            <div style="float: left;">
+                                <img src="assets/img/cycic/neutrik.jpg" class="card-img-top" alt="..." style="width: 180px;height: 150px; float: left;background: unset">
+                            </div>
+                            <div style="float: right; margin-top: 60px;">
+                                <p>2x Neutrik NP2X</p>
+                            </div>
+                        </div>
+                        <div class="card" style="display: block; " *ngIf="cableType ==2">
+                            <div style="float: left;">
+                                <img src="assets/img/cycic/mic.jpg" class="card-img-top" alt="..." style="width: 150px;height: 130px; float: left;background: unset">
+                            </div>
+                            <div style="float: right; margin-top: 60px;">
+                                <p>1x Neutrik NC3FXX</p>
+                                <p>1x Neutrik NC3MXX</p>
+                            </div>
+                        </div>
+                        <div class="card" style="display: block; margin-bottom: 10px;" *ngIf="cableType ==3">
+                            <!-- <div style="float: left;">
+                                <img src="assets/img/cycic/neutrik.jpg" class="card-img-top" alt="..." style="width: 180px;height: 150px; float: left;background: unset">
+                            </div>
+                            <div style="float: right; margin-top: 60px;">
+                              
+                            </div> -->
+                            <p>Uskoro u ponudi sirok izbor konektora i kablova za razne namene</p>
+                        </div>
 
                     </div>
                 </div>
