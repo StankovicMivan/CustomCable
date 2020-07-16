@@ -70,7 +70,7 @@ app.post("/api/discont", (req, res) => {
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("heroku_r7k8xww0");
-
+        var url = process.env.MONGODB_URI;
         dbo.collection("discount").find({}).toArray(function(err, result) {
             if (err) throw err;
 
