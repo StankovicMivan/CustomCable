@@ -64,6 +64,25 @@ app.post("/api/discount", (req, res) => {
         });
     });
 });
+app.post("/api/getViewers", (req, res) => {
+    const MongoClient = require('mongodb').MongoClient;
+    var url = process.env.MONGODB_ATLAS_URI;
+    const client = new MongoClient(url, { useNewUrlParser: true });
+    var viewTest;
+    client.connect(function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("customcable");
+        dbo.collection("view").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            viewTest = result;
+            console.log(rezultat)
+            res.status(201).json({
+                discounts: JSON.stringify(viewTest)
+            })
+            db.close();
+        });
+    });
+});
 
 function sendMongoDBOrder(data) {
     const MongoClient = require('mongodb').MongoClient;
@@ -81,7 +100,7 @@ function sendMongoDBOrder(data) {
         dbo.collection("order").insertOne(data, function(err, res) {
             if (err) throw err;
 
-            // sendMailOrder(data);
+            sendMailOrder(data);
             db.close();
         });
     });

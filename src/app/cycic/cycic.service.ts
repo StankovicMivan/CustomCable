@@ -42,6 +42,22 @@ export class CycicService {
         });
         
     }
+    getViewers(){
+        this.http
+        .post<{ viewers: string }>('api/getViewers',null)
+        .subscribe(responseData => {
+            var view = responseData.viewers;
+            localStorage.setItem('viewers',view);
+        });
+    }
+    setViewers(){
+        this.http
+        .post<{ viewers: string }>('api/setViewers',localStorage.getItem('viewers'))
+        .subscribe(responseData => {
+            var view = responseData.viewers;
+            localStorage.setItem('viewers',view);
+        });
+    }
     
 
     private handleError<T>(operation = 'operation', result?: T) {

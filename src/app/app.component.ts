@@ -31,6 +31,11 @@ export class AppComponent {
     if(localStorage.getItem('lang') != 'en' && localStorage.getItem('lang') != 'sr' ){
       localStorage.setItem('lang', 'en');
       localStorage.setItem('visit', 'true');
+      this.orderService.getViewers();
+      var view = parseInt(localStorage.getItem('viewers'));
+      view += 1;
+      localStorage.setItem('viewers', view.toString());
+      this.orderService.setViewers();
     }else{
       // sessionStorage.setItem('lang', 'en');
     }
