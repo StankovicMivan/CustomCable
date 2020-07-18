@@ -11,7 +11,7 @@ export class GalleryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.lang = sessionStorage.getItem('lang');
+    this.lang = localStorage.getItem('lang');
   }
 
 }

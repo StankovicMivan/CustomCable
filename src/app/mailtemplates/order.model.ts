@@ -11,7 +11,8 @@ export class OrderMail {
     yourPhone: string;
 
     orders : OrderMod[];
-
+    price: number;
+    discountCode: string;
 
     constructor(
         id : number,
@@ -21,7 +22,10 @@ export class OrderMail {
         yourAddress: string,
         city: string,
         zipCode : number,
-        orders: OrderMod[]
+        orders: OrderMod[],
+        price: number,
+        discountCode: string
+
     ) {
         this.id =  id;
         this.yourName = name;
@@ -31,7 +35,8 @@ export class OrderMail {
         this.city = city;
         this.zipCode =zipCode;
         this.orders = orders;
-        
+        this.price = price;
+        this.discountCode = discountCode;
 
 
     }

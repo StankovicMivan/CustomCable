@@ -38,7 +38,7 @@ export class CycicService {
         .post<{ discounts: string }>('api/discont',null)
         .subscribe(responseData => {
             this.discounts = JSON.parse(responseData.discounts);
-            sessionStorage.setItem('discounts',JSON.stringify(this.discounts));
+            localStorage.setItem('discounts',JSON.stringify(this.discounts));
         });
         
     }

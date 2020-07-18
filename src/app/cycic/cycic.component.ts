@@ -35,7 +35,7 @@ export class CycicComponent implements OnInit {
   lang;
   ngOnInit(): void {
     this.ref.detectChanges();
-    this.lang = sessionStorage.getItem('lang');
+    this.lang = localStorage.getItem('lang');
     //Script for manual translate
     if (this.lang == 'sr') {
       //first tab
@@ -364,7 +364,7 @@ export class CycicComponent implements OnInit {
    
    
     
-      this.orderId = parseInt(sessionStorage.getItem('orderID'));
+      this.orderId = parseInt(localStorage.getItem('orderID'));
       this.orderData = new OrderMod(
         this.orderPrice,
         this.orderId,
@@ -380,13 +380,13 @@ export class CycicComponent implements OnInit {
         this.srcFullPathForColor);
       console.log(this.orderId);
    
-      this.orders = JSON.parse(sessionStorage.getItem('orders'));
+      this.orders = JSON.parse(localStorage.getItem('orders'));
       this.orders[this.orderId] = this.orderData;
       console.log(this.orders);
       this.orderId++;
       console.log(this.orderId);
-      sessionStorage.setItem('orders',JSON.stringify(this.orders));
-      sessionStorage.setItem('orderID',this.orderId.toString());
+      localStorage.setItem('orders',JSON.stringify(this.orders));
+      localStorage.setItem('orderID',this.orderId.toString());
       
       this.resetData();
       this.reloadPage();

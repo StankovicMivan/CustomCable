@@ -14,10 +14,10 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lang = sessionStorage.getItem('lang');
+    this.lang = localStorage.getItem('lang');
     // console.log(this.lang);
     // console.log(sessionStorage.getItem('orderID'));
-    this.orderSize = parseInt(sessionStorage.getItem('orderID'));
+    this.orderSize = parseInt(localStorage.getItem('orderID'));
   }
 
   lang = '';
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   // path = '';
   setLangLink(event: any) {
-    sessionStorage.setItem('lang', this.lang);
+    localStorage.setItem('lang', this.lang);
     console.log(this.lang);
 
     // this.router.navigate(['', this.lang]);
@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
 
   }
   setLangLinkClick() {
-    sessionStorage.setItem('lang', this.lang);
+    localStorage.setItem('lang', this.lang);
     console.log(this.lang);
 
     this.reloadPage();
@@ -64,20 +64,20 @@ export class NavbarComponent implements OnInit {
   orderIdString;
   // orders = ;
   print() {
-    if (JSON.parse(sessionStorage.getItem('orders')) == null) {
+    if (JSON.parse(localStorage.getItem('orders')) == null) {
 
     } else {
-      this.orders = JSON.parse(sessionStorage.getItem('orders'));
+      this.orders = JSON.parse(localStorage.getItem('orders'));
     }
     this.orderIdString = this.orderSize;
     console.log(this.orders);
     // console.log(sessionStorage.getItem('orderID'));
-    sessionStorage.setItem('orderID', this.orderIdString);
+    localStorage.setItem('orderID', this.orderIdString);
     // console.log(sessionStorage.getItem('orderID'));
     this.orderSize = this.orders.length;
     this.totalPrice = 0;
-    if (sessionStorage.getItem('orders') != null) {
-      this.orders = JSON.parse(sessionStorage.getItem('orders'));
+    if (localStorage.getItem('orders') != null) {
+      this.orders = JSON.parse(localStorage.getItem('orders'));
       this.orders.forEach(i => {
         this.totalPrice += i.orderPrice;
       });
@@ -97,10 +97,10 @@ export class NavbarComponent implements OnInit {
       }
       
     });
-    var orderidnumber = parseInt(sessionStorage.getItem('orderID'));
+    var orderidnumber = parseInt(localStorage.getItem('orderID'));
     orderidnumber =orderidnumber-1;
-    sessionStorage.setItem('orderID',orderidnumber.toString());
-    sessionStorage.setItem('orders', JSON.stringify(this.tempOrders));
+    localStorage.setItem('orderID',orderidnumber.toString());
+    localStorage.setItem('orders', JSON.stringify(this.tempOrders));
     console.log(this.tempOrders)
     this.counter = 0;
     this.reloadPage();

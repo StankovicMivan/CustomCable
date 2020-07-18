@@ -28,18 +28,19 @@ export class AppComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    if(sessionStorage.getItem('lang') != 'en' && sessionStorage.getItem('lang') != 'sr' ){
-      sessionStorage.setItem('lang', 'en');
+    if(localStorage.getItem('lang') != 'en' && localStorage.getItem('lang') != 'sr' ){
+      localStorage.setItem('lang', 'en');
+      localStorage.setItem('visit', 'true');
     }else{
       // sessionStorage.setItem('lang', 'en');
     }
-    if(sessionStorage.getItem('orderID') != '0' && sessionStorage.getItem('orderID') != null){
+    if(localStorage.getItem('orderID') != '0' && localStorage.getItem('orderID') != null){
 
     }else {
       
       this.orderId = 0;
-      sessionStorage.setItem('orderID', this.orderId);
-      sessionStorage.setItem('orders', JSON.stringify(this.orders));
+      localStorage.setItem('orderID', this.orderId);
+      localStorage.setItem('orders', JSON.stringify(this.orders));
      
     }
 

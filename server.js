@@ -14,7 +14,6 @@ app.use(cors());
 app.use(express.static(__dirname + '/dist'));
 
 app.get('/*', function(req, res) {
-
     res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
@@ -30,89 +29,61 @@ app.use((req, res, next) => {
     );
     next();
 });
-// const { SENDGRID_API_KEY } = require('./sendgrid');
-
-
 
 app.post("/api/contact", (req, res, next) => {
-    console.log('unutar server post-a contact');
     const mail = req.body;
-    console.log(mail);
-
     sendMongoDBInfo(mail);
-
-
     res.status(201).json({
         message: 'Email sent successfully'
     });
 });
+
 app.post("/api/order", (req, res, next) => {
-    console.log('unutar server post-a order');
     const order = req.body;
-    console.log(order);
-
     sendMongoDBOrder(order);
-
-
     res.status(201).json({
         message: order
     });
 });
 
 app.post("/api/discont", (req, res) => {
-    console.log('unutar server get order');
-
     const MongoClient = require('mongodb').MongoClient;
-    var url = process.env.MONGODB_URI;
-    let rezultat;
-
-
-    MongoClient.connect(url, function(err, db) {
+    var url = process.env.MONGODB_ATLAS_URI;
+    const client = new MongoClient(url, { useNewUrlParser: true });
+    client.connect(function(err, db) {
         if (err) throw err;
-        var dbo = db.db("heroku_r7k8xww0");
-
+        var dbo = db.db("customcable");
         dbo.collection("discount").find({}).toArray(function(err, result) {
             if (err) throw err;
-
             rezultat = result;
-
-
             console.log(rezultat)
             res.status(201).json({
                 discounts: JSON.stringify(rezultat)
             })
             db.close();
         });
-
-
     });
-
-
-
-
-    // res.send(poruka);
-
 });
 
-
 function sendMongoDBOrder(data) {
-    var MongoClient = require('mongodb');
-    var url = process.env.MONGODB_URI;
-    var ObjectID = require("bson-objectid");
+    const MongoClient = require('mongodb').MongoClient;
+    var url = process.env.MONGODB_ATLAS_URI;
 
-    MongoClient.connect(url, function(err, db) {
-        var dbo = db.db("heroku_r7k8xww0");
+    const client = new MongoClient(url, { useNewUrlParser: true });
+    var ObjectID = require("bson-objectid");
+    client.connect(function(err, db) {
+        var dbo = db.db("customcable");
         data.id = ObjectID.generate();
         data._id = {
             oid: string = data.id
         }
-
         console.log(data);
         dbo.collection("order").insertOne(data, function(err, res) {
             if (err) throw err;
 
-            sendMailOrder(data);
+            // sendMailOrder(data);
             db.close();
+            db.logout();
         });
     });
 }
@@ -191,18 +162,20 @@ function sendMailOrder(data) {
 };
 
 function sendMongoDBInfo(data) {
-    var MongoClient = require('mongodb');
-    var url = process.env.MONGODB_URI;
+    const MongoClient = require('mongodb').MongoClient;
+    var url = process.env.MONGODB_ATLAS_URI;
 
-    MongoClient.connect(url, function(err, db) {
+    const client = new MongoClient(url, { useNewUrlParser: true });
+    client.connect(function(err, db) {
         // if (err) throw err;
-        var dbo = db.db("heroku_r7k8xww0");
+        var dbo = db.db("customcable");
         // var myobj = { name: "Company Inc", address: "Highway 37" };
         dbo.collection("contact").insertOne(data, function(err, res) {
             if (err) throw err;
 
             sendMailContact(data);
             db.close();
+            db.logout();
         });
     });
 }
@@ -232,7 +205,6 @@ function sendMailContact(data) {
 function photoSrcParser(src) {
     return ("https://raw.githubusercontent.com/StankovicMivan/CustomCable/master/src/" + src.substr(6));
 }
-
 
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));

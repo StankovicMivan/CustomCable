@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.ref.detectChanges();
-    this.lang = sessionStorage.getItem('lang');
+    this.lang = localStorage.getItem('lang');
     if(this.lang =='sr'){
 
       

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { OrderMod } from '../mailtemplates/orderMod';
 import { Router, ActivatedRoute } from '@angular/router';
 import { stringify } from 'querystring';
@@ -32,16 +32,16 @@ export class OrderPreviewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.lang = sessionStorage.getItem('lang');
-    this.orders = JSON.parse(sessionStorage.getItem('orders'));
+    this.lang = localStorage.getItem('lang');
+    this.orders = JSON.parse(localStorage.getItem('orders'));
     this.priceCal();
     this.orderService.discountOrder();
-    this.discounts = JSON.parse(sessionStorage.getItem('discounts'));
+    this.discounts = JSON.parse(localStorage.getItem('discounts'));
 
   }
   priceCal() {
     this.totalPrice = 0;
-    if (sessionStorage.getItem('orders') != null) {
+    if (localStorage.getItem('orders') != null) {
       this.orders.forEach(i => {
         this.totalPrice += i.orderPrice;
       });
@@ -63,7 +63,7 @@ export class OrderPreviewComponent implements OnInit {
   disValue ;
   priceDiscounted() {
     if (this.disFlagInsert == false) {
-      this.discounts = JSON.parse(sessionStorage.getItem('discounts'));
+      this.discounts = JSON.parse(localStorage.getItem('discounts'));
       this.disFlagInsert = true;
 
     }
@@ -71,6 +71,7 @@ export class OrderPreviewComponent implements OnInit {
     this.disFlag = false;
     this.unsetLineThrought();
     this.priceCal();
+    // console.log(this.discounts);
     this.discounts.forEach(discount => {
       if (discount.name.toLowerCase() == this.discountCode.toLowerCase()) {
         var temp = this.totalPrice;
@@ -181,6 +182,14 @@ export class OrderPreviewComponent implements OnInit {
     return this.answ2;
   }
   sendOrder() {
+    var totalprice =0;
+    var discountCode = '';
+    if(this.disFlag == true){
+      totalprice = this.disPrice;
+      discountCode = this.discountCode;
+    }else{
+      totalprice = this.totalPrice;
+    }
     if (this.validation()) {
       let order = new OrderMail(
         this.id = 0,
@@ -190,11 +199,14 @@ export class OrderPreviewComponent implements OnInit {
         this.yourAddress,
         this.city,
         this.zipCode,
-        this.orders);
+        this.orders,
+        totalprice,
+        discountCode
+        );
 
 
       this.orderService.createOrder(order);
-
+        
     }
 
 
@@ -216,14 +228,15 @@ export class OrderPreviewComponent implements OnInit {
       }
 
     });
-    var orderidnumber = parseInt(sessionStorage.getItem('orderID'));
+    var orderidnumber = parseInt(localStorage.getItem('orderID'));
     orderidnumber = orderidnumber - 1;
     console.log(orderidnumber);
-    sessionStorage.setItem('orderID', orderidnumber.toString());
-    sessionStorage.setItem('orders', JSON.stringify(this.tempOrders));
+    localStorage.setItem('orderID', orderidnumber.toString());
+    localStorage.setItem('orders', JSON.stringify(this.tempOrders));
     console.log(this.tempOrders);
     this.counter = 0;
-    // this.reloadPage();
+    this.reloadPage();
+
   }
   reloadPage() {
     location.reload();
