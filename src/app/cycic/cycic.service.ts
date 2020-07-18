@@ -35,7 +35,7 @@ export class CycicService {
     }
     discountOrder(){
         this.http
-        .post<{ discounts: string }>('api/discont',null)
+        .post<{ discounts: string }>('api/discount',null)
         .subscribe(responseData => {
             this.discounts = JSON.parse(responseData.discounts);
             localStorage.setItem('discounts',JSON.stringify(this.discounts));

@@ -46,7 +46,7 @@ app.post("/api/order", (req, res, next) => {
     });
 });
 
-app.post("/api/discont", (req, res) => {
+app.post("/api/discount", (req, res) => {
     const MongoClient = require('mongodb').MongoClient;
     var url = process.env.MONGODB_ATLAS_URI;
     const client = new MongoClient(url, { useNewUrlParser: true });
@@ -83,7 +83,6 @@ function sendMongoDBOrder(data) {
 
             // sendMailOrder(data);
             db.close();
-            db.logout();
         });
     });
 }
@@ -175,7 +174,6 @@ function sendMongoDBInfo(data) {
 
             sendMailContact(data);
             db.close();
-            db.logout();
         });
     });
 }
